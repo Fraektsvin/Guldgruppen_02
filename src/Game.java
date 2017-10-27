@@ -308,32 +308,29 @@ public class Game
         if(!command.hasSecondWord()) {
           System.out.println("Hvem prøver du at kontakte?\n");
         }
-        else if (currentRoom == johnny_bravo && command.checkSecondWord("johnny bravo").equalsIgnoreCase("johnny bravo")) {
-            // && command.checkSecondWord("johnny bravo")
-            //if (command.checkSecondWord("johnny bravo")) {
-            System.out.println("jb");
-            //}
+        else if (currentRoom == johnny_bravo && command.getSecondWord().equalsIgnoreCase("johnny bravo")) {
+            System.out.println("INDSÆT JOHNNY TEKST HER");
         }
-        else if (currentRoom == michael_jackson) {
-            System.out.println("mj");
+        else if (currentRoom == michael_jackson && command.getSecondWord().equalsIgnoreCase("michael jackson")) {
+            System.out.println("INDSÆT MICHAEL TEKST HER");
         }
-        else if (currentRoom == gulddreng) {
-            System.out.println("gd");
+        else if (currentRoom == gulddreng && command.getSecondWord().equalsIgnoreCase("gulddreng")) {
+            System.out.println("INDSÆT GULDDRENG TEKST HER");
         }
-        else if (currentRoom == bjarne_riis) {
-            System.out.println("br");
+        else if (currentRoom == bjarne_riis && command.getSecondWord().equalsIgnoreCase("bjarne riis")) {
+            System.out.println("INDSÆT BJARNE TEKST HER");
         }
-        else if (currentRoom == ole_henriksen) {
-            System.out.println("oh");
+        else if (currentRoom == ole_henriksen && command.getSecondWord().equalsIgnoreCase("ole henriksen")) {
+            System.out.println("OLE HENRIKSEN TEKST");
         }
-        else if (currentRoom == mors_hus) {
-            System.out.println("mor");
+        else if (currentRoom == mors_hus && command.getSecondWord().equalsIgnoreCase("mor")) {
+            System.out.println("INDSÆT MOR TEKST HER");
         }
-        else if (currentRoom == sidney_lee) {
-            System.out.println("sl");
+        else if (currentRoom == sidney_lee && command.getSecondWord().equalsIgnoreCase("sidney lee")) {
+            System.out.println("INDSÆT SIDNEY TEKST HER");
         }
-        else if (currentRoom == diskotekets_dør) {
-            System.out.println("dørmand");
+        else if (currentRoom == diskotekets_dør && command.getSecondWord().equalsIgnoreCase("dørmand")) {
+            System.out.println("INDSÆT DØRMAND TEKST HER");
         }
         else {
             System.out.println("Hvem prøver du at kontakte?\n");
