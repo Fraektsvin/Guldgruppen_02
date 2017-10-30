@@ -137,7 +137,7 @@ public class Room {
     
     
     public boolean isLocked(String direction){
-        if (direction!= null)
+        if (direction != null)
             return exitsLock.get(direction).booleanValue();
         else
             return false;

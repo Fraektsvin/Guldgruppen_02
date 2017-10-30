@@ -196,7 +196,12 @@ public class Game
             System.out.println("Bum! Du løb ind i en væg, drink noget mindre\n");
         }
         else if (currentRoom.isLocked(direction)){
-            System.out.println("Du skal have mere swag for at komme igennem!\n");
+            if (inventory.size() > 3) {
+                diskotekets_dør.lockExit("north", false);
+                System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket\n");
+            } 
+            else
+                System.out.println("Du skal have mere swag for at komme igennem!\n");
         }
         else {
             currentRoom = nextRoom;
@@ -342,9 +347,5 @@ public class Game
         
         //Lock condition til udgange
         diskotekets_dør.lockExit("north", true);
-            if (inventory.size() >3 ){
-            diskotekets_dør.lockExit("north", false);
-            System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket/n");
-         }
     }
 }
