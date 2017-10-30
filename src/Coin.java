@@ -36,3 +36,7 @@ public class Coin extends Swag{
     }
     */
 }
+
+
+// Test
+        
