@@ -40,7 +40,7 @@ public class Room {
         String returnString = "\nNPC'er i rummet:\n";
         returnString += getNPCString();
         returnString += "\nSwagting i rummet:\n";
-        returnString += getRoomSwags() + "\n";
+        returnString += getRoomSwags();
         returnString += "\nUdgange:";
         Set<String> keys = exits.keySet();
         for (String exit : keys) {
@@ -88,7 +88,7 @@ public class Room {
         String output = "";
         if(!swags.isEmpty()) {
         for (int i = 0; i < swags.size(); i++) {
-            output += swags.get(i).getSwagDescription() + ". ";
+            output += swags.get(i).getSwagDescription() + "\n";
         }
         return output;
         }

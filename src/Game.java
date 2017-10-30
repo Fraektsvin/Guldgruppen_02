@@ -14,7 +14,6 @@ public class Game
     //Vi opretter en ArrayList til at indeholde vores ting som ligger i inventory.
     ArrayList<Swag> inventory = new ArrayList<Swag>();
     
-    
     public Game() 
     {
         createRooms();
@@ -228,10 +227,10 @@ public class Game
     private void printInventory() {
         String output = "";
         for (int i = 0; i < inventory.size(); i++) {
-            output += inventory.get(i).getSwagDescription() + ". ";
+            output += inventory.get(i).getSwagDescription() + "\n";
         }
         System.out.println("Dine swagting:");
-        System.out.println(output + "\n");
+        System.out.println(output);
     }
     
     //Kommando til at interagere med npc'erne
@@ -343,9 +342,9 @@ public class Game
         
         //Lock condition til udgange
         diskotekets_dør.lockExit("north", true);
-        if (inventory.size() >3 ){
-             diskotekets_dør.lockExit("north", false);
-             System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket/n");
+            if (inventory.size() >3 ){
+            diskotekets_dør.lockExit("north", false);
+            System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket/n");
          }
     }
 }
