@@ -88,7 +88,7 @@ public class Room {
         String output = "";
         if(!swags.isEmpty()) {
         for (int i = 0; i < swags.size(); i++) {
-            output += swags.get(i).getSwagDescription() + " ";
+            output += swags.get(i).getSwagDescription() + ". ";
         }
         return output;
         }

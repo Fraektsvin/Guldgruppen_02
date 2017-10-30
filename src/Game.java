@@ -85,9 +85,7 @@ public class Game
         else if (commandWord == CommandWord.INVENTORY) {
             printInventory();
         }
-        /*
-        der blevet lavet en ny kommando med Get så der kan pickes items up 
-        */
+        //der blevet lavet en ny kommando med Get så der kan pickes items up
         else if (commandWord == CommandWord.GET) {
             getSwag(command);
         }
@@ -101,20 +99,20 @@ public class Game
     private void getSwag(Command command) 
     {
         if(!command.hasSecondWord()) {
-            System.out.println("Get what?");
+            System.out.println("Hvad vil du have?");
             return;
         }
 
-        String Swag = command.getSecondWord();
-        Swag newSwag = currentRoom.getSwag(Swag);
+        String swagItemName = command.getSecondWord();
+        Swag newSwag = currentRoom.getSwag(swagItemName);
         
         if (newSwag == null) {
-            System.out.println("  That item is not there ");
+            System.out.println("  Den swag eksistere ikke\n");
         }
         else {
             inventory.add(newSwag); 
-            currentRoom.removeSwag(Swag);
-            System.out.println("Picked up" + Swag);
+            currentRoom.removeSwag(swagItemName);
+            System.out.println("Samlede " + swagItemName + " op\n");
         }
     }
 
@@ -230,10 +228,10 @@ public class Game
     private void printInventory() {
         String output = "";
         for (int i = 0; i < inventory.size(); i++) {
-            output += inventory.get(i).getSwagDescription() + " ";
+            output += inventory.get(i).getSwagDescription() + ". ";
         }
         System.out.println("Dine swagting:");
-        System.out.println(output);
+        System.out.println(output + "\n");
     }
     
     //Kommando til at interagere med npc'erne
@@ -325,13 +323,13 @@ public class Game
         inventory.add(new Swag("Swag håndtegn"));
         
         //Swag tingene indsættes i de forskellige rum.
-        johnny_bravo.setSwag(new Swag("Bravo håret"));
-        johnny_bravo.setSwag(new Swag("Guldmønter"));
-        michael_jackson.setSwag(new Swag("Guld sko"));
-        michael_jackson.setSwag(new Swag("Guldmønter"));
-        gulddreng.setSwag(new Swag("Guldkæden"));
-        bjarne_riis.setSwag(new Swag("Hurtig briller"));
-        ole_henriksen.setSwag(new Swag("Fabulous tøj"));
+        johnny_bravo.setSwag(new Swag("bravo haaret"));
+        johnny_bravo.setSwag(new Swag("penge"));
+        michael_jackson.setSwag(new Swag("guld sko"));
+        michael_jackson.setSwag(new Swag("penge"));
+        gulddreng.setSwag(new Swag("guldkaeden"));
+        bjarne_riis.setSwag(new Swag("hurtig briller"));
+        ole_henriksen.setSwag(new Swag("fabulous kluns"));
         
         //NPC'er indsættes i de forskellige rum.
         johnny_bravo.setNPC("Johnny Bravo", "HU HA HI, Johnny Bravo!");
