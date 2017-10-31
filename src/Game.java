@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class Game 
 {
-    public Scanner input;
+    public Coin coinpenge = new Coin(10, "penge");
     private Parser parser;
     private Room currentRoom;
+   
     /*
     Rooms placere vi udenfor 'createRoom' metoden,
     således vi kan tilgå rummene i andre metoder senere.
@@ -14,7 +15,9 @@ public class Game
     Room swag_city, randers, johnny_bravo, mors_hus, gulddreng, bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame, ole_henriksen, michael_jackson;
     
     //Vi opretter en ArrayList til at indeholde vores ting som ligger i inventory.
-    ArrayList<Swag> inventory = new ArrayList<Swag>();
+    ArrayList<Coin> pengepung = new ArrayList<Coin>();
+    ArrayList<Coin> coins = new ArrayList<Coin>();
+   ArrayList<Swag> inventory = new ArrayList<Swag>();
     
     public Game() 
     {
@@ -86,10 +89,14 @@ public class Game
         }
         else if (commandWord == CommandWord.INVENTORY) {
             printInventory();
+            
+        }
+        else if (commandWord == CommandWord.PENGEPUNG) {
+            printInventory();
         }
         //der blevet lavet en ny kommando med Get så der kan pickes items up
         else if (commandWord == CommandWord.GET) {
-            getSwag(command);
+            getCoin(command);
         }
         else if (commandWord == CommandWord.INTERACT) {
             interactNPC(command);
@@ -98,23 +105,23 @@ public class Game
     }
  
     
-    private void getSwag(Command command) 
+    private void getCoin(Command command) 
     {
         if(!command.hasSecondWord()) {
             System.out.println("Hvad vil du have?");
             return;
         }
 
-        String swagItemName = command.getSecondWord();
-        Swag newSwag = currentRoom.getSwag(swagItemName);
+        String coinItemName = command.getSecondWord();
+        Coin newCoin = currentRoom.getCoin(coinItemName);
         
-        if (newSwag == null) {
+        if (newCoin == null) {
             System.out.println("  Den swag eksistere ikke\n");
         }
         else {
-            inventory.add(newSwag); 
-            currentRoom.removeSwag(swagItemName);
-            System.out.println("Samlede " + swagItemName + " op\n");
+            pengepung.add(newCoin); 
+            currentRoom.removeCoin(coinItemName);
+            System.out.println("Samlede " + coinItemName + " op\n");
         }
     }
 
@@ -199,7 +206,7 @@ public class Game
             System.out.println("Bum! Du løb ind i en væg, drink noget mindre\n");
         }
         else if (currentRoom.isLocked(direction)){
-            if (inventory.size() > 3) {
+            if (pengepung.size() > 3) {
                 diskotekets_dør.lockExit("north", false);
                 System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket\n");
             } 
@@ -213,8 +220,8 @@ public class Game
             if (currentRoom == hall_fame) {
                 System.out.println("Du er officielt den mest swagste person!");
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
-                int Score;
-        Score = (inventory.size()*100);
+                int Score;        
+        Score = (inventory.size()*100 + pengepung.size()*10 );
                 System.out.println("din skore er " + Score);
                 return true;
             }
@@ -241,6 +248,15 @@ public class Game
             output += inventory.get(i).getSwagDescription() + "\n";
         }
         System.out.println("Dine swagting:");
+        System.out.println(output);
+    }
+    //Printer ArrayListen inventory's indhold til skærmen.
+    private void printPengepung() {
+        String output = "";
+        for (int i = 0; i < pengepung.size(); i++) {
+            output += pengepung.get(i).getCoinDescription() + "\n";
+        }
+        System.out.println("Dinepenge:");
         System.out.println(output);
     }
     
@@ -339,16 +355,13 @@ public class Game
         currentRoom = swag_city;
         
         inventory.add(new Swag("Swag håndtegn"));
-        
-        
         //Swag tingene indsættes i de forskellige rum.
-        johnny_bravo.setSwag(new Swag("bravo haaret"));
-        johnny_bravo.setSwag(new Swag("penge"));
-        michael_jackson.setSwag(new Swag("guld sko"));
-        michael_jackson.setSwag(new Swag("penge"));
-        gulddreng.setSwag(new Swag("guldkaeden"));
-        bjarne_riis.setSwag(new Swag("hurtig briller"));
-        ole_henriksen.setSwag(new Swag("fabulous kluns"));
+        
+  
+        
+        johnny_bravo.setCoin(new Coin( "penge"));
+        johnny_bravo.setCoin(new Coin( "penge1"));
+        johnny_bravo.setCoin(new Coin( "Money"));
         
         //NPC'er indsættes i de forskellige rum.
         johnny_bravo.setNPC("Johnny Bravo", "HU HA HI, Johnny Bravo!");
@@ -364,3 +377,16 @@ public class Game
         diskotekets_dør.lockExit("north", true) ;
     }
 }
+/*
+ inventory.add(new Swag("Swag håndtegn"));
+        
+        
+        //Swag tingene indsættes i de forskellige rum.
+        johnny_bravo.setSwag(new Swag("bravo haaret"));
+        johnny_bravo.setSwag(new Swag("penge"));
+        michael_jackson.setSwag(new Swag("guld sko"));
+        michael_jackson.setSwag(new Swag("penge"));
+        gulddreng.setSwag(new Swag("guldkaeden"));
+        bjarne_riis.setSwag(new Swag("hurtig briller"));
+        ole_henriksen.setSwag(new Swag("fabulous kluns"));
+*/
