@@ -1,14 +1,5 @@
 
-import java.util.Arrays;
-
-
 class Swag {
-
-   
-    @Override
-    public String toString() {
-        return "Swag{" + "swagDescription=" + swagDescription + '}';
-    }
 
     String swagDescription;
     
