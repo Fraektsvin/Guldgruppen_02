@@ -90,7 +90,7 @@ public class Game
             
         }
         else if (commandWord == CommandWord.PENGEPUNG) {
-            printInventory();
+            printPengepung();
         }
         //der blevet lavet en ny kommando med Get så der kan pickes items up
         else if (commandWord == CommandWord.GET) {
@@ -204,7 +204,7 @@ public class Game
             System.out.println("Bum! Du løb ind i en væg, drink noget mindre\n");
         }
         else if (currentRoom.isLocked(direction)){
-            if (pengepung.size() > 3) {
+            if (inventory.size() > 3) {
                 diskotekets_dør.lockExit("north", false);
                 System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket\n");
             } 
@@ -251,10 +251,13 @@ public class Game
     //Printer ArrayListen inventory's indhold til skærmen.
     private void printPengepung() {
         String output = "";
-        for (int i = 0; i < pengepung.size(); i++) {
-            output += pengepung.get(i).getCoinDescription() + "\n";
+        if (pengepung.size() == 0) {
+                output += "Du har ingen mønter\n";
+            }
+        else {
+            output += "Du har " + pengepung.size() + " mønter\n";
         }
-        System.out.println("Dinepenge:");
+        System.out.println("Dine mønter:");
         System.out.println(output);
     }
     
@@ -370,7 +373,7 @@ public class Game
         diskotekets_dør.setNPC("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
         
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", false);
-        sidney_lee.lockExit("south", false);
+        diskotekets_dør.lockExit("north", true);
+        sidney_lee.lockExit("south", true);
     }
 }
