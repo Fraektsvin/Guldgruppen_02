@@ -14,7 +14,6 @@ public class Game
     //Vi opretter en ArrayList til at indeholde vores ting som ligger i inventory.
     ArrayList<Swag> inventory = new ArrayList<Swag>();
     
-    
     public Game() 
     {
         createRooms();
@@ -197,7 +196,12 @@ public class Game
             System.out.println("Bum! Du løb ind i en væg, drink noget mindre\n");
         }
         else if (currentRoom.isLocked(direction)){
-            System.out.println("Du skal have mere swag for at komme igennem!\n");
+            if (inventory.size() > 3) {
+                diskotekets_dør.lockExit("north", false);
+                System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket\n");
+            } 
+            else
+                System.out.println("Du skal have mere swag for at komme igennem!\n");
         }
         else {
             currentRoom = nextRoom;
@@ -206,6 +210,9 @@ public class Game
             if (currentRoom == hall_fame) {
                 System.out.println("Du er officielt den mest swagste person!");
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
+                int Score;
+        Score = (inventory.size()*100);
+                System.out.println("din skore er " + Score);
                 return true;
             }
         }
@@ -228,10 +235,10 @@ public class Game
     private void printInventory() {
         String output = "";
         for (int i = 0; i < inventory.size(); i++) {
-            output += inventory.get(i).getSwagDescription() + ". ";
+            output += inventory.get(i).getSwagDescription() + "\n";
         }
         System.out.println("Dine swagting:");
-        System.out.println(output + "\n");
+        System.out.println(output);
     }
     
     //Kommando til at interagere med npc'erne
@@ -322,6 +329,7 @@ public class Game
         
         inventory.add(new Swag("Swag håndtegn"));
         
+        
         //Swag tingene indsættes i de forskellige rum.
         johnny_bravo.setSwag(new Swag("bravo haaret"));
         johnny_bravo.setSwag(new Swag("penge"));
@@ -342,10 +350,6 @@ public class Game
         diskotekets_dør.setNPC("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
         
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", true);
-        if (inventory.size() >3 ){
-             diskotekets_dør.lockExit("north", false);
-             System.out.println("Swaggen oser ud af dig! Du er nu klar til diskoteket/n");
-         }
+        diskotekets_dør.lockExit("north", true) ;
     }
 }
