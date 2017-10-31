@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.util.Scanner;
 
 /**
  *
@@ -15,7 +15,16 @@ public class MainGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        {
+        for (int i = 1; i < 6; i++) 
+            {
+             System.out.println(i);
+        }
+        player n = new player("Erik Deluxe");
+        n.displayName();
+        }
         Game swag_city = new Game();
-        swag_city.play();
+        swag_city.play();     
     }
+      
 }
