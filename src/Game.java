@@ -1,8 +1,10 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game 
 {
+    public Scanner input;
     private Parser parser;
     private Room currentRoom;
     /*
@@ -18,6 +20,7 @@ public class Game
     {
         createRooms();
         parser = new Parser();
+        Scanner input = new Scanner(System.in);
     }
 
     
@@ -244,28 +247,36 @@ public class Game
           System.out.println("Hvem prøver du at kontakte?\n");
         }
         else if (currentRoom == johnny_bravo && command.getSecondWord().equalsIgnoreCase("johnny bravo")) {
-            System.out.println("INDSÆT JOHNNY TEKST HER");
+            NPC_JB npc_jb = new NPC_JB("" , "");
+            npc_jb.interact_JB();
         }
         else if (currentRoom == michael_jackson && command.getSecondWord().equalsIgnoreCase("michael jackson")) {
-            System.out.println("INDSÆT MICHAEL TEKST HER");
+            NPC_MJ npc_mj = new NPC_MJ("" , "");
+            npc_mj.interact_MJ();
         }
         else if (currentRoom == gulddreng && command.getSecondWord().equalsIgnoreCase("gulddreng")) {
-            System.out.println("INDSÆT GULDDRENG TEKST HER");
+            NPC_GD npc_gd = new NPC_GD("" , "");
+            npc_gd.interact_GD();
         }
         else if (currentRoom == bjarne_riis && command.getSecondWord().equalsIgnoreCase("bjarne riis")) {
-            System.out.println("INDSÆT BJARNE TEKST HER");
+            NPC_BR npc_br = new NPC_BR("" , "");
+            npc_br.interact_BR();
         }
         else if (currentRoom == ole_henriksen && command.getSecondWord().equalsIgnoreCase("ole henriksen")) {
-            System.out.println("OLE HENRIKSEN TEKST");
+            NPC_OH npc_oh = new NPC_OH("" , "");
+            npc_oh.interact_OH();
         }
         else if (currentRoom == mors_hus && command.getSecondWord().equalsIgnoreCase("mor")) {
-            System.out.println("INDSÆT MOR TEKST HER");
+            NPC_MOR npc_mor = new NPC_MOR("" , "");
+            npc_mor.interact_MOR();
         }
         else if (currentRoom == sidney_lee && command.getSecondWord().equalsIgnoreCase("sidney lee")) {
-            System.out.println("INDSÆT SIDNEY TEKST HER");
+            NPC_SL npc_sl = new NPC_SL("" , "");
+            npc_sl.interact_SL();
         }
         else if (currentRoom == diskotekets_dør && command.getSecondWord().equalsIgnoreCase("dørmand")) {
-            System.out.println("INDSÆT DØRMAND TEKST HER");
+            NPC_DM npc_dm = new NPC_DM("" , "");
+            npc_dm.interact_DM();
         }
         else {
             System.out.println("Hvem prøver du at kontakte?\n");
