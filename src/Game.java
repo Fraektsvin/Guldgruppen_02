@@ -360,5 +360,6 @@ public class Game
         
         //Lock condition til udgange
         diskotekets_dør.lockExit("north", true);
+        sidney_lee.lockExit("south", true);
     }
 }
