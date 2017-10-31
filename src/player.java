@@ -8,23 +8,16 @@
  *
  * @author Antonio
  */
-public class player {
-    String name; 
-    int power;
+public class player
+{
+   private String name; 
     
-    public void setName(String n){
+    public player(String n)
+    {
         name = n;    
     }
-    public String getName(String n){
-        return name; 
-        
-    }
-    public void setPower(int p){
-        power = p; 
-        
-    }     
-    public int getPower(){
-        return power; 
-        
-    }
+    public void displayName()
+{
+    System.out.println(name);
+}
 }
