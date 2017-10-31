@@ -6,6 +6,8 @@ public class NPC_JB extends NPC {
 
     Scanner input = new Scanner(System.in);
     
+    public Game game_inventory = new Game();
+    
     public NPC_JB(String name, String greeting) {
         super("Johnny Bravo", "HU HA HI, Johnny Bravo!");
     }
@@ -18,7 +20,9 @@ public class NPC_JB extends NPC {
             System.out.println("              mig hendes nummer, så jeg kan give hende lidt af Johnny charmen? (ja/nej)");
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
-                System.out.println("Johnny Bravo: Sådan skal det lyde! Du møder mig bare her igen når du har skaffet nummeret. Held og lykke! HUH HAH JOHNNY BRAVO\n");
+                System.out.println("Johnny Bravo: Sådan skal det lyde! Her får du en seddel som hun kan skrive nummeret på.");
+                System.out.println("Du møder mig bare her igen når du har skaffet nummeret. Held og lykke! HUH HAH JOHNNY BRAVO\n");
+                game_inventory.inventory.add(new Swag ("Seddel fra Johnny Bravo"));
             }
             else if (answer2.equalsIgnoreCase("nej")) {
                 System.out.println("Johnny Bravo: Troede du var en rigtig mand... jeg tog fejl.\n");
