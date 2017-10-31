@@ -13,7 +13,8 @@ public class NPC_BR extends NPC {
         System.out.println("Bjarne Riis: Hurtigt! Er du villig til at hjælpe mig? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {
-            System.out.println("Bjarne Riis: Jeg har brug for mere EPO! min dealer er ved swag city byskiltet. Her er en seddel, så han ved, du blev sendt af mig. Husk, ingen kommentarer! (ja/nej)");
+            System.out.println("Bjarne Riis: Jeg har brug for mere EPO! min dealer er ved swag city byskiltet. Vil du hjælpe mig?");
+            System.out.println("I så fald her er en seddel, så han ved, du blev sendt af mig. Husk, ingen kommentarer! (ja/nej)");
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
                 System.out.println("Bjarne Riis: Godt, skynd dig! Tour de france er lige om hjørnet!\n");
