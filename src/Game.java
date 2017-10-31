@@ -16,8 +16,7 @@ public class Game
     
     //Vi opretter en ArrayList til at indeholde vores ting som ligger i inventory.
     ArrayList<Coin> pengepung = new ArrayList<Coin>();
-    ArrayList<Coin> coins = new ArrayList<Coin>();
-   ArrayList<Swag> inventory = new ArrayList<Swag>();
+    ArrayList<Swag> inventory = new ArrayList<Swag>();
     
     public Game() 
     {
@@ -220,7 +219,7 @@ public class Game
                 System.out.println("Du er officielt den mest swagste person!");
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
                 int Score;
-                Score = (inventory.size()*100);
+                Score = (inventory.size()*100) + (pengepung.size()*10);
                 System.out.println("din score er " + Score);
                 return true;
             }
@@ -353,15 +352,12 @@ public class Game
 
         currentRoom = swag_city;
         
-        inventory.add(new Swag("Swag håndtegn"));
+        inventory.add(new Swag("Swag håndtegn"));  
         
-        //Swag tingene indsættes i de forskellige rum.
-        
-  
-        
-        johnny_bravo.setCoin(new Coin( "penge"));
-        johnny_bravo.setCoin(new Coin( "penge1"));
-        johnny_bravo.setCoin(new Coin( "Money"));
+        //Coins tilføjes til rumene
+        johnny_bravo.setCoin(new Coin("penge"));
+        johnny_bravo.setCoin(new Coin("penge1"));
+        johnny_bravo.setCoin(new Coin("Money"));
         
         //NPC'er indsættes i de forskellige rum.
         johnny_bravo.setNPC("Johnny Bravo", "HU HA HI, Johnny Bravo!");
@@ -374,20 +370,7 @@ public class Game
         diskotekets_dør.setNPC("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
         
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", true);
-        sidney_lee.lockExit("south", true);
+        diskotekets_dør.lockExit("north", false);
+        sidney_lee.lockExit("south", false);
     }
 }
-/*
- inventory.add(new Swag("Swag håndtegn"));
-        
-        
-        //Swag tingene indsættes i de forskellige rum.
-        johnny_bravo.setSwag(new Swag("bravo haaret"));
-        johnny_bravo.setSwag(new Swag("penge"));
-        michael_jackson.setSwag(new Swag("guld sko"));
-        michael_jackson.setSwag(new Swag("penge"));
-        gulddreng.setSwag(new Swag("guldkaeden"));
-        bjarne_riis.setSwag(new Swag("hurtig briller"));
-        ole_henriksen.setSwag(new Swag("fabulous kluns"));
-*/
