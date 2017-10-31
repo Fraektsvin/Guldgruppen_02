@@ -2,8 +2,6 @@
 import java.util.Arrays;
 
 public class Coin {
-    private final int value = 10;
-    private final String name = "penge";
 
     public Coin(int value, String name) {
     }
