@@ -361,6 +361,7 @@ public class Game
         diskotekets_dør.setNPC("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
         
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", true) ;
+        diskotekets_dør.lockExit("north", true);
+        sidney_lee.lockExit("south", true);
     }
 }
