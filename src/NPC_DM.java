@@ -7,7 +7,7 @@ public class NPC_DM extends NPC {
     Scanner input = new Scanner(System.in);
     
     public NPC_DM(String name, String greeting) {
-        super("Gulddreng", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
+        super("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
     }
     public void interact_DM() {
         System.out.println("Dørmand: Hey mand! Guldrengen taler til dig. Kunne du ikke tænke dig at hjælpe mig med noget? Det jo trods alt Gulddrengen der spørger. (ja/nej)");

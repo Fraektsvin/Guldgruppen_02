@@ -3,28 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.util.Arrays;
 /**
  *
  * @author sigur
  */
-public class Coin extends Swag{
-    private int value;
+public class Coin {
 
-    public Coin(int value, String newSwagDescription) {
-        super(newSwagDescription);
-        this.value = value;
+    
+   private final int value = 10;
+    private final String name = "penge";
+
+    public Coin(int value, String name) {
     }
-
-    @Override
+  
+ @Override
     public String toString() {
-        return "Coin{" + "value=" + value + " desc: " + getSwagDescription();
+        return "Coin{" + "coinDescription=" + coinDescription + '}';      
+    }
+
+    String coinDescription;
+    
+    //Der oprettes en streng som kan indeholde navnet til items(swag) i spillet.
+    public Coin(String newCoinDescription) {
+        
+        coinDescription = newCoinDescription;
     }
     
-    public void doIt(){
-        System.out.println("doIt called");
-    }
+    public String getCoinDescription() {
+        return coinDescription;
+    } 
     
+}
+/*
+
+*/
+
     /*
         public static void main (String[] arg){
         Swag[] swags = new Swag[3];
@@ -35,4 +49,22 @@ public class Coin extends Swag{
         ((Coin)swags[1]).doIt();
     }
     */
-}
+/*
+  String description;
+    public Coin(String newdescription){
+        description = newdescription;
+                
+    }
+    
+    public Coin(int value, String newSwagDescription) {
+        
+        this.value = value;
+        
+    }
+
+  
+    public String toString() {
+        return "Coin{" + "value=" + value + " desc: " + getSwagDescription();
+    }
+*/
+

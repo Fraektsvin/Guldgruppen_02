@@ -23,7 +23,6 @@ public class Game
     {
         createRooms();
         parser = new Parser();
-        Scanner input = new Scanner(System.in);
     }
 
     
@@ -220,9 +219,9 @@ public class Game
             if (currentRoom == hall_fame) {
                 System.out.println("Du er officielt den mest swagste person!");
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
-                int Score;        
-        Score = (inventory.size()*100 + pengepung.size()*10 );
-                System.out.println("din skore er " + Score);
+                int Score;
+                Score = (inventory.size()*100);
+                System.out.println("din score er " + Score);
                 return true;
             }
         }
@@ -355,6 +354,7 @@ public class Game
         currentRoom = swag_city;
         
         inventory.add(new Swag("Swag håndtegn"));
+        
         //Swag tingene indsættes i de forskellige rum.
         
   
@@ -374,7 +374,8 @@ public class Game
         diskotekets_dør.setNPC("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
         
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", true) ;
+        diskotekets_dør.lockExit("north", true);
+        sidney_lee.lockExit("south", true);
     }
 }
 /*

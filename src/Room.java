@@ -8,7 +8,8 @@ public class Room {
     private String description;
     private HashMap<String, Room> exits;
     //Vi opretter en ArrayList som kan indeholde de ting vi placere i de forskellige rum.
-    ArrayList<Swag> swags = new ArrayList<Swag>();
+    ArrayList<Coin> coins = new ArrayList<Coin>();
+    
     //Vi opretter et HashMap som kan indeholde npc'er som skal være i de forskellige rum.
     private HashMap<String, NPC> characters;
     private HashMap<String, Boolean> exitsLock;
@@ -40,7 +41,7 @@ public class Room {
         String returnString = "\nNPC'er i rummet:\n";
         returnString += getNPCString();
         returnString += "\nSwagting i rummet:\n";
-        returnString += getRoomSwags();
+        returnString += getRoomCoins();
         returnString += "\nUdgange:";
         Set<String> keys = exits.keySet();
         for (String exit : keys) {
@@ -66,16 +67,16 @@ public class Room {
     }
 
     
-    public Swag getSwag(int index) {
-        return swags.get(index);
+    public Coin getCoin(int index) {
+        return coins.get(index);
         
     }
-
+ 
     //Få items fra rummet og systemet kan kende forskel på disse 2 commands ved at se om det er et string eller index
-    public Swag getSwag(String SwagName) {
-        for (int i = 0; i < swags.size(); i++) {
-            if(swags.get(i).getSwagDescription().equals(SwagName))    {
-                return swags.get(i);
+    public Coin getCoin(String CoinName) {
+        for (int i = 0; i < coins.size(); i++) {
+            if(coins.get(i).getCoinDescription().equals(CoinName))    {
+                return coins.get(i);
             }
                       
         }
@@ -84,11 +85,11 @@ public class Room {
     }
 
         //Beskriver hvilke ting der er i rummet.
-    public String getRoomSwags() {
+    public String getRoomCoins() {
         String output = "";
-        if(!swags.isEmpty()) {
-        for (int i = 0; i < swags.size(); i++) {
-            output += swags.get(i).getSwagDescription() + "\n";
+        if(!coins.isEmpty()) {
+        for (int i = 0; i < coins.size(); i++) {
+            output += coins.get(i).getCoinDescription() + "\n";
         }
         return output;
         }
@@ -119,8 +120,8 @@ public class Room {
     
     //Setter metoder:
     //Setter metoden bruges til at indsætte et specifikt item til rummet.
-    public void setSwag(Swag newSwag){
-       swags.add(newSwag);
+    public void setCoin(Coin newCoin){
+       coins.add(newCoin);
     }
     
     //Setter motoden bruges til at indsætte en specifik npc i rummet.
@@ -151,12 +152,14 @@ public class Room {
     }
     
     
-    public void removeSwag(String SwagName) {
-        for (int i = 0; i < swags.size(); i++) {
-            if(swags.get(i).getSwagDescription().equals(SwagName))    {
-            swags.remove(i);
+    public void removeCoin(String CoinName) {
+        for (int i = 0; i < coins.size(); i++) {
+            if(coins.get(i).getCoinDescription().equals(CoinName))    {
+            coins.remove(i);
             }
                       
         }       
     }
-}
+
+    
+    }
