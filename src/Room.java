@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Room {
 
@@ -67,21 +66,14 @@ public class Room {
     }
 
     
-    public Coin getCoin(int index) {
-        return coins.get(index);
-        
-    }
- 
     //Få items fra rummet og systemet kan kende forskel på disse 2 commands ved at se om det er et string eller index
     public Coin getCoin(String CoinName) {
         for (int i = 0; i < coins.size(); i++) {
             if(coins.get(i).getCoinDescription().equals(CoinName))    {
                 return coins.get(i);
-            }
-                      
+            } 
         }
-        return null;
-        
+        return null;   
     }
 
         //Beskriver hvilke ting der er i rummet.
@@ -156,10 +148,7 @@ public class Room {
         for (int i = 0; i < coins.size(); i++) {
             if(coins.get(i).getCoinDescription().equals(CoinName))    {
             coins.remove(i);
-            }
-                      
+            }             
         }       
     }
-
-    
-    }
+}

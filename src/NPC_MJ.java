@@ -9,6 +9,10 @@ public class NPC_MJ extends NPC {
     public NPC_MJ(String name, String greeting) {
         super("Michael Jackson", "\u266A\u266A\u266A Annie are you ok? Are you ok, Annie...\u266A\u266A\u266A");
     }
+    
+    public boolean quest1; {
+        quest1 = false;
+    }
 
     public void interact_MJ() {
         System.out.println("Michael Jackson: A-heehee! Velkommen til mit skjulte fristed! Hvis ikke du røber min hemmelighed at jeg er her, må du få mine guldsko.");
@@ -19,6 +23,7 @@ public class NPC_MJ extends NPC {
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("thriller")) {
                 System.out.println("Michael Jackson: Du er en sand fan! Her er mine sko\n");
+                quest1 = true;
             }
             else if (!answer2.equalsIgnoreCase("thriller")) {
                 System.out.println("Michael Jackson: Du er ikke den smarteste, er du? Ingen sko til dig.\n");

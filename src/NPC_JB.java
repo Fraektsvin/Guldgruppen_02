@@ -6,8 +6,6 @@ public class NPC_JB extends NPC {
 
     Scanner input = new Scanner(System.in);
     
-    public Game game_inventory = new Game();
-    
     public NPC_JB(String name, String greeting) {
         super("Johnny Bravo", "HU HA HI, Johnny Bravo!");
     }
@@ -16,13 +14,13 @@ public class NPC_JB extends NPC {
         System.out.println("Johnny Bravo: HEY HO kammerat! Du virker som en flinker type, kunne du tænke dig at hjælpe Johnny her? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {
-            System.out.println("Johnny Bravo: Konge! Nu skal du høre, jeg har hørt at der er kommet den her foxy lady til Randers, kunne du ikke skaffe");
-            System.out.println("              mig hendes nummer, så jeg kan give hende lidt af Johnny charmen? (ja/nej)");
+            System.out.println("Johnny Bravo: Konge! Nu skal du høre, jeg har hørt at der er kommet den her foxy lady til Randers, ved navn Beatrice,");
+            System.out.println("              kunne du ikke skaffe mig hendes nummer, så jeg kan give hende lidt af Johnny charmen? (ja/nej)");
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
                 System.out.println("Johnny Bravo: Sådan skal det lyde! Her får du en seddel som hun kan skrive nummeret på.");
                 System.out.println("Du møder mig bare her igen når du har skaffet nummeret. Held og lykke! HUH HAH JOHNNY BRAVO\n");
-                game_inventory.inventory.add(new Swag("Seddel fra Johnny Bravo"));
+                quest1 = true;
             }
             else if (answer2.equalsIgnoreCase("nej")) {
                 System.out.println("Johnny Bravo: Troede du var en rigtig mand... jeg tog fejl.\n");
@@ -37,5 +35,9 @@ public class NPC_JB extends NPC {
         else {
             System.out.println("Johnny Bravo: Brormand jeg tror ikke vi er på samme bølgelængde\n");
         }
+    }
+    
+    public boolean quest1; {
+        quest1 = false;
     }
 }

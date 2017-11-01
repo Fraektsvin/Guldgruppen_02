@@ -9,6 +9,10 @@ public class NPC_DM extends NPC {
     public NPC_DM(String name, String greeting) {
         super("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
     }
+    
+    public boolean quest1; {
+        quest1 = false;
+    }
     public void interact_DM() {
         System.out.println("Dørmand: Hey mand! Guldrengen taler til dig. Kunne du ikke tænke dig at hjælpe mig med noget? Det jo trods alt Gulddrengen der spørger. (ja/nej)");
         String answer1 = input.nextLine();

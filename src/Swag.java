@@ -1,5 +1,5 @@
 
-class Swag {
+public class Swag {
 
     String swagDescription;
     
@@ -11,6 +11,5 @@ class Swag {
     
     public String getSwagDescription() {
         return swagDescription;
-    } 
-    
+    }
 }

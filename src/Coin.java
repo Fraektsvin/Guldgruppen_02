@@ -1,6 +1,4 @@
 
-import java.util.Arrays;
-
 public class Coin {
 
     public Coin(int value, String name) {

@@ -9,6 +9,10 @@ public class NPC_BR extends NPC {
     public NPC_BR(String name, String greeting) {
         super("Bjarne Riis", "Cykle, cykle, cykle. Ikke tænk på EPO!");
     }
+    
+    public boolean quest1; {
+        quest1 = false;
+    }
     public void interact_BR() {
         System.out.println("Bjarne Riis: Hurtigt! Er du villig til at hjælpe mig? (ja/nej)");
         String answer1 = input.nextLine();
@@ -18,6 +22,7 @@ public class NPC_BR extends NPC {
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
                 System.out.println("Bjarne Riis: Godt, skynd dig! Tour de france er lige om hjørnet!\n");
+                quest1 = true;
             }
             else if (answer2.equalsIgnoreCase("nej")) {
                 System.out.println("Bjarne Riis: I så fald har du ikke hørt noget, ingen kommentarer herfra!\n");

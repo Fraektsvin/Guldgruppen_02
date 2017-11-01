@@ -9,6 +9,10 @@ public class NPC_GD extends NPC {
     public NPC_GD(String name, String greeting) {
         super("Gulddreng", "\u266A\u266A\u266A Er du model? Vil du med på hotel? \u266A\u266A\u266A");
     }
+    
+    public boolean quest1; {
+        quest1 = false;
+    }
     public void interact_GD() {
         System.out.println("Gulddreng: Hey mand! Guldrengen taler til dig. Kunne du ikke tænke dig at hjælpe mig med noget? Det jo trods alt Gulddrengen der spørger. (ja/nej)");
         String answer1 = input.nextLine();
@@ -17,7 +21,8 @@ public class NPC_GD extends NPC {
             System.out.println("           min flotte hals trænger til noget væske. (ja/nej)");
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
-                System.out.println("Gulddreng: Sådan bro! Afsted med dig nu, jeg har travlt.\n");
+                System.out.println("Gulddreng: Sådan bro! Her tag mine guldpenge det burde være rigeligt. Afsted med dig nu, jeg har travlt.\n");
+                quest1 = true;
             }
             else if (answer2.equalsIgnoreCase("nej")) {
                 System.out.println("Gulddreng: Siger du nej til Gulddrengen!? Vi er ikke venner..\n");

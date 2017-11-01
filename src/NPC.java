@@ -1,12 +1,11 @@
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class NPC {
 
     private String name;
     private String greeting;
-    private HashMap<String, Swag> inventory;
+    public HashMap<String, Swag> inventory;
 
     public NPC(String name, String greeting) {
         this.name = name;
