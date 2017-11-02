@@ -7,7 +7,7 @@ public class NPC_DM extends NPC {
     Scanner input = new Scanner(System.in);
     
     public NPC_DM(String name, String greeting) {
-        super("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
+        super("Dørmand", "Holdt holdt holdt! Ingen adgang på diskoteket med en så lav swag-promille.");
     }
     
     public boolean quest1; {

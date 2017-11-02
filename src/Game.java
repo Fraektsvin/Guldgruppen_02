@@ -409,9 +409,12 @@ public class Game {
                     inventory.add(new Swag("Seddel fra Ole Henriksen"));
                 }
             }
-        } else if (currentRoom == diskotekets_dør && command.getSecondWord().equalsIgnoreCase("dørmand")) {
+        } else if (currentRoom == diskotekets_dør && command.getSecondWord().equalsIgnoreCase("doermand")) {
             NPC_DM npc_dm = new NPC_DM("", "");
-            if (getSwag("Dørmandens nummer") != null) {
+            if (getSwag("Seddel fra Ole Henriksen") == null) {
+                System.out.println("Smut med dig, jeg har travlt.\n");
+            }
+            else if (getSwag("Dørmandens nummer") != null) {
                 System.out.println("Du har allerede fået dørmandens nummer");
                 System.out.println("Måske du skulle aflevere den hos Ole Henriksen.\n");
             } else {
@@ -433,6 +436,11 @@ public class Game {
             if (npc_rt.quest1 == true) {
                 inventory.clear();
             }
+        } else if (currentRoom == swag_city && command.getSecondWord().equalsIgnoreCase("info dealer")) {
+            System.out.println("Info dealer: Velkommen til Swag City! Jeg kan give dig nogle enkelte informationer.");
+            System.out.println("Fra Swag City byskiltet kan du gå");
+            System.out.println("east = Randers   |   south = Johnny Bravo   |   north = Diskotekets indgang");
+            System.out.println("Resten er op til dig. Held og lykke Erik Deluxe!\n");
         } else {
             System.out.println("Hvem prøver du at kontakte?\n");
         }
@@ -500,6 +508,7 @@ public class Game {
         bjarne_riis.setCoin(new Coin("penge"));
 
         //NPC'er indsættes i de forskellige rum.
+        swag_city.setNPC("Info dealer", "Snak med mig hvis du har brug for hjælp.");
         johnny_bravo.setNPC("Johnny Bravo", "HU HA HI, Johnny Bravo!");
         michael_jackson.setNPC("Michael Jackson", "\u266A\u266A\u266A Annie are you ok? Are you ok, Annie...\u266A\u266A\u266A");
         gulddreng.setNPC("Gulddreng", "\u266A\u266A\u266A Er du model? Vil du med på hotel? \u266A\u266A\u266A");
@@ -507,7 +516,7 @@ public class Game {
         ole_henriksen.setNPC("Ole Henriksen", "I'm sooo fabolous.");
         mors_hus.setNPC("Mor", "Velkommen hjem søn!");
         sidney_lee.setNPC("Sidney Lee", "Jeg er forlækker til love!");
-        diskotekets_dør.setNPC("Dørmand", "Holdt holdt holdt! Ingen adgang på diskuteket med en så lav swag-promille.");
+        diskotekets_dør.setNPC("Doermand", "Holdt holdt holdt! Ingen adgang på diskoteket med en så lav swag-promille.");
         randers.setNPC("Biver", "Jeg er lederen af randers typerne! Vi drikker mokai og spiller hornmusik!");
 
         //Lock condition til udgange
