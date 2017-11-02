@@ -185,7 +185,7 @@ public class Game {
                 npc_sl.interact_SL();
                 if (npc_sl.quest1 == true) {
                     sidney_lee.lockExit("south", false);
-                    System.out.println("Du har besejret Sidney Lee, træd venligst ind i Hall of Fame");
+                    System.out.println("\nDu har besejret Sidney Lee, træd venligst ind i Hall of Fame (south exit)\n");
                 } else if (npc_sl.quest1 == false) {
                     System.out.println("Du tabte til Sidney Lee - Game over!\n");
                     inventory.clear();
@@ -198,7 +198,7 @@ public class Game {
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
                 int Score;
                 Score = (inventory.size() * 100) + (pengepung.size() * 25);
-                System.out.println("din score er " + Score + "\n");
+                System.out.println("Din score er " + Score + " points\n");
                 return true;
             }
         }
