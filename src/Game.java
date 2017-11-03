@@ -134,7 +134,7 @@ public class Game {
         System.out.println("Tag dig sammen.\n");
         System.out.println("Dine råb om hjælp er:");
         parser.showCommands();
-        System.out.println();
+        System.out.println("get (Swagting)  | go (Direction)  | interact (NPC)\n");
     }
 
     //Kommando implementeret for at giver bedre overblik når spillet spilles.
