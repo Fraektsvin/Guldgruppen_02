@@ -16,10 +16,6 @@ public class MainGame {
      */
     public static void main(String[] args) {
         {
-       for (int i = 1; i < 6; i++) 
-            {
-             System.out.println(i);
-        }
         player n = new player("Erik Deluxe");
         n.displayName();
         }
