@@ -332,13 +332,13 @@ public class Game {
             NPC_GD npc_gd = new NPC_GD("", "");
             if (getSwag("Guldpenge fra Gulddrengen") != null) {
                 System.out.println("Du er allerede på denne mission.\n");
-            } else if (getSwag("Frisk mokai") != null) {
+            } else if (getSwag("Gulddreng's guldkæde") != null) {
                 System.out.println("Denne mission er allerede færdiggjort.\n");
             } else if (getSwag("Frisk mokai") != null) {
                 System.out.println("Gulddreng: En frisk mokai? Syg god stil! Gulddrengen takker, her tag min guldkæde");
                 System.out.println("Hvorfor tænker du måske? Bare fordi jeg kan, nemt.\n");
                 removeSwag("Frisk mokai");
-                inventory.add(new Swag("Guldreng's Guldkæde"));
+                inventory.add(new Swag("Gulddreng's guldkæde"));
             } else {
                 npc_gd.interact_GD();
                 if (npc_gd.quest1 == true) {
@@ -378,7 +378,7 @@ public class Game {
                     swag_city.setNPC("Dealer", "");
                 }
             }
-        } else if (currentRoom == swag_city && command.getSecondWord().equalsIgnoreCase("dealer")) {
+        } else if (currentRoom == swag_city && command.getSecondWord().equalsIgnoreCase("epo dealer")) {
             NPC_EPO npc_epo = new NPC_EPO("", "");
             if (getSwag("EPO") != null) {
                 System.out.println("Du har allerede fået en pose EPO");
