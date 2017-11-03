@@ -15,7 +15,8 @@ public class NPC_EPO extends NPC {
     }
     public void interact_EPO() {
         System.out.println("EPO dealer: Nå det er den tid igen? Jeg sender en regning til ham");
-        System.out.println("EPO dealer: *Giver dig en lille pose med EPO*\n");
+        System.out.println("EPO dealer: *Giver dig en lille pose med EPO*");
+        System.out.println("EPO dealer: Husk! Ikke snak med nogen før du har afleveret varen til Bjarne Riis.\n");
         quest1 = true;
     }
 }

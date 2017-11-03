@@ -299,6 +299,10 @@ public class Game {
                 System.out.println("Johnny Bravo: Her tag min paryk der ligner mit hår på en prik, så kan det være du er heldig hos damerne\n");
                 removeSwag("Beatrice's nummer");
                 inventory.add(new Swag("Johnny Bravo håret"));
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             } else {
                 npc_jb.interact_JB();
                 if (npc_jb.quest1 == true) {
@@ -311,6 +315,10 @@ public class Game {
             if (getSwag("Beatrice's nummer") != null) {
                 System.out.println("Du har allerede fået Beatrice's nummer");
                 System.out.println("Måske du skulle aflevere det hos Johnny Bravo.\n");
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             } else {
                 npc_bt.interact_BT();
                 if (npc_bt.quest1 == true) {
@@ -322,6 +330,10 @@ public class Game {
             NPC_MJ npc_mj = new NPC_MJ("", "");
             if (getSwag("Michael Jacksons guldsko") != null) {
                 System.out.println("Denne mission er allerede færdiggjort.\n");
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             } else {
                 npc_mj.interact_MJ();
                 if (npc_mj.quest1 == true) {
@@ -335,10 +347,14 @@ public class Game {
             } else if (getSwag("Gulddreng's guldkæde") != null) {
                 System.out.println("Denne mission er allerede færdiggjort.\n");
             } else if (getSwag("Frisk mokai") != null) {
-                System.out.println("Gulddreng: En frisk mokai? Syg god stil! Gulddrengen takker, her tag min guldkæde");
+                System.out.println("Gulddreng: En frisk mokai? Sygt god stil! Gulddrengen takker, her tag min guldkæde");
                 System.out.println("Hvorfor tænker du måske? Bare fordi jeg kan, nemt.\n");
                 removeSwag("Frisk mokai");
                 inventory.add(new Swag("Gulddreng's guldkæde"));
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             } else {
                 npc_gd.interact_GD();
                 if (npc_gd.quest1 == true) {
@@ -350,7 +366,11 @@ public class Game {
             NPC_MD npc_md = new NPC_MD("", "");
             if (getSwag("Frisk mokai") != null) {
                 System.out.println("Du har allerede fået en frisk mokai");
-                System.out.println("Måske du skulle aflevere det hos Gulddrengen.\n");
+                System.out.println("Måske du skulle aflevere den hos Gulddrengen.\n");
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             } else {
                 npc_md.interact_MD();
                 if (npc_md.quest1 == true) {
@@ -365,7 +385,7 @@ public class Game {
             } else if (getSwag("Bjarne Riis's hurtig briller") != null) {
                 System.out.println("Denne mission er allerede færdiggjort.\n");
             } else if (getSwag("EPO") != null) {
-                System.out.println("Bjarne Riis: Skynd dig giv mig posen før nogen ser det!");
+                System.out.println("Bjarne Riis: Skynd dig! Giv mig posen før nogen ser det!");
                 System.out.println("Bjarne Riis: Mange tak, husk det her er aldrig sket! Du ved intet.");
                 System.out.println("Bjarne Riis: Her tag mine hurtigbriller fra 96 da jeg vandt Tour de France som tak");
                 System.out.println("Bjarne Riis: Snyd eller ej, så er du en sikker vinder!\n");
@@ -375,7 +395,7 @@ public class Game {
                 npc_br.interact_BR();
                 if (npc_br.quest1 == true) {
                     inventory.add(new Swag("Seddel fra Bjarne Riis"));
-                    swag_city.setNPC("Dealer", "");
+                    swag_city.setNPC("EPO dealer", "");
                 }
             }
         } else if (currentRoom == swag_city && command.getSecondWord().equalsIgnoreCase("epo dealer")) {
@@ -399,10 +419,14 @@ public class Game {
             } else if (getSwag("Dørmandens nummer") != null) {
                 System.out.println("Ole Henriksen: Du fik nummeret!?");
                 System.out.println("Ole Henriksen: Jeg havde aldrig turde håbe på at han kunne være til sådan noget");
-                System.out.println("Ole Henriksen: Jaja der kan man se nogen gange er man heldig! Ej hvor jeg bare er glad nu");
+                System.out.println("Ole Henriksen: Jaja der kan man se, nogle gange er man heldig! Ej hvor jeg bare er glad nu");
                 System.out.println("Ole Henriksen: Her lad mig hjælpe med dit forfærdelige kluns, her får du et rigtigt outfit.\n");
                 removeSwag("Dørmandens nummer");
                 inventory.add(new Swag("Fabulous tøj fra Ole Henriksen"));
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             } else {
                 npc_oh.interact_OH();
                 if (npc_oh.quest1 == true) {
@@ -417,6 +441,10 @@ public class Game {
             else if (getSwag("Dørmandens nummer") != null) {
                 System.out.println("Du har allerede fået dørmandens nummer");
                 System.out.println("Måske du skulle aflevere den hos Ole Henriksen.\n");
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             } else {
                 npc_dm.interact_DM();
                 if (npc_dm.quest1 == true) {
@@ -429,11 +457,19 @@ public class Game {
             npc_mor.interact_MOR();
             if (npc_mor.quest1 == true) {
                 inventory.clear();
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
             }
         } else if (currentRoom == randers && command.getSecondWord().equalsIgnoreCase("biver")) {
             NPC_RT npc_rt = new NPC_RT("", "");
             npc_rt.interact_RT();
             if (npc_rt.quest1 == true) {
+                inventory.clear();
+            } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             }
         } else if (currentRoom == swag_city && command.getSecondWord().equalsIgnoreCase("info dealer")) {
@@ -441,6 +477,10 @@ public class Game {
             System.out.println("Fra Swag City byskiltet kan du gå");
             System.out.println("east = Randers   |   south = Johnny Bravo   |   north = Diskotekets indgang");
             System.out.println("Resten er op til dig. Held og lykke Erik Deluxe!\n");
+        } else if (getSwag("EPO") != null) {
+                System.out.println("Der blev sagt ingen kommentarer");
+                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+                inventory.clear();
         } else {
             System.out.println("Hvem prøver du at kontakte?\n");
         }

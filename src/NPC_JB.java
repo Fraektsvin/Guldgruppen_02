@@ -14,7 +14,7 @@ public class NPC_JB extends NPC {
         System.out.println("Johnny Bravo: HEY HO kammerat! Du virker som en flinker type, kunne du tænke dig at hjælpe Johnny her? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {
-            System.out.println("Johnny Bravo: Konge! Nu skal du høre, jeg har hørt at der er kommet den her foxy lady til Randers, ved navn Beatrice,");
+            System.out.println("Johnny Bravo: Konge! Nu skal du høre, jeg har hørt at der er kommet den her foxy lady til Randers ved navn Beatrice,");
             System.out.println("              kunne du ikke skaffe mig hendes nummer, så jeg kan give hende lidt af Johnny charmen? (ja/nej)");
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
