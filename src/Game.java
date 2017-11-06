@@ -14,7 +14,7 @@ public class Game {
 
     //Vi opretter en ArrayList til at indeholde vores ting som ligger i inventory.
     ArrayList<Coin> pengepung = new ArrayList<Coin>();
-    ArrayList<Swag> inventory = new ArrayList<Swag>(5);
+    ArrayList<Swag> inventory = new ArrayList<Swag>();
 
     public Game() {
         createRooms();
@@ -89,7 +89,7 @@ public class Game {
 
     private void getCoin(Command command) {
         if (!command.hasSecondWord()) {
-            System.out.println("Hvad vil du have?");
+            System.out.println("Hvad vil du have?\n");
             return;
         }
 
