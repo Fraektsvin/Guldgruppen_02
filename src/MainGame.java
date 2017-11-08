@@ -10,9 +10,9 @@ public class MainGame {
     public static void main(String[] args) throws FileNotFoundException {
         GameTimer gameTimer = new GameTimer();
         gameTimer.timerStart();
-        player n = new player("Erik Deluxe");
+        Player n = new Player("Erik Deluxe");
         n.displayName();
-        Game swag_city = new Game();
+        Game swag_city = new Game(n);
         swag_city.play();
     }
       
