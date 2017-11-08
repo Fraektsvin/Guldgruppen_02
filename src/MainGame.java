@@ -1,21 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+import java.io.FileNotFoundException;
 
 
-/**
- *
- * @author sigur
- */
 public class MainGame {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Game swag_city = new Game();
+    public static void main(String[] args) throws FileNotFoundException {
+        GameTimer gameTimer = new GameTimer();
+        gameTimer.timerStart();
+        Player n = new Player("Erik Deluxe");
+        n.displayName();
+        HighscoresManager saver = new HighscoresManager();
+        saver.savePlayer(n);
+        Game swag_city = new Game(n);
         swag_city.play();
     }
+      
 }

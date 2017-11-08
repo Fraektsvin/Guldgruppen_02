@@ -35,10 +35,5 @@ public class Command
     {
         return (secondWord != null);
     }
-    
-    public String checkSecondWord(String secondWord)
-    {
-        return this.secondWord = secondWord;
-    }
 }
 
