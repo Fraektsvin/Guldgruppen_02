@@ -1,3 +1,4 @@
+import npcs.NPC;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
@@ -117,8 +118,8 @@ public class Room {
     }
     
     //Setter motoden bruges til at indsætte en specifik npc i rummet.
-    public void setNPC(String name, String description) {
-        characters.put(name, new NPC(name, description));
+    public void setNPC(NPC npc) {
+        characters.put(npc.getName(), npc);
     }
   
     

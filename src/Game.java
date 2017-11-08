@@ -1,4 +1,5 @@
 
+import npcs.*;
 import java.util.ArrayList;
 
 public class Game {
@@ -235,8 +236,8 @@ public class Game {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             if (currentRoom == sidney_lee) {
-                NPC_SL npc_sl = new NPC_SL("", "");
-                npc_sl.interact_SL();
+                NPC_SL npc_sl = new NPC_SL();
+                npc_sl.interact();
                 if (npc_sl.quest1 == true) {
                     sidney_lee.lockExit("south", false);
                     System.out.println("\nDu har besejret Sidney Lee, træd venligst ind i Hall of Fame (south exit)\n");
@@ -295,7 +296,7 @@ public class Game {
         if (!command.hasSecondWord()) {
             System.out.println("Hvem prøver du at kontakte?\n");
         } else if (currentRoom == johnny_bravo && command.getSecondWord().equalsIgnoreCase("johnny bravo")) {
-            NPC_JB npc_jb = new NPC_JB("", "");
+            NPC_JB npc_jb = new NPC_JB();
             if (getSwag("Seddel fra Johnny Bravo") != null) {
                 System.out.println("Du er allerede på denne mission.\n");
             } else if (getSwag("Johnny Bravo håret") != null) {
@@ -312,14 +313,14 @@ public class Game {
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             } else {
-                npc_jb.interact_JB();
+                npc_jb.interact();
                 if (npc_jb.quest1 == true) {
                     inventory.add(new Swag("Seddel fra Johnny Bravo"));
-                    randers.setNPC("Beatrice", "");
+                    randers.setNPC(new NPC_BT());
                 }
             }
         } else if (currentRoom == randers && command.getSecondWord().equalsIgnoreCase("beatrice")) {
-            NPC_BT npc_bt = new NPC_BT("", "");
+            NPC_BT npc_bt = new NPC_BT();
             if (getSwag("Beatrice's nummer") != null) {
                 System.out.println("Du har allerede fået Beatrice's nummer");
                 System.out.println("Måske du skulle aflevere det hos Johnny Bravo.\n");
@@ -330,14 +331,14 @@ public class Game {
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             } else {
-                npc_bt.interact_BT();
+                npc_bt.interact();
                 if (npc_bt.quest1 == true) {
                     removeSwag("Seddel fra Johnny Bravo");
                     inventory.add(new Swag("Beatrice's nummer"));
                 }
             }
         } else if (currentRoom == michael_jackson && command.getSecondWord().equalsIgnoreCase("michael jackson")) {
-            NPC_MJ npc_mj = new NPC_MJ("", "");
+            NPC_MJ npc_mj = new NPC_MJ();
             if (getSwag("Michael Jacksons guldsko") != null) {
                 System.out.println("Denne mission er allerede færdiggjort.\n");
             } else if (getSwag("EPO") != null) {
@@ -345,7 +346,7 @@ public class Game {
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             } else {
-                npc_mj.interact_MJ();
+                npc_mj.interact();
                 if (npc_mj.quest1 == true) {
                     inventory.add(new Swag("Michael Jacksons guldsko"));
                     System.out.println("Mission fuldført.\n");
@@ -353,7 +354,7 @@ public class Game {
                 }
             }
         } else if (currentRoom == gulddreng && command.getSecondWord().equalsIgnoreCase("gulddreng")) {
-            NPC_GD npc_gd = new NPC_GD("", "");
+            NPC_GD npc_gd = new NPC_GD();
             if (getSwag("Guldpenge fra Gulddrengen") != null) {
                 System.out.println("Du er allerede på denne mission.\n");
             } else if (getSwag("Gulddreng's guldkæde") != null) {
@@ -370,14 +371,14 @@ public class Game {
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             } else {
-                npc_gd.interact_GD();
+                npc_gd.interact();
                 if (npc_gd.quest1 == true) {
                     inventory.add(new Swag("Guldpenge fra Gulddrengen"));
-                    randers.setNPC("Mokai dealer", "");
+                    randers.setNPC(new NPC_MD());
                 }
             }
         } else if (currentRoom == randers && command.getSecondWord().equalsIgnoreCase("mokai dealer")) {
-            NPC_MD npc_md = new NPC_MD("", "");
+            NPC_MD npc_md = new NPC_MD();
             if (getSwag("Frisk mokai") != null) {
                 System.out.println("Du har allerede fået en frisk mokai");
                 System.out.println("Måske du skulle aflevere den hos Gulddrengen.\n");
@@ -386,14 +387,14 @@ public class Game {
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             } else {
-                npc_md.interact_MD();
+                npc_md.interact();
                 if (npc_md.quest1 == true) {
                     removeSwag("Guldpenge fra Gulddrengen");
                     inventory.add(new Swag("Frisk mokai"));
                 }
             }
         } else if (currentRoom == bjarne_riis && command.getSecondWord().equalsIgnoreCase("bjarne riis")) {
-            NPC_BR npc_br = new NPC_BR("", "");
+            NPC_BR npc_br = new NPC_BR();
             if (getSwag("Seddel fra Bjarne Riis") != null) {
                 System.out.println("Du er allerede på denne mission.\n");
             } else if (getSwag("Bjarne Riis's hurtig briller") != null) {
@@ -408,26 +409,26 @@ public class Game {
                 System.out.println("Mission fuldført.\n");
                 gameTimer.timeRemaining += 60;
             } else {
-                npc_br.interact_BR();
+                npc_br.interact();
                 if (npc_br.quest1 == true) {
                     inventory.add(new Swag("Seddel fra Bjarne Riis"));
-                    swag_city.setNPC("EPO dealer", "");
+                    swag_city.setNPC(new NPC_EPO());
                 }
             }
         } else if (currentRoom == swag_city && command.getSecondWord().equalsIgnoreCase("epo dealer")) {
-            NPC_EPO npc_epo = new NPC_EPO("", "");
+            NPC_EPO npc_epo = new NPC_EPO();
             if (getSwag("EPO") != null) {
                 System.out.println("Du har allerede fået en pose EPO");
                 System.out.println("Måske du skulle aflevere den hos Bjarne Riis.\n");
             } else {
-                npc_epo.interact_EPO();
+                npc_epo.interact();
                 if (npc_epo.quest1 == true) {
                     removeSwag("Seddel fra Bjarne Riis");
                     inventory.add(new Swag("EPO"));
                 }
             }
         } else if (currentRoom == ole_henriksen && command.getSecondWord().equalsIgnoreCase("ole henriksen")) {
-            NPC_OH npc_oh = new NPC_OH("", "");
+            NPC_OH npc_oh = new NPC_OH();
             if (getSwag("Seddel fra Ole Henriksen") != null) {
                 System.out.println("Du er allerede på denne mission.\n");
             } else if (getSwag("Fabulous tøj fra Ole Henriksen") != null) {
@@ -446,13 +447,13 @@ public class Game {
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             } else {
-                npc_oh.interact_OH();
+                npc_oh.interact();
                 if (npc_oh.quest1 == true) {
                     inventory.add(new Swag("Seddel fra Ole Henriksen"));
                 }
             }
         } else if (currentRoom == diskotekets_dør && command.getSecondWord().equalsIgnoreCase("doermand")) {
-            NPC_DM npc_dm = new NPC_DM("", "");
+            NPC_DM npc_dm = new NPC_DM();
             if (getSwag("Seddel fra Ole Henriksen") == null) {
                 System.out.println("Smut med dig, jeg har travlt.\n");
             }
@@ -464,15 +465,15 @@ public class Game {
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
                 inventory.clear();
             } else {
-                npc_dm.interact_DM();
+                npc_dm.interact();
                 if (npc_dm.quest1 == true) {
                     removeSwag("Seddel fra Ole Henriksen");
                     inventory.add(new Swag("Dørmandens nummer"));
                 }
             }
         } else if (currentRoom == mors_hus && command.getSecondWord().equalsIgnoreCase("mor")) {
-            NPC_MOR npc_mor = new NPC_MOR("", "");
-            npc_mor.interact_MOR();
+            NPC_MOR npc_mor = new NPC_MOR();
+            npc_mor.interact();
             if (npc_mor.quest1 == true) {
                 inventory.clear();
             } else if (getSwag("EPO") != null) {
@@ -481,8 +482,8 @@ public class Game {
                 inventory.clear();
             }
         } else if (currentRoom == randers && command.getSecondWord().equalsIgnoreCase("biver")) {
-            NPC_RT npc_rt = new NPC_RT("", "");
-            npc_rt.interact_RT();
+            NPC_RT npc_rt = new NPC_RT();
+            npc_rt.interact();
             if (npc_rt.quest1 == true) {
                 inventory.clear();
             } else if (getSwag("EPO") != null) {
@@ -566,16 +567,16 @@ public class Game {
         bjarne_riis.setCoin(new Coin("penge"));
 
         //NPC'er indsættes i de forskellige rum.
-        swag_city.setNPC("Info dealer", "Snak med mig hvis du har brug for hjælp.");
-        johnny_bravo.setNPC("Johnny Bravo", "HU HA HI, Johnny Bravo!");
-        michael_jackson.setNPC("Michael Jackson", "\u266A\u266A\u266A Annie are you ok? Are you ok, Annie...\u266A\u266A\u266A");
-        gulddreng.setNPC("Gulddreng", "\u266A\u266A\u266A Er du model? Vil du med på hotel? \u266A\u266A\u266A");
-        bjarne_riis.setNPC("Bjarne Riis", "Cykle, cykle, cykle. Ikke tænk på EPO!");
-        ole_henriksen.setNPC("Ole Henriksen", "I'm sooo fabolous.");
-        mors_hus.setNPC("Mor", "Velkommen hjem søn!");
-        sidney_lee.setNPC("Sidney Lee", "Jeg er forlækker til love!");
-        diskotekets_dør.setNPC("Doermand", "Holdt holdt holdt! Ingen adgang på diskoteket med en så lav swag-promille.");
-        randers.setNPC("Biver", "Jeg er lederen af randers typerne! Vi drikker mokai og spiller hornmusik!");
+        swag_city.setNPC(new NPC_ID());
+        johnny_bravo.setNPC(new NPC_JB());
+        michael_jackson.setNPC(new NPC_MJ());
+        gulddreng.setNPC(new NPC_GD());
+        bjarne_riis.setNPC(new NPC_BR());
+        ole_henriksen.setNPC(new NPC_OH());
+        mors_hus.setNPC(new NPC_MOR());
+        sidney_lee.setNPC(new NPC_SL());
+        diskotekets_dør.setNPC(new NPC_DM());
+        randers.setNPC(new NPC_RT());
 
         //Lock condition til udgange
         diskotekets_dør.lockExit("north", true);
