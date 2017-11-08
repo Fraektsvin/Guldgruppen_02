@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 
 public class NPC_MOR extends NPC {
-    
-    Scanner input = new Scanner(System.in);
+   
     
     public NPC_MOR() {
         super("Mor", "Velkommen hjem søn!");
@@ -15,7 +14,7 @@ public class NPC_MOR extends NPC {
     public boolean quest1; {
         quest1 = false;
     }
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Mor: Hvad er det dog, du har på? Skøre barn… Kan du ikke tage den der ting af og komme ind og få et stykke kage? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {

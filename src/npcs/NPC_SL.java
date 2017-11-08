@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class NPC_SL extends NPC {
     
-    Scanner input = new Scanner(System.in);
-    
     public NPC_SL() {
         super("Sidney Lee", "Jeg er forlækker til love!");
     }
@@ -15,7 +13,7 @@ public class NPC_SL extends NPC {
     public boolean quest1; {
         quest1 = false;
     }
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Sidney Lee: Så du er den nye fyr i byen… Fedt kluns, af en taber. Lad os se hvad du dur til! DJ, spin that shit!");
         System.out.println("Sidney Lee: Hvor mange af kendisserne som opholder sig i Swag City kender jeg personligt? (1, 2, 3, 4 eller 5)");
         String answer1 = input.nextLine();

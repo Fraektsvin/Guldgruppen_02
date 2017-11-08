@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class NPC_JB extends NPC {
 
-    Scanner input = new Scanner(System.in);
+   
     
     public NPC_JB() {
         super("Johnny Bravo", "HU HA HI, Johnny Bravo!");
     }
 
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Johnny Bravo: HEY HO kammerat! Du virker som en flinker type, kunne du tænke dig at hjælpe Johnny her? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {

@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class NPC_RT extends NPC {
     
-    Scanner input = new Scanner(System.in);
     
     public NPC_RT() {
         super("Biver", "Jeg er lederen af randers typerne! Vi drikker mokai og spiller hornmusik!");
@@ -15,7 +14,7 @@ public class NPC_RT extends NPC {
     public boolean quest1; {
         quest1 = false;
     }
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Biver: Hey, mand. Fedt kluns! Skal du ikke have en mokaï med os andre? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {

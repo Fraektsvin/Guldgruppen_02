@@ -1,7 +1,10 @@
 package npcs;
 
+import java.io.Serializable;
+import java.util.Scanner;
 
-public abstract class NPC {
+
+public abstract class NPC implements Serializable {
 
     private String name;
     private String greeting;
@@ -29,5 +32,5 @@ public abstract class NPC {
         this.quest = quest;
     }
     
-    public abstract void interact();
+    public abstract void interact(Scanner scanner);
 }

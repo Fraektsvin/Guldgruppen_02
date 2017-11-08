@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class NPC_MJ extends NPC {
 
-    Scanner input = new Scanner(System.in);
+
     
     public NPC_MJ() {
         super("Michael Jackson", "\u266A\u266A\u266A Annie are you ok? Are you ok, Annie...\u266A\u266A\u266A");
@@ -17,7 +17,7 @@ public class NPC_MJ extends NPC {
     }
 
     @Override
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Michael Jackson: A-heehee! Velkommen til mit skjulte fristed! Hvis ikke du røber min hemmelighed at jeg er her, må du få mine guldsko.");
         System.out.println("                 Men først, skal du svare på mit spørgsmål! er du med? (ja/nej)");
         String answer1 = input.nextLine();

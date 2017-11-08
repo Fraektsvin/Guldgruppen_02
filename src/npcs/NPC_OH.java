@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class NPC_OH extends NPC {
     
-    Scanner input = new Scanner(System.in);
     
     public NPC_OH() {
         super("Ole Henriksen", "I'm sooo fabolous.");
@@ -15,7 +14,7 @@ public class NPC_OH extends NPC {
     public boolean quest1; {
         quest1 = false;
     }
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Ole Henriksen: Ej, en lækker lille basse, der kom ind ad min dør! Vil du hjælpe lille mig, sådan lige hurtigt? Jeg skal nok gøre det tiden værd! (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class NPC_BR extends NPC {
     
-    Scanner input = new Scanner(System.in);
+
     
     public NPC_BR() {
         super("Bjarne Riis", "Cykle, cykle, cykle. Ikke tænk på EPO!");
@@ -16,7 +16,7 @@ public class NPC_BR extends NPC {
         quest1 = false;
     }
     @Override
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Bjarne Riis: Hurtigt! Er du villig til at hjælpe mig? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {

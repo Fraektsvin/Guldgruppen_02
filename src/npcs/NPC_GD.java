@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class NPC_GD extends NPC {
     
-    Scanner input = new Scanner(System.in);
+
     
     public NPC_GD() {
         super("Gulddreng", "\u266A\u266A\u266A Er du model? Vil du med på hotel? \u266A\u266A\u266A");
@@ -15,7 +15,7 @@ public class NPC_GD extends NPC {
     public boolean quest1; {
         quest1 = false;
     }
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Gulddreng: Hey mand! Guldrengen taler til dig. Kunne du ikke tænke dig at hjælpe mig med noget? Det jo trods alt Gulddrengen der spørger. (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {
