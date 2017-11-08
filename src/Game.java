@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import npcs.*;
 
@@ -13,7 +12,9 @@ public class Game {
     Rooms placere vi udenfor 'createRoom' metoden,
     således vi kan tilgå rummene i andre metoder senere.
      */
-    private Room swag_city, randers, johnny_bravo, mors_hus, gulddreng, bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame, ole_henriksen, michael_jackson;
+    private Room swag_city, randers, johnny_bravo, mors_hus, gulddreng, 
+            bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame, 
+            ole_henriksen, michael_jackson;
     private final GameTimer gameTimer = new GameTimer();
 
     public Game(Player player, HighscoresManager HM) {
@@ -81,9 +82,6 @@ public class Game {
                 case QUIT:
                     wantToQuit = quit(command);
                     break;
-                case LOOK:
-                    printLook();
-                    break;
                 case INVENTORY:
                     printInventory();
                     break;
@@ -146,52 +144,7 @@ public class Game {
         System.out.println("Tag dig sammen.\n");
         System.out.println("Dine råb om hjælp er:");
         parser.showCommands();
-        System.out.println("get (Swagting)  | go (Direction)  | interact (NPC)\n");
-    }
-
-    //Kommando implementeret for at giver bedre overblik når spillet spilles.
-    private void printLook() {
-        //Metode til at inspicere et rum.
-        if (player.getCurrentRoom() == swag_city) {
-            System.out.println("Du ser en shady type hænge ud ved byskiltet");
-            System.out.println("Der ligger et par mønter på vejen\n");
-        } else if (player.getCurrentRoom() == randers) {
-            System.out.println("Der ligger mokaï strøget udover det hele.");
-            System.out.println("Du ser et par fyre fikse deres knallerter\n");
-        } else if (player.getCurrentRoom() == mors_hus) {
-            System.out.println("Din mor stirrer hysterisk på dig.");
-            System.out.println("Hun ser ikke ud til at kunne lide din swag\n");
-        } else if (player.getCurrentRoom() == johnny_bravo) {
-            System.out.println("Du ser den mest mandlige mandemand stirre dig i øjnene");
-            System.out.println("Der ligger et par mønter, nok fra den sidste dulle han tog\n");
-        } else if (player.getCurrentRoom() == michael_jackson) {
-            System.out.println("Kongen af pop lever stadig, hans død var bare fake news");
-            System.out.println("du ser et par mønter liggende på en sten\n");
-        } else if (player.getCurrentRoom() == ole_henriksen) {
-            System.out.println("Ole Henriksen står fremme i al sin fabulousness");
-            System.out.println("Han kigger nysgerrigt på dig, som en løve.");
-            System.out.println("...");
-            System.out.println("Hvis en løve var gay\n");
-        } else if (player.getCurrentRoom() == diskotekets_dør) {
-            System.out.println("Dørmanden kigger surt på dig");
-            System.out.println("Det er kun de mest swagste folk, som bliver lukket ind");
-            System.out.println("Der ligger et par mønter på jorden\n");
-        } else if (player.getCurrentRoom() == gulddreng) {
-            System.out.println("Gulddrengs pige fans skriger højere end gulddreng synger");
-            System.out.println("Han ser ud til at mangle noget");
-            System.out.println("Pengene er smidt ud over det hele\n");
-        } else if (player.getCurrentRoom() == bjarne_riis) {
-            System.out.println("Du er ude på landet. Det eneste, du kan se er Bjarne Riis' skygge");
-            System.out.println("Resten af manden er allerede langt over alle bakker");
-            System.out.println("Det ligger nogle få mønter på jorden, utroligt Bjarne Riis har overset dem\n");
-        } else if (player.getCurrentRoom() == diskoteket) {
-            System.out.println("Der er fuckboys og duller galore");
-            System.out.println("Der sidder en lækker lille sag oppe ved baren, måske skulle man snakke med hende?");
-            System.out.println("Der sidder en rigtig makker nede ved et af bordene. Han vinker dig hen\n");
-        } else if (player.getCurrentRoom() == sidney_lee) {
-            System.out.println("Sidney Lee står og smørrer sig ind i bruncreme,");
-            System.out.println("han virker klar til en gang dans\n");
-        }
+        System.out.println("get (Swagting)  |  go (Direction)  |  interact (NPC)\n");
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
