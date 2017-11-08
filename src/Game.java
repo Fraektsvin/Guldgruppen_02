@@ -4,7 +4,7 @@ import npcs.*;
 public class Game {
 
     private final Parser parser;
-    private final Player player;
+    private Player player;
     private Room currentRoom;
 
     /*
@@ -15,9 +15,9 @@ public class Game {
     private final GameTimer gameTimer = new GameTimer();
 
     public Game(Player player) {
+        this.player = player;
         createRooms();
         parser = new Parser();
-        this.player = player;
     }
 
     public void play() {
@@ -94,6 +94,8 @@ public class Game {
                 case INTERACT:
                     interactNPC(command);
                     wantToQuit = inventoryQuit();
+                    break;
+                case SAVE:
                     break;
                 default:
                     break;

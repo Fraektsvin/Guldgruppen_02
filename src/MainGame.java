@@ -12,6 +12,8 @@ public class MainGame {
         gameTimer.timerStart();
         Player n = new Player("Erik Deluxe");
         n.displayName();
+        HighscoresManager saver = new HighscoresManager();
+        saver.savePlayer(n);
         Game swag_city = new Game(n);
         swag_city.play();
     }

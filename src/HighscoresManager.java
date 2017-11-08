@@ -1,22 +1,29 @@
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class HighscoresManager {
 
-    private ArrayList<Score> scores;
+    private final ArrayList<Score> scores;
 
     private static final File HIGHSCORE_FILE = new File("Highscore.txt");
+    private static final File PLAYER_FILE = new File("GameSaver");
 
     FileWriter fileWriter = null;
 
     public HighscoresManager() {
-        scores = new ArrayList<Score>();
+        scores = new ArrayList<>();
     }
 
     /*
@@ -57,6 +64,33 @@ public class HighscoresManager {
         } catch (IOException ex) {
             System.err.println("*** fejl ved FileWriter ***");
         }
-
+    }
+    
+    public void savePlayer(Player player) {
+        try {
+            FileOutputStream outputStream = new FileOutputStream(PLAYER_FILE);
+            ObjectOutputStream savePlayerStream = new ObjectOutputStream(outputStream);
+            savePlayerStream.writeObject(player);
+            outputStream.close();
+            savePlayerStream.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void loadPlayer() {
+        try {
+            FileInputStream inputStream = new FileInputStream(PLAYER_FILE);
+            ObjectInputStream savePlayerStream = new ObjectInputStream(inputStream);
+            //savePlayerStream.writeObject();
+            inputStream.close();
+            savePlayerStream.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
