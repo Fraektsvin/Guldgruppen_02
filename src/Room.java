@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import npcs.NPC;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 
-public class Room {
+public class Room implements Serializable {
 
     private String description;
     private HashMap<String, Room> exits;

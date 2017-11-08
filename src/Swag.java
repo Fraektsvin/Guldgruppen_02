@@ -1,5 +1,8 @@
 
-public class Swag {
+import java.io.Serializable;
+
+
+public class Swag implements Serializable {
 
     String swagDescription;
     

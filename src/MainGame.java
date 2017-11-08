@@ -13,8 +13,7 @@ public class MainGame {
         Player n = new Player("Erik Deluxe");
         n.displayName();
         HighscoresManager saver = new HighscoresManager();
-        saver.savePlayer(n);
-        Game swag_city = new Game(n);
+        Game swag_city = new Game(n, saver);
         swag_city.play();
     }
       

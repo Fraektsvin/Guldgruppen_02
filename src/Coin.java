@@ -1,5 +1,8 @@
 
-public class Coin {
+import java.io.Serializable;
+
+
+public class Coin implements Serializable {
 
     public Coin(int value, String name) {
     }

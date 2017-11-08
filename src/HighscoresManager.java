@@ -80,17 +80,21 @@ public class HighscoresManager {
         }
     }
     
-    public void loadPlayer() {
+    public Player loadPlayer() {
+        Player player = null;
         try {
             FileInputStream inputStream = new FileInputStream(PLAYER_FILE);
-            ObjectInputStream savePlayerStream = new ObjectInputStream(inputStream);
-            //savePlayerStream.writeObject();
+            ObjectInputStream loadPlayerStream = new ObjectInputStream(inputStream);
+            player = (Player)loadPlayerStream.readObject();
             inputStream.close();
-            savePlayerStream.close();
+            loadPlayerStream.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return player;
     }
 }
