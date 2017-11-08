@@ -15,7 +15,7 @@ public class Game {
     //Vi opretter en ArrayList til at indeholde vores ting som ligger i inventory.
     static ArrayList<Coin> pengepung = new ArrayList<Coin>();
     static ArrayList<Swag> inventory = new ArrayList<Swag>();
-    
+
     GameTimer gameTimer = new GameTimer();
 
     public Game() {
@@ -69,39 +69,40 @@ public class Game {
             return false;
         }
         if (null != commandWord) //Kommandoer som bruges til at spille spillet.
-        switch (commandWord) {
-            case HELP:
-                printHelp();
-                break;
-            case GO:
-                wantToQuit = goRoom(command);
-                break;
-            case QUIT:
-                wantToQuit = quit(command);
-                break;
-            case LOOK:
-                printLook();
-                break;
-            case INVENTORY:
-                printInventory();
-                break;
-        //der blevet lavet en ny kommando med Get så der kan pickes items up
-            case PENGEPUNG:
-                printPengepung();
-                break;
-            case GET:
-                getCoin(command);
-                break;
-            case INTERACT:
-                interactNPC(command);
-                wantToQuit = inventoryQuit();
-                break;
-            default:
-                break;
+        {
+            switch (commandWord) {
+                case HELP:
+                    printHelp();
+                    break;
+                case GO:
+                    wantToQuit = goRoom(command);
+                    break;
+                case QUIT:
+                    wantToQuit = quit(command);
+                    break;
+                case LOOK:
+                    printLook();
+                    break;
+                case INVENTORY:
+                    printInventory();
+                    break;
+                //der blevet lavet en ny kommando med Get så der kan pickes items up
+                case PENGEPUNG:
+                    printPengepung();
+                    break;
+                case GET:
+                    getCoin(command);
+                    break;
+                case INTERACT:
+                    interactNPC(command);
+                    wantToQuit = inventoryQuit();
+                    break;
+                default:
+                    break;
+            }
         }
         return wantToQuit;
     }
-        
 
     //Metode til at fjerne penge fra rummene og tilføje dem til ArrayListen pengepung.
     private void getCoin(Command command) {
@@ -121,7 +122,7 @@ public class Game {
             System.out.println("Samlede " + coinItemName + "ne op\n");
         }
     }
-    
+
     //Metode til at tjekke om en item er i ArrayListen inventory.
     private Swag getSwag(String swagName) {
         for (int i = 0; i < inventory.size(); i++) {
@@ -185,7 +186,7 @@ public class Game {
             System.out.println("han virker klar til en gang dans\n");
         }
     }
-    
+
     //Printer ArrayListen inventory's indhold til skærmen.
     private void printInventory() {
         String output = "";
@@ -254,6 +255,8 @@ public class Game {
                 System.out.println("Din score er " + Score + " points\n");
                 return true;
             }
+            HighscoresManager highscoresManager = new HighscoresManager();
+            highscoresManager.saveScoreFile();
         }
         return false;
     }
@@ -278,7 +281,7 @@ public class Game {
             return false;
         }
     }
-    
+
     //Metode til at fjerne items fra ArrayListen inventory.
     public void removeSwag(String SwagName) {
         for (int i = 0; i < inventory.size(); i++) {
@@ -451,8 +454,7 @@ public class Game {
             NPC_DM npc_dm = new NPC_DM("", "");
             if (getSwag("Seddel fra Ole Henriksen") == null) {
                 System.out.println("Smut med dig, jeg har travlt.\n");
-            }
-            else if (getSwag("Dørmandens nummer") != null) {
+            } else if (getSwag("Dørmandens nummer") != null) {
                 System.out.println("Du har allerede fået dørmandens nummer");
                 System.out.println("Måske du skulle aflevere den hos Ole Henriksen.\n");
             } else if (getSwag("EPO") != null) {
@@ -492,9 +494,9 @@ public class Game {
             System.out.println("east = Randers   |   south = Johnny Bravo   |   north = Diskotekets indgang");
             System.out.println("Resten er op til dig. Held og lykke Erik Deluxe!\n");
         } else if (getSwag("EPO") != null) {
-                System.out.println("Der blev sagt ingen kommentarer");
-                System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
-                inventory.clear();
+            System.out.println("Der blev sagt ingen kommentarer");
+            System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
+            inventory.clear();
         } else {
             System.out.println("Hvem prøver du at kontakte?\n");
         }
