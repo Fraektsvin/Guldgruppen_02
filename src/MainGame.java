@@ -15,14 +15,10 @@ public class MainGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        {
-       for (int i = 1; i < 6; i++) 
-            {
-             System.out.println(i);
-        }
+        GameTimer gameTimer = new GameTimer();
+        gameTimer.timerStart();
         player n = new player("Erik Deluxe");
         n.displayName();
-        }
         Game swag_city = new Game();
         swag_city.play();     
     }
