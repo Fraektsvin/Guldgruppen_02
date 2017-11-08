@@ -1,20 +1,20 @@
 package npcs;
 
-
 import java.util.Scanner;
 
-
 public class NPC_MD extends NPC {
-    
-  
-    
+
     public NPC_MD() {
         super("Mokai dealer", "");
     }
-    
-    public boolean quest1; {
+
+    public boolean quest1;
+
+    {
         quest1 = false;
     }
+
+    @Override
     public void interact(Scanner input) {
         System.out.println("Mokai dealer: Jeg leverer de mest friske mokai's du kan få");
         System.out.println("Mokai dealer: Har du guldpenge fra Gulddrengen!?");

@@ -1,17 +1,17 @@
 
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class GameTimer {
+
     static int timeRemaining = 120;
-    
+
     Timer timer = new Timer();
     TimerTask task = new TimerTask() {
+        @Override
         public void run() {
             timeRemaining--;
-            
+
             if (timeRemaining <= 0) {
                 timer.cancel();
                 System.out.println("\nTiden løb fra dig! Bedre held næste gang.");
@@ -20,11 +20,11 @@ public class GameTimer {
             }
         }
     };
-    
+
     public void timerStart() {
         timer.scheduleAtFixedRate(task, 1000, 1000);
     }
-    
+
     public void timerStop() {
         System.exit(0);
     }

@@ -1,20 +1,20 @@
 package npcs;
 
-
 import java.util.Scanner;
 
-
 public class NPC_DM extends NPC {
-    
 
-    
     public NPC_DM() {
         super("Dørmand", "Holdt holdt holdt! Ingen adgang på diskoteket med en så lav swag-promille.");
     }
-    
-    public boolean quest1; {
+
+    public boolean quest1;
+
+    {
         quest1 = false;
     }
+
+    @Override
     public void interact(Scanner input) {
         System.out.println("Dørmand: Vil Ole Henriksen have mit nummer? Kom lige med mig.");
         System.out.println("*I bevæger jer væk fra indgangen til diskuteket*");

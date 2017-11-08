@@ -1,12 +1,8 @@
 
 import java.io.FileNotFoundException;
 
-
 public class MainGame {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws FileNotFoundException {
         GameTimer gameTimer = new GameTimer();
         gameTimer.timerStart();
@@ -16,5 +12,5 @@ public class MainGame {
         Game swag_city = new Game(n, saver);
         swag_city.play();
     }
-      
+
 }

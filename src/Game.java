@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import npcs.*;
 
@@ -12,8 +13,8 @@ public class Game {
     Rooms placere vi udenfor 'createRoom' metoden,
     således vi kan tilgå rummene i andre metoder senere.
      */
-    private Room swag_city, randers, johnny_bravo, mors_hus, gulddreng, 
-            bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame, 
+    private Room swag_city, randers, johnny_bravo, mors_hus, gulddreng,
+            bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame,
             ole_henriksen, michael_jackson;
     private final GameTimer gameTimer = new GameTimer();
 
@@ -286,7 +287,7 @@ public class Game {
                 System.out.println("Du har allerede fået Beatrice's nummer");
                 System.out.println("Måske du skulle aflevere det hos Johnny Bravo.\n");
             } else if (getSwag("Johnny Bravo håret") != null) {
-                System.out.println("Denne mission er allerede færdiggjort.\n");  
+                System.out.println("Denne mission er allerede færdiggjort.\n");
             } else if (getSwag("EPO") != null) {
                 System.out.println("Der blev sagt ingen kommentarer");
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
