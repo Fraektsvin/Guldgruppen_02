@@ -13,8 +13,8 @@ public class Game {
     Room swag_city, randers, johnny_bravo, mors_hus, gulddreng, bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame, ole_henriksen, michael_jackson;
 
     //Vi opretter en ArrayList til at indeholde vores ting som ligger i inventory.
-    static ArrayList<Coin> pengepung = new ArrayList<Coin>();
-    static ArrayList<Swag> inventory = new ArrayList<Swag>();
+    ArrayList<Coin> pengepung = new ArrayList<Coin>();
+    ArrayList<Swag> inventory = new ArrayList<Swag>();
     
     GameTimer gameTimer = new GameTimer();
 
@@ -32,6 +32,7 @@ public class Game {
             finished = processCommand(command);
         }
         System.out.println("Tak fordi at du spillede med os, din stodder.");
+        gameTimer.timerStop();
     }
 
     //Printer en intro til spillet når spillet startes.
@@ -322,6 +323,8 @@ public class Game {
             if (getSwag("Beatrice's nummer") != null) {
                 System.out.println("Du har allerede fået Beatrice's nummer");
                 System.out.println("Måske du skulle aflevere det hos Johnny Bravo.\n");
+            } else if (getSwag("Johnny Bravo håret") != null) {
+                System.out.println("Denne mission er allerede færdiggjort.\n");  
             } else if (getSwag("EPO") != null) {
                 System.out.println("Der blev sagt ingen kommentarer");
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");

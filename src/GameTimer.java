@@ -7,7 +7,6 @@ import java.util.TimerTask;
 public class GameTimer {
     static int timeRemaining = 120;
     
-    ArrayList<Swag> inventory = Game.inventory;
     Timer timer = new Timer();
     TimerTask task = new TimerTask() {
         public void run() {
@@ -24,5 +23,9 @@ public class GameTimer {
     
     public void timerStart() {
         timer.scheduleAtFixedRate(task, 1000, 1000);
+    }
+    
+    public void timerStop() {
+        System.exit(0);
     }
 }
