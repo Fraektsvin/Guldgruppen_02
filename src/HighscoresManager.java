@@ -52,8 +52,7 @@ public class HighscoresManager {
     public void saveScoreFile() {
         try {
             fileWriter = new FileWriter(HIGHSCORE_FILE);
-            System.out.println("går ind i saveScore");
-            fileWriter.append("Gooodauuuv");
+            fileWriter.append("TEST");
             fileWriter.close();
         } catch (IOException ex) {
             System.err.println("*** fejl ved FileWriter ***");
