@@ -55,7 +55,7 @@ public class Game {
         System.out.println("disse swagting bruges som spillets liv, frarøves alle swagtingene taber man spillet,");
         System.out.println("og for at vinde spillet skal man besejre Sidney Lee i en dancebattle,");
         System.out.println("for at blive byens nye mest swagste person.\n\n");
-        System.out.println("Din spilletid er nu gået i gang, du har " + gameTimer.timeRemaining + " sekunder tilbage.");
+        System.out.println("Din spilletid er nu gået i gang, du har " + GameTimer.timeRemaining + " sekunder tilbage.");
         System.out.println("For hver mission du klarer får du et minut mere at spille for. Held og lykke!\n");
         System.out.println("Har du brug for hjælp? Skriv '" + CommandWord.HELP + "' hvis du er fuld.\n\n");
         System.out.println(player.getCurrentRoom().getLongDescription());
@@ -214,7 +214,7 @@ public class Game {
                 int Score;
                 Score = (player.getInventory().size() * 100) + (player.getPengepung().size() * 25);
                 System.out.println("Din score er " + Score + " points.\n");
-                System.out.println("Du havde " + gameTimer.timeRemaining + " sekunder tilbage.\n");
+                System.out.println("Du havde " + GameTimer.timeRemaining + " sekunder tilbage.\n");
                 return true;
             }
             HighscoresManager highscoresManager = new HighscoresManager();
@@ -269,7 +269,7 @@ public class Game {
                 removeSwag("Beatrice's nummer");
                 player.getInventory().add(new Swag("Johnny Bravo håret"));
                 System.out.println("Mission fuldført.\n");
-                gameTimer.timeRemaining += 60;
+                GameTimer.timeRemaining += 60;
             } else if (getSwag("EPO") != null) {
                 System.out.println("Der blev sagt ingen kommentarer");
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
@@ -312,7 +312,7 @@ public class Game {
                 if (npc_mj.quest1 == true) {
                     player.getInventory().add(new Swag("Michael Jacksons guldsko"));
                     System.out.println("Mission fuldført.\n");
-                    gameTimer.timeRemaining += 60;
+                    GameTimer.timeRemaining += 60;
                 }
             }
         } else if (player.getCurrentRoom() == gulddreng && command.getSecondWord().equalsIgnoreCase("gulddreng")) {
@@ -327,7 +327,7 @@ public class Game {
                 removeSwag("Frisk mokai");
                 player.getInventory().add(new Swag("Gulddreng's guldkæde"));
                 System.out.println("Mission fuldført.\n");
-                gameTimer.timeRemaining += 60;
+                GameTimer.timeRemaining += 60;
             } else if (getSwag("EPO") != null) {
                 System.out.println("Der blev sagt ingen kommentarer");
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
@@ -369,7 +369,7 @@ public class Game {
                 removeSwag("EPO");
                 player.getInventory().add(new Swag("Bjarne Riis's hurtig briller"));
                 System.out.println("Mission fuldført.\n");
-                gameTimer.timeRemaining += 60;
+                GameTimer.timeRemaining += 60;
             } else {
                 npc_br.interact(scanner);
                 if (npc_br.quest1 == true) {
@@ -403,7 +403,7 @@ public class Game {
                 removeSwag("Dørmandens nummer");
                 player.getInventory().add(new Swag("Fabulous tøj fra Ole Henriksen"));
                 System.out.println("Mission fuldført.\n");
-                gameTimer.timeRemaining += 60;
+                GameTimer.timeRemaining += 60;
             } else if (getSwag("EPO") != null) {
                 System.out.println("Der blev sagt ingen kommentarer");
                 System.out.println("Du snakkede med nogen mens du havde EPO - Game over!\n");
