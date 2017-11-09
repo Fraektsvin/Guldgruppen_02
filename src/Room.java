@@ -83,7 +83,7 @@ public class Room implements Serializable {
             }
             return output;
         } else {
-            return output + "Ingen swagting!";
+            return output + "Ingen ting!\n";
         }
     }
 

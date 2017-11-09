@@ -121,7 +121,7 @@ public class Game {
         Coin newCoin = player.getCurrentRoom().getCoin(coinItemName);
 
         if (newCoin == null) {
-            System.out.println("  Den swag eksistere ikke\n");
+            System.out.println("  Den ting eksistere ikke\n");
         } else {
             player.getPengepung().add(newCoin);
             player.getCurrentRoom().removeCoin(coinItemName);
@@ -198,10 +198,10 @@ public class Game {
             if (player.getCurrentRoom() == sidney_lee) {
                 NPC_SL npc_sl = new NPC_SL();
                 npc_sl.interact(scanner);
-                if (npc_sl.quest1 == true) {
+                if (npc_sl.isQuest() == true) {
                     sidney_lee.lockExit("south", false);
                     System.out.println("\nDu har besejret Sidney Lee, træd venligst ind i Hall of Fame (south exit)\n");
-                } else if (npc_sl.quest1 == false) {
+                } else if (npc_sl.isQuest() == false) {
                     System.out.println("Du tabte til Sidney Lee - Game over!\n");
                     player.getInventory().clear();
                     return true;
@@ -276,7 +276,7 @@ public class Game {
                 player.getInventory().clear();
             } else {
                 npc_jb.interact(scanner);
-                if (npc_jb.quest1 == true) {
+                if (npc_jb.isQuest() == true) {
                     player.getInventory().add(new Swag("Seddel fra Johnny Bravo"));
                     randers.setNPC(new NPC_BT());
                 }
@@ -294,7 +294,7 @@ public class Game {
                 player.getInventory().clear();
             } else {
                 npc_bt.interact(scanner);
-                if (npc_bt.quest1 == true) {
+                if (npc_bt.isQuest() == true) {
                     removeSwag("Seddel fra Johnny Bravo");
                     player.getInventory().add(new Swag("Beatrice's nummer"));
                 }
@@ -309,7 +309,7 @@ public class Game {
                 player.getInventory().clear();
             } else {
                 npc_mj.interact(scanner);
-                if (npc_mj.quest1 == true) {
+                if (npc_mj.isQuest() == true) {
                     player.getInventory().add(new Swag("Michael Jacksons guldsko"));
                     System.out.println("Mission fuldført.\n");
                     GameTimer.timeRemaining += 60;
@@ -334,7 +334,7 @@ public class Game {
                 player.getInventory().clear();
             } else {
                 npc_gd.interact(scanner);
-                if (npc_gd.quest1 == true) {
+                if (npc_gd.isQuest() == true) {
                     player.getInventory().add(new Swag("Guldpenge fra Gulddrengen"));
                     randers.setNPC(new NPC_MD());
                 }
@@ -350,7 +350,7 @@ public class Game {
                 player.getInventory().clear();
             } else {
                 npc_md.interact(scanner);
-                if (npc_md.quest1 == true) {
+                if (npc_md.isQuest() == true) {
                     removeSwag("Guldpenge fra Gulddrengen");
                     player.getInventory().add(new Swag("Frisk mokai"));
                 }
@@ -372,7 +372,7 @@ public class Game {
                 GameTimer.timeRemaining += 60;
             } else {
                 npc_br.interact(scanner);
-                if (npc_br.quest1 == true) {
+                if (npc_br.isQuest() == true) {
                     player.getInventory().add(new Swag("Seddel fra Bjarne Riis"));
                     swag_city.setNPC(new NPC_EPO());
                 }
@@ -384,7 +384,7 @@ public class Game {
                 System.out.println("Måske du skulle aflevere den hos Bjarne Riis.\n");
             } else {
                 npc_epo.interact(scanner);
-                if (npc_epo.quest1 == true) {
+                if (npc_epo.isQuest() == true) {
                     removeSwag("Seddel fra Bjarne Riis");
                     player.getInventory().add(new Swag("EPO"));
                 }
@@ -410,7 +410,7 @@ public class Game {
                 player.getInventory().clear();
             } else {
                 npc_oh.interact(scanner);
-                if (npc_oh.quest1 == true) {
+                if (npc_oh.isQuest() == true) {
                     player.getInventory().add(new Swag("Seddel fra Ole Henriksen"));
                 }
             }
@@ -427,7 +427,7 @@ public class Game {
                 player.getInventory().clear();
             } else {
                 npc_dm.interact(scanner);
-                if (npc_dm.quest1 == true) {
+                if (npc_dm.isQuest() == true) {
                     removeSwag("Seddel fra Ole Henriksen");
                     player.getInventory().add(new Swag("Dørmandens nummer"));
                 }
@@ -435,7 +435,7 @@ public class Game {
         } else if (player.getCurrentRoom() == mors_hus && command.getSecondWord().equalsIgnoreCase("mor")) {
             NPC_MOR npc_mor = new NPC_MOR();
             npc_mor.interact(scanner);
-            if (npc_mor.quest1 == true) {
+            if (npc_mor.isQuest() == true) {
                 player.getInventory().clear();
             } else if (getSwag("EPO") != null) {
                 System.out.println("Der blev sagt ingen kommentarer");
@@ -445,7 +445,7 @@ public class Game {
         } else if (player.getCurrentRoom() == randers && command.getSecondWord().equalsIgnoreCase("biver")) {
             NPC_RT npc_rt = new NPC_RT();
             npc_rt.interact(scanner);
-            if (npc_rt.quest1 == true) {
+            if (npc_rt.isQuest() == true) {
                 player.getInventory().clear();
             } else if (getSwag("EPO") != null) {
                 System.out.println("Der blev sagt ingen kommentarer");
