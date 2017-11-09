@@ -8,12 +8,6 @@ public class NPC_RT extends NPC {
         super("Biver", "Jeg er lederen af randers typerne! Vi drikker mokai og spiller hornmusik!");
     }
 
-    public boolean quest1;
-
-    {
-        quest1 = false;
-    }
-
     @Override
     public void interact(Scanner input) {
         System.out.println("Biver: Hey, mand. Fedt kluns! Skal du ikke have en mokaï med os andre? (ja/nej)");
@@ -23,7 +17,7 @@ public class NPC_RT extends NPC {
             System.out.println("...");
             System.out.println("...");
             System.out.println("Du blev fuld og randers typerne tog alt dit swag\n");
-            quest1 = true;
+            setQuest(true);
         } else if (answer1.equalsIgnoreCase("nej")) {
             System.out.println("Biver: ej, hvor er du nedern, mand!\n");
         } else {

@@ -8,12 +8,6 @@ public class NPC_SL extends NPC {
         super("Sidney Lee", "Jeg er forlækker til love!");
     }
 
-    public boolean quest1;
-
-    {
-        quest1 = false;
-    }
-
     @Override
     public void interact(Scanner input) {
         System.out.println("Sidney Lee: Så du er den nye fyr i byen… Fedt kluns, af en taber. Lad os se hvad du dur til! DJ, spin that shit!");
@@ -22,11 +16,11 @@ public class NPC_SL extends NPC {
         if (answer1.equalsIgnoreCase("3")) {
             System.out.println("Sidney Lee: Pokkers du svarede korrekt...");
             System.out.println("Sidney Lee: Jeg overgiver mig, jeg er besejret.");
-            quest1 = true;
+            setQuest(true);
         } else {
             System.out.println("Sidney Lee: Ha-ha-ha-ha det var jo nemmere end at spille Tekken med bind for øjnene\n");
             System.out.println("Sidney Lee: Smut ud af min by! Du hører ikke til her");
-            quest1 = false;
+            setQuest(false);
         }
     }
 }

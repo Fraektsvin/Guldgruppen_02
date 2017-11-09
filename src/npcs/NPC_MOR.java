@@ -8,12 +8,6 @@ public class NPC_MOR extends NPC {
         super("Mor", "Velkommen hjem søn!");
     }
 
-    public boolean quest1;
-
-    {
-        quest1 = false;
-    }
-
     @Override
     public void interact(Scanner input) {
         System.out.println("Mor: Hvad er det dog, du har på? Skøre barn… Kan du ikke tage den der ting af og komme ind og få et stykke kage? (ja/nej)");
@@ -23,7 +17,7 @@ public class NPC_MOR extends NPC {
             System.out.println("...");
             System.out.println("...");
             System.out.println("Du faldt i søvn og missede chancen for at battle Sidney Lee");
-            quest1 = true;
+            setQuest(true);
         } else if (answer1.equalsIgnoreCase("nej")) {
             System.out.println("Mor: Hvordan er det jeg har opdraget dig!? Uartige knægt, du skal gøre som mor siger. Smut med dig nu, jeg skal gøre rent.\n");
         } else {
