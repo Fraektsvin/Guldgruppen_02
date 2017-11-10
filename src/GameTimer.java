@@ -4,15 +4,14 @@ import java.util.TimerTask;
 
 public class GameTimer {
 
-    static int timeRemaining = 120;
+    private int timeRemaining = 120;
 
     Timer timer = new Timer();
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
             timeRemaining--;
-
-            if (timeRemaining <= 0) {
+            if (getTimeRemaining() <= 0) {
                 timer.cancel();
                 System.out.println("\nTiden løb fra dig! Bedre held næste gang.");
                 System.out.println("Tak fordi at du spillede med os, din stodder.");
@@ -27,5 +26,17 @@ public class GameTimer {
 
     public void timerStop() {
         System.exit(0);
+    }
+
+    public int getTimeRemaining() {
+        return timeRemaining;
+    }
+    
+    public void addTime(int time) {
+        timeRemaining += time;
+    }
+
+    void setTime(int savedTime) {
+        timeRemaining = savedTime;
     }
 }
