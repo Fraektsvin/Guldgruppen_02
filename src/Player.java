@@ -6,7 +6,6 @@ public class Player implements Serializable {
 
     private final String name;
     private Room currentRoom;
-    // Erik forslag:
     private int savedTime;
 
     private final ArrayList<Coin> pengepung = new ArrayList<>();

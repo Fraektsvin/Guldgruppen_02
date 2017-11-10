@@ -10,7 +10,7 @@ public class Room implements Serializable {
     private String description;
     private HashMap<String, Room> exits;
     //Vi opretter en ArrayList som kan indeholde de ting vi placere i de forskellige rum.
-    ArrayList<Coin> coins = new ArrayList<Coin>();
+    ArrayList<Coin> coins = new ArrayList<>();
 
     //Vi opretter et HashMap som kan indeholde npc'er som skal være i de forskellige rum.
     private HashMap<String, NPC> characters;

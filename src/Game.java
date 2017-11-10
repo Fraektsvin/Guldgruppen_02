@@ -16,6 +16,7 @@ public class Game {
     private Room swag_city, randers, johnny_bravo, mors_hus, gulddreng,
             bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame,
             ole_henriksen, michael_jackson;
+    
     private final GameTimer gameTimer = new GameTimer();
 
     public Game(Player player, HighscoresManager HM) {
@@ -35,7 +36,7 @@ public class Game {
             finished = processCommand(command);
         }
         System.out.println("Tak fordi at du spillede med os, din stodder.");
-        //gameTimer.timerStop();
+        gameTimer.timerStop();
     }
 
     //Printer en intro til spillet når spillet startes.

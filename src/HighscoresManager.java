@@ -17,7 +17,7 @@ public class HighscoresManager {
 
     private final ArrayList<Score> scores;
 
-    private static final File HIGHSCORE_FILE = new File("Highscore.txt");
+    private static final File HIGHSCORE_FILE = new File("Highscore");
     private static final File PLAYER_FILE = new File("GameSaver");
 
     FileWriter fileWriter = null;
