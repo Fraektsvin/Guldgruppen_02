@@ -282,7 +282,7 @@ public class Game {
             return false;
         }
     }
-
+    
     //Metode til at fjerne items fra ArrayListen player.getInventory().
     public void removeSwag(String SwagName) {
         for (int i = 0; i < player.getInventory().size(); i++) {

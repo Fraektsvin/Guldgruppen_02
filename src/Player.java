@@ -5,6 +5,7 @@ public class Player {
 
     private final String name;
     private Room currentRoom;
+    private int score; 
 
     private final ArrayList<Coin> pengepung = new ArrayList<>();
     private final ArrayList<Swag> inventory = new ArrayList<>();
@@ -31,5 +32,11 @@ public class Player {
 
     public void displayName() {
         System.out.println(name);
+    }
+     public int getScore() {
+        return score;
+    }
+     public void setScore(int score) {
+        this.score = score;
     }
 }
