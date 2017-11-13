@@ -133,7 +133,7 @@ public class Game {
         }
     }
 
-    //Metode til at tjekke om en item er i ArrayListen player.getInventory().
+    //Metode til at tjekke om en item er i ArrayListen Player's inventory.
     private Swag getSwag(String swagName) {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getSwagDescription().equals(swagName)) {
@@ -493,15 +493,15 @@ public class Game {
         swag_city = new Room("Du er ved Swag City byskiltet");
         randers = new Room("Du er ved Randers, hjemstedet for Mokaien");
         mors_hus = new Room("Du er hjemme ved mor");
-        gulddreng = new Room("Lyden af højt musik. Du er hos Gulddrengen");
-        bjarne_riis = new Room("Så går det stærkt, du er hos Bjarne Riis");
-        diskotekets_dør = new Room("Høj lyd af bass, festen venter bag diskotekets dør");
-        diskoteket = new Room("BOOM BOOM WOOP WOOP PARTY PARTY, du er på diskoteket");
-        sidney_lee = new Room("Lugten af selvbruner & foundation fylder lokalet");
+        gulddreng = new Room("Du er hos Gulddrengen");
+        bjarne_riis = new Room("Du er hos Bjarne Riis");
+        diskotekets_dør = new Room("Du er ved indgangen til diskoteket");
+        diskoteket = new Room("Du er på diskoteket");
+        sidney_lee = new Room("Du er i Sidney Lee's private rum");
         hall_fame = new Room("Du har besejret Sidney Lee, du er en sand cremerider helt");
-        ole_henriksen = new Room("Du ser stramme jeans og en tanktop spændt op til lir, totalt fabulous. Hvem mon det er?");
-        michael_jackson = new Room("Bam! You've been struck by a smooth criminal");
-        johnny_bravo = new Room("Hih hah huh, Johnny Bravo");
+        ole_henriksen = new Room("Du er hos Ole Henriksen");
+        michael_jackson = new Room("Du er hos Michael Jackson");
+        johnny_bravo = new Room("Du er hos Johnny Bravo");
 
         swag_city.setExit("east", randers);
         swag_city.setExit("south", johnny_bravo);
