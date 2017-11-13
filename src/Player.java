@@ -1,11 +1,14 @@
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Player {
+public class Player implements Serializable {
 
     private final String name;
     private Room currentRoom;
+    private int savedTime;
     private int score; 
+    private int coin;
 
     private final ArrayList<Coin> pengepung = new ArrayList<>();
     private final ArrayList<Swag> inventory = new ArrayList<>();
@@ -38,5 +41,24 @@ public class Player {
     }
      public void setScore(int score) {
         this.score = score;
+    }
+
+    public int getSavedTime() {
+        return savedTime;
+    }
+
+    public void setSavedTime(int savedTime) {
+        this.savedTime = savedTime;
+    }
+        public void setCoin(int coin) {
+        this.coin = coin;
+    }
+
+    public int getCoin() {
+        return coin;
+    }
+
+    public String getName() {
+        return name;
     }
 }

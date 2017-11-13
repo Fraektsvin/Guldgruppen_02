@@ -1,22 +1,15 @@
 package npcs;
 
-
 import java.util.Scanner;
 
-
 public class NPC_BR extends NPC {
-    
-    Scanner input = new Scanner(System.in);
     
     public NPC_BR() {
         super("Bjarne Riis", "Cykle, cykle, cykle. Ikke tænk på EPO!");
     }
     
-    public boolean quest1; {
-        quest1 = false;
-    }
     @Override
-    public void interact() {
+    public void interact(Scanner input) {
         System.out.println("Bjarne Riis: Hurtigt! Er du villig til at hjælpe mig? (ja/nej)");
         String answer1 = input.nextLine();
         if (answer1.equalsIgnoreCase("ja")) {
@@ -25,19 +18,15 @@ public class NPC_BR extends NPC {
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
                 System.out.println("Bjarne Riis: Godt, skynd dig! Tour de france er lige om hjørnet!\n");
-                quest1 = true;
-            }
-            else if (answer2.equalsIgnoreCase("nej")) {
+                setQuest(true);
+            } else if (answer2.equalsIgnoreCase("nej")) {
                 System.out.println("Bjarne Riis: I så fald har du ikke hørt noget, ingen kommentarer herfra!\n");
-            }
-            else {
+            } else {
                 System.out.println("Bjarne Riis: Du har taget for meget EPO, unge mand!\n");
             }
-        }
-        else if (answer1.equalsIgnoreCase("nej")) {
+        } else if (answer1.equalsIgnoreCase("nej")) {
             System.out.println("Bjarne Riis: Nutidens ungdom…\n");
-        }
-        else {
+        } else {
             System.out.println("Bjarne Riis: Du har taget for meget EPO, unge mand!\n");
         }
     }
