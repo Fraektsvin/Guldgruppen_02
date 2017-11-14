@@ -249,13 +249,13 @@ public class Game {
 
     }
 
-    public void addCoin(String CoinName) {
+    private void addCoin(String CoinName) {
         Coin coinToAdd = new Coin(CoinName);
         player.getPengepung().add(coinToAdd);
         player.setScore(player.getScore() + coinToAdd.getVALUE());
     }
 
-    public void addSwag(String Swagname) {
+    private void addSwag(String Swagname) {
         Swag swagToAdd = new Swag(Swagname);
         player.getInventory().add(swagToAdd);
         player.setScore(player.getScore() + swagToAdd.getVALUE());
@@ -267,7 +267,7 @@ public class Game {
     Derfor benyttet vi os af en liste der indebære valuen samt med at der tilføjes items inden i inventory. tilføjelsen af setter og getter i player klassen har dermed gjort at vi kan skabe en ny metode
     inden i game klassen der gør at vi kan udskifte player.getInventory().add(new Swag("Swag håndtegn")); ud med addSwag fordi den indeholder det samme, da vi har skabt en ny metode. 
      */
-    public void removeSwag(String SwagName) {
+    private void removeSwag(String SwagName) {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getSwagDescription().equals(SwagName)) {
                 player.getInventory().remove(i);

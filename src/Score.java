@@ -12,7 +12,5 @@ public class Score {
 
     public String getName() {
         return name;
-
     }
-
 }
