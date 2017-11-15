@@ -222,7 +222,7 @@ public class Game {
                 return true;
             }
             HighscoreManager highscoreManager = new HighscoreManager();
-            highscoreManager.saveScoreFile();
+            highscoreManager.saveScoreFile(player);
         }
         return false;
     }
@@ -539,7 +539,7 @@ public class Game {
 
         player.setCurrentRoom(swag_city);
 
-        player.getInventory().add(new Swag("Swag håndtegn"));
+        addSwag("Swag håndtegn");
 
         //Coins tilføjes til rumene
         johnny_bravo.setCoin(new Coin("penge"));
@@ -562,7 +562,7 @@ public class Game {
         randers.setNPC(new NPC_RT());
 
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", true);
+        diskotekets_dør.lockExit("north", false);
         sidney_lee.lockExit("south", true);
     }
 }
