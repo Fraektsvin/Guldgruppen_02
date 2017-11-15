@@ -1,3 +1,4 @@
+package Business;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ public class Player implements Serializable {
     private final String name;
     private Room currentRoom;
     private int savedTime;
-    private int score; 
+    private int score;
     private int coin;
 
     private final ArrayList<Coin> pengepung = new ArrayList<>();
@@ -36,10 +37,12 @@ public class Player implements Serializable {
     public void displayName() {
         System.out.println(name);
     }
-     public int getScore() {
+
+    public int getScore() {
         return score;
     }
-     public void setScore(int score) {
+
+    public void setScore(int score) {
         this.score = score;
     }
 
@@ -50,7 +53,8 @@ public class Player implements Serializable {
     public void setSavedTime(int savedTime) {
         this.savedTime = savedTime;
     }
-        public void setCoin(int coin) {
+
+    public void setCoin(int coin) {
         this.coin = coin;
     }
 

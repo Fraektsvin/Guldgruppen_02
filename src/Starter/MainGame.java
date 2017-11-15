@@ -1,4 +1,8 @@
+package Starter;
 
+import Business.Game;
+import Data.HighscoreManager;
+import Business.Player;
 import java.io.FileNotFoundException;
 
 public class MainGame {

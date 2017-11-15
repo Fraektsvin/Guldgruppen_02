@@ -1,3 +1,4 @@
+package Business;
 
 public enum CommandWord {
     //æøå understøttes ikke, derfor bruger vi de engelske kommandoer.

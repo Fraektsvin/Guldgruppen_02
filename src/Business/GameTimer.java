@@ -1,3 +1,4 @@
+package Business;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +32,7 @@ public class GameTimer {
     public int getTimeRemaining() {
         return timeRemaining;
     }
-    
+
     public void addTime(int time) {
         timeRemaining += time;
     }
