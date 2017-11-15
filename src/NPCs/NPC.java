@@ -1,4 +1,4 @@
-package NPCs;
+package npcs;
 
 import java.io.Serializable;
 import java.util.Scanner;

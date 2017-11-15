@@ -1,18 +1,6 @@
 package Business;
 
-import NPCs.NPC_DM;
-import NPCs.NPC_MJ;
-import NPCs.NPC_OH;
-import NPCs.NPC_RT;
-import NPCs.NPC_GD;
-import NPCs.NPC_BT;
-import NPCs.NPC_SL;
-import NPCs.NPC_EPO;
-import NPCs.NPC_BR;
-import NPCs.NPC_MOR;
-import NPCs.NPC_ID;
-import NPCs.NPC_MD;
-import NPCs.NPC_JB;
+import NPCs.*;
 import Data.HighscoreManager;
 import Acquaintance.IGame;
 import java.util.Scanner;
@@ -162,16 +150,18 @@ public class Game implements IGame {
     }
 
     //Printer mulige kommandoer til skærmen.
-    private void printHelp() {
+    @Override
+    public void printHelp() {
         System.out.println("Du helt væk, mokaiens dunst sværmer omkring dig.");
         System.out.println("Tag dig sammen.\n");
         System.out.println("Dine råb om hjælp er:");
         parser.showCommands();
-        System.out.println("get (Swagting)  |  go (Direction)  |  interact (NPC)\n");
+        System.out.println("\nget (Swagting)  |  go (Direction)  |  interact (NPC)\n");
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    private void printInventory() {
+    @Override
+    public void printInventory() {
         String output = "";
         for (int i = 0; i < player.getInventory().size(); i++) {
             output += player.getInventory().get(i).getSwagDescription() + "\n";
@@ -180,7 +170,8 @@ public class Game implements IGame {
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    private void printPengepung() {
+    @Override
+    public void printPengepung() {
         String output = "";
         if (player.getPengepung().isEmpty()) {
             output += "Du har ingen mønter\n";

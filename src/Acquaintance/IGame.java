@@ -2,5 +2,8 @@ package Acquaintance;
 
 public interface IGame {
 
-    public String printWelcome();
+    String printWelcome();
+    void printHelp();
+    void printInventory();
+    void printPengepung();
 }
