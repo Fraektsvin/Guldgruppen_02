@@ -6,7 +6,7 @@ public class Game {
 
     private final Parser parser;
     private Player player;
-    private HighscoresManager HM;
+    private final HighscoreManager HM;
     Scanner scanner = new Scanner(System.in);
 
     /*
@@ -19,7 +19,7 @@ public class Game {
 
     private final GameTimer gameTimer = new GameTimer();
 
-    public Game(Player player, HighscoresManager HM) {
+    public Game(Player player, HighscoreManager HM) {
         this.player = player;
         this.HM = HM;
         gameTimer.timerStart();
@@ -221,8 +221,8 @@ public class Game {
                 System.out.println("Du havde " + gameTimer.getTimeRemaining() + " sekunder tilbage.\n");
                 return true;
             }
-            HighscoresManager highscoresManager = new HighscoresManager();
-            highscoresManager.saveScoreFile();
+            HighscoreManager highscoreManager = new HighscoreManager();
+            highscoreManager.saveScoreFile(player);
         }
         return false;
     }
@@ -249,13 +249,13 @@ public class Game {
 
     }
 
-    public void addCoin(String CoinName) {
+    private void addCoin(String CoinName) {
         Coin coinToAdd = new Coin(CoinName);
         player.getPengepung().add(coinToAdd);
         player.setScore(player.getScore() + coinToAdd.getVALUE());
     }
 
-    public void addSwag(String Swagname) {
+    private void addSwag(String Swagname) {
         Swag swagToAdd = new Swag(Swagname);
         player.getInventory().add(swagToAdd);
         player.setScore(player.getScore() + swagToAdd.getVALUE());
@@ -267,7 +267,7 @@ public class Game {
     Derfor benyttet vi os af en liste der indebære valuen samt med at der tilføjes items inden i inventory. tilføjelsen af setter og getter i player klassen har dermed gjort at vi kan skabe en ny metode
     inden i game klassen der gør at vi kan udskifte player.getInventory().add(new Swag("Swag håndtegn")); ud med addSwag fordi den indeholder det samme, da vi har skabt en ny metode. 
      */
-    public void removeSwag(String SwagName) {
+    private void removeSwag(String SwagName) {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getSwagDescription().equals(SwagName)) {
                 player.getInventory().remove(i);
@@ -539,7 +539,7 @@ public class Game {
 
         player.setCurrentRoom(swag_city);
 
-        player.getInventory().add(new Swag("Swag håndtegn"));
+        addSwag("Swag håndtegn");
 
         //Coins tilføjes til rumene
         johnny_bravo.setCoin(new Coin("penge"));
@@ -562,7 +562,7 @@ public class Game {
         randers.setNPC(new NPC_RT());
 
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", true);
+        diskotekets_dør.lockExit("north", false);
         sidney_lee.lockExit("south", true);
     }
 }

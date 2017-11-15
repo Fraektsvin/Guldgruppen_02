@@ -13,34 +13,34 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class HighscoresManager {
+public class HighscoreManager {
 
-    private final ArrayList<Score> scores;
+    private final ArrayList<Integer> score;
 
-    private static final File HIGHSCORE_FILE = new File("Highscore");
+    private static final File HIGHSCORE_FILE = new File("Highscore.txt");
     private static final File PLAYER_FILE = new File("GameSaver");
 
     FileWriter fileWriter = null;
 
-    public HighscoresManager() {
-        scores = new ArrayList<>();
+    public HighscoreManager() {
+        score = new ArrayList<>();
     }
 
     /*
   Denne funktion vil returnere en arrayliste med scoren, loadScoreFile og sort 
   vil sørget for at du får Highscore i sorteret ordning. 
      */
-    public ArrayList<Score> getScores() throws FileNotFoundException {
+    public ArrayList<Integer> getScore() throws FileNotFoundException {
         LoadScoreFile();
         Sort();
-        return scores;
+        return score;
     }
 
     // metoden for sort, så at tingene kan blive sorteret, heraf har java.util alleredde Collection.sort implementeret 
     // Java.util vil derfor via Collection.sort sørge for at organisere scoren med hjælp fra en comparator. 
     private void Sort() {
         ScoreComparator comparator = new ScoreComparator();
-        Collections.sort(scores, comparator);
+        Collections.sort(score, comparator);
     }
 
     public void LoadScoreFile() throws FileNotFoundException {
@@ -59,10 +59,11 @@ public class HighscoresManager {
          */
     }
 
-    public void saveScoreFile() {
+    public void saveScoreFile(Player player) {
         try {
+            int totalScore = player.getScore() + player.getCoin();
             fileWriter = new FileWriter(HIGHSCORE_FILE);
-            fileWriter.append("TEST");
+            fileWriter.append(player.getName() + ": " + totalScore);
             fileWriter.close();
         } catch (IOException ex) {
             System.err.println("*** fejl ved FileWriter ***");
@@ -78,9 +79,9 @@ public class HighscoresManager {
             outputStream.close();
             savePlayerStream.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -94,11 +95,11 @@ public class HighscoresManager {
             inputStream.close();
             loadPlayerStream.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return player;
     }
