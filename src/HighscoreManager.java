@@ -13,7 +13,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class HighscoresManager {
+public class HighscoreManager {
 
     private final ArrayList<Score> scores;
 
@@ -22,7 +22,7 @@ public class HighscoresManager {
 
     FileWriter fileWriter = null;
 
-    public HighscoresManager() {
+    public HighscoreManager() {
         scores = new ArrayList<>();
     }
 
@@ -78,9 +78,9 @@ public class HighscoresManager {
             outputStream.close();
             savePlayerStream.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -94,11 +94,11 @@ public class HighscoresManager {
             inputStream.close();
             loadPlayerStream.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(HighscoresManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HighscoreManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return player;
     }

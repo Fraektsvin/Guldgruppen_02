@@ -6,7 +6,7 @@ public class Game {
 
     private final Parser parser;
     private Player player;
-    private HighscoresManager HM;
+    private final HighscoreManager HM;
     Scanner scanner = new Scanner(System.in);
 
     /*
@@ -19,7 +19,7 @@ public class Game {
     
     private final GameTimer gameTimer = new GameTimer();
 
-    public Game(Player player, HighscoresManager HM) {
+    public Game(Player player, HighscoreManager HM) {
         this.player = player;
         this.HM = HM;
         gameTimer.timerStart();
@@ -221,8 +221,8 @@ public class Game {
                 System.out.println("Du havde " + gameTimer.getTimeRemaining() + " sekunder tilbage.\n");
                 return true;
             }
-            HighscoresManager highscoresManager = new HighscoresManager();
-            highscoresManager.saveScoreFile();
+            HighscoreManager highscoreManager = new HighscoreManager();
+            highscoreManager.saveScoreFile();
         }
         return false;
     }
