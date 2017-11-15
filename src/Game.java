@@ -2,7 +2,7 @@
 import java.util.Scanner;
 import npcs.*;
 
-public class Game {
+public class Game implements IGame {
 
     private final Parser parser;
     private Player player;
@@ -28,7 +28,7 @@ public class Game {
     }
 
     public void play() {
-        printWelcome();
+        System.out.println(printWelcome());
 
         boolean finished = false;
         while (!finished) {
@@ -40,27 +40,30 @@ public class Game {
     }
 
     //Printer en intro til spillet når spillet startes.
-    private void printWelcome() {
+    @Override
+    public String printWelcome() {
         //Intro til spillet
-        System.out.println("Velkommen til Swag City!");
-        System.out.println("Byen hvor drenge bliver til mænd... eller noget.");
-        System.out.println("\n   ----- Introduktion til spillet -----   \n");
-        System.out.println("Erik Deluxe er havnet i Swag City.");
-        System.out.println("Han er på en mission for at finde byens mest swagste person.");
-        System.out.println("På Eriks farefulde færd møder han diverse hjælpere og modstandere,");
-        System.out.println("disse kan henholdsvis hjælpe med tips til at vinde over Sidney Lee,");
-        System.out.println("som er byens swagster, eller frarøve dig dine swagting.");
-        System.out.println("Swagtingene kan opnås fra forskellige bekendtheder som befinder sig i byen,");
-        System.out.println("der skal mindst opnås 3 yderlige swagting for at få adgang til byens diskotek,");
-        System.out.println("som er opholdsstedet for Sidney Lee.");
-        System.out.println("Som start har Erik Deluxe hans verdensberømte swag håndtegn,");
-        System.out.println("disse swagting bruges som spillets liv, frarøves alle swagtingene taber man spillet,");
-        System.out.println("og for at vinde spillet skal man besejre Sidney Lee i en dancebattle,");
-        System.out.println("for at blive byens nye mest swagste person.\n\n");
-        System.out.println("Din spilletid er nu gået i gang, du har " + gameTimer.getTimeRemaining() + " sekunder tilbage.");
-        System.out.println("For hver mission du klarer får du et minut mere at spille for. Held og lykke!\n");
-        System.out.println("Har du brug for hjælp? Skriv '" + CommandWord.HELP + "' hvis du er fuld.\n\n");
-        System.out.println(player.getCurrentRoom().getLongDescription());
+        StringBuilder welcomeString = new StringBuilder();
+        welcomeString.append("Velkommen til Swag City!\n");
+        welcomeString.append("Byen hvor drenge bliver til mænd... eller noget.\n");
+        welcomeString.append("\n   ----- Introduktion til spillet -----   \n\n");
+        welcomeString.append("Erik Deluxe er havnet i Swag City.\n");
+        welcomeString.append("Han er på en mission for at finde byens mest swagste person.\n");
+        welcomeString.append("På Eriks farefulde færd møder han diverse hjælpere og modstandere,\n");
+        welcomeString.append("disse kan henholdsvis hjælpe med tips til at vinde over Sidney Lee,\n");
+        welcomeString.append("som er byens swagster, eller frarøve dig dine swagting.\n");
+        welcomeString.append("Swagtingene kan opnås fra forskellige bekendtheder som befinder sig i byen,\n");
+        welcomeString.append("der skal mindst opnås 3 yderlige swagting for at få adgang til byens diskotek,\n");
+        welcomeString.append("som er opholdsstedet for Sidney Lee.\n");
+        welcomeString.append("Som start har Erik Deluxe hans verdensberømte swag håndtegn,\n");
+        welcomeString.append("disse swagting bruges som spillets liv, frarøves alle swagtingene taber man spillet,\n");
+        welcomeString.append("og for at vinde spillet skal man besejre Sidney Lee i en dancebattle,\n");
+        welcomeString.append("for at blive byens nye mest swagste person.\n\n");
+        welcomeString.append("Din spilletid er nu gået i gang, du har ").append(gameTimer.getTimeRemaining()).append(" sekunder tilbage.\n");
+        welcomeString.append("For hver mission du klarer får du et minut mere at spille for. Held og lykke!\n\n");
+        welcomeString.append("Har du brug for hjælp? Skriv '").append(CommandWord.HELP).append("' hvis du er fuld.\n\n");
+        welcomeString.append(player.getCurrentRoom().getLongDescription());
+        return welcomeString.toString();
     }
 
     //Spillets kommandoer bliver herunder defineret
