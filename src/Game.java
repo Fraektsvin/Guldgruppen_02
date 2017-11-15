@@ -289,7 +289,7 @@ public class Game {
                 System.out.println("Johnny Bravo: Du skaffede mig nummeret! Du er en sand guttermand.");
                 System.out.println("Johnny Bravo: Her tag min paryk der ligner mit hår på en prik, så kan det være du er heldig hos damerne.\n");
                 removeSwag("Beatrice's nummer");
-                player.getInventory().add(new Swag("Johnny Bravo håret"));
+                addSwag("Johny Bravo håret");
                 System.out.println("Mission fuldført.\n");
                 gameTimer.addTime(60);
             } else if (getSwag("EPO") != null) {
