@@ -1,4 +1,4 @@
-package npc;
+package NPCs;
 
 import java.util.Scanner;
 
