@@ -36,7 +36,7 @@ public class GameTimer {
         timeRemaining += time;
     }
 
-    void setTime(int savedTime) {
+    public void setTime(int savedTime) {
         timeRemaining = savedTime;
     }
 }

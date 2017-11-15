@@ -1,9 +1,10 @@
 
 public class Score {
 
-    private int score;
-    private String name;
-    
+    Player player;
+
+    private final int score = player.getScore();
+    private final String name = player.getName();
 
     public int getScore() {
         return score;
@@ -11,12 +12,5 @@ public class Score {
 
     public String getName() {
         return name;
-
-    }
-
-    public Score(String name, int score) {
-        this.score = score;
-        this.name = name;
-
     }
 }

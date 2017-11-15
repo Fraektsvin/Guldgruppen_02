@@ -16,7 +16,7 @@ public class Game {
     private Room swag_city, randers, johnny_bravo, mors_hus, gulddreng,
             bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame,
             ole_henriksen, michael_jackson;
-    
+
     private final GameTimer gameTimer = new GameTimer();
 
     public Game(Player player, HighscoreManager HM) {
@@ -127,7 +127,7 @@ public class Game {
         if (newCoin == null) {
             System.out.println("  Den ting eksistere ikke\n");
         } else {
-            player.getPengepung().add(newCoin);
+            addCoin("Penge");
             player.getCurrentRoom().removeCoin(coinItemName);
             System.out.println("Samlede " + coinItemName + "ne op\n");
         }
@@ -246,10 +246,28 @@ public class Game {
         } else {
             return false;
         }
+
     }
 
-    //Metode til at fjerne items fra ArrayListen player.getInventory().
-    public void removeSwag(String SwagName) {
+    private void addCoin(String CoinName) {
+        Coin coinToAdd = new Coin(CoinName);
+        player.getPengepung().add(coinToAdd);
+        player.setScore(player.getScore() + coinToAdd.getVALUE());
+    }
+
+    private void addSwag(String Swagname) {
+        Swag swagToAdd = new Swag(Swagname);
+        player.getInventory().add(swagToAdd);
+        player.setScore(player.getScore() + swagToAdd.getVALUE());
+    }
+
+    /*Metode til at fjerne items fra ArrayListen player.getInventory().
+    player.getInventory().add(new Swag("Swag håndtegn")); brugte vi tidligere ved at tilføje vores items, dette 
+    var ikke særlig smart da der hele tiden skulle kaldes de her ting derudover havde vi heller ikke score Value inden i koden
+    Derfor benyttet vi os af en liste der indebære valuen samt med at der tilføjes items inden i inventory. tilføjelsen af setter og getter i player klassen har dermed gjort at vi kan skabe en ny metode
+    inden i game klassen der gør at vi kan udskifte player.getInventory().add(new Swag("Swag håndtegn")); ud med addSwag fordi den indeholder det samme, da vi har skabt en ny metode. 
+     */
+    private void removeSwag(String SwagName) {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getSwagDescription().equals(SwagName)) {
                 player.getInventory().remove(i);
@@ -281,7 +299,7 @@ public class Game {
             } else {
                 npc_jb.interact(scanner);
                 if (npc_jb.isQuest() == true) {
-                    player.getInventory().add(new Swag("Seddel fra Johnny Bravo"));
+                    addSwag("Seddel fra Johnny Bravo");
                     randers.setNPC(new NPC_BT());
                 }
             }
@@ -300,7 +318,7 @@ public class Game {
                 npc_bt.interact(scanner);
                 if (npc_bt.isQuest() == true) {
                     removeSwag("Seddel fra Johnny Bravo");
-                    player.getInventory().add(new Swag("Beatrice's nummer"));
+                    addSwag("Beatrice's nummer");
                 }
             }
         } else if (player.getCurrentRoom() == michael_jackson && command.getSecondWord().equalsIgnoreCase("michael jackson")) {
@@ -314,7 +332,7 @@ public class Game {
             } else {
                 npc_mj.interact(scanner);
                 if (npc_mj.isQuest() == true) {
-                    player.getInventory().add(new Swag("Michael Jacksons guldsko"));
+                    addSwag("Michael Jackson guldsko");
                     System.out.println("Mission fuldført.\n");
                     gameTimer.addTime(60);
                 }
@@ -329,7 +347,7 @@ public class Game {
                 System.out.println("Gulddreng: En frisk mokai? Sygt god stil! Gulddrengen takker, her tag min guldkæde");
                 System.out.println("Hvorfor tænker du måske? Bare fordi jeg kan, nemt.\n");
                 removeSwag("Frisk mokai");
-                player.getInventory().add(new Swag("Gulddreng's guldkæde"));
+                addSwag("Gulddreng's guldkæde");
                 System.out.println("Mission fuldført.\n");
                 gameTimer.addTime(60);
             } else if (getSwag("EPO") != null) {
@@ -339,7 +357,7 @@ public class Game {
             } else {
                 npc_gd.interact(scanner);
                 if (npc_gd.isQuest() == true) {
-                    player.getInventory().add(new Swag("Guldpenge fra Gulddrengen"));
+                    addSwag("Guldpenge fra Gulddrengen");
                     randers.setNPC(new NPC_MD());
                 }
             }
@@ -356,7 +374,7 @@ public class Game {
                 npc_md.interact(scanner);
                 if (npc_md.isQuest() == true) {
                     removeSwag("Guldpenge fra Gulddrengen");
-                    player.getInventory().add(new Swag("Frisk mokai"));
+                    addSwag("Frisk mokai");
                 }
             }
         } else if (player.getCurrentRoom() == bjarne_riis && command.getSecondWord().equalsIgnoreCase("bjarne riis")) {
@@ -371,13 +389,13 @@ public class Game {
                 System.out.println("Bjarne Riis: Her tag mine hurtigbriller fra 96 da jeg vandt Tour de France som tak");
                 System.out.println("Bjarne Riis: Snyd eller ej, så er du en sikker vinder!\n");
                 removeSwag("EPO");
-                player.getInventory().add(new Swag("Bjarne Riis's hurtig briller"));
+                addSwag("Bjarne Riis's hurtig briller");
                 System.out.println("Mission fuldført.\n");
                 gameTimer.addTime(60);
             } else {
                 npc_br.interact(scanner);
                 if (npc_br.isQuest() == true) {
-                    player.getInventory().add(new Swag("Seddel fra Bjarne Riis"));
+                    addSwag("Seddel fra Bjarne Riis");
                     swag_city.setNPC(new NPC_EPO());
                 }
             }
@@ -390,7 +408,7 @@ public class Game {
                 npc_epo.interact(scanner);
                 if (npc_epo.isQuest() == true) {
                     removeSwag("Seddel fra Bjarne Riis");
-                    player.getInventory().add(new Swag("EPO"));
+                    addSwag("EPO");
                 }
             }
         } else if (player.getCurrentRoom() == ole_henriksen && command.getSecondWord().equalsIgnoreCase("ole henriksen")) {
@@ -405,7 +423,7 @@ public class Game {
                 System.out.println("Ole Henriksen: Jaja der kan man se, nogle gange er man heldig! Ej hvor jeg bare er glad nu");
                 System.out.println("Ole Henriksen: Her lad mig hjælpe med dit forfærdelige kluns, her får du et rigtigt outfit.\n");
                 removeSwag("Dørmandens nummer");
-                player.getInventory().add(new Swag("Fabulous tøj fra Ole Henriksen"));
+                addSwag("Fabulous tøj fra Ole Henriksen");
                 System.out.println("Mission fuldført.\n");
                 gameTimer.addTime(60);
             } else if (getSwag("EPO") != null) {
@@ -415,7 +433,7 @@ public class Game {
             } else {
                 npc_oh.interact(scanner);
                 if (npc_oh.isQuest() == true) {
-                    player.getInventory().add(new Swag("Seddel fra Ole Henriksen"));
+                    addSwag("Seddel fra Ole Henriksen");
                 }
             }
         } else if (player.getCurrentRoom() == diskotekets_dør && command.getSecondWord().equalsIgnoreCase("doermand")) {
@@ -433,7 +451,7 @@ public class Game {
                 npc_dm.interact(scanner);
                 if (npc_dm.isQuest() == true) {
                     removeSwag("Seddel fra Ole Henriksen");
-                    player.getInventory().add(new Swag("Dørmandens nummer"));
+                    addSwag("Dørmandens nummer");
                 }
             }
         } else if (player.getCurrentRoom() == mors_hus && command.getSecondWord().equalsIgnoreCase("mor")) {
