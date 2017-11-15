@@ -1,4 +1,4 @@
-package npcs;
+package npc;
 
 import java.util.Scanner;
 
@@ -18,8 +18,8 @@ public class NPC_JB extends NPC {
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
                 System.out.println("Johnny Bravo: Sådan skal det lyde! Her får du en seddel som hun kan skrive nummeret på.");
-                System.out.println("Du møder mig bare her igen når du har skaffet nummeret. Held og lykke! HUH HAH JOHNNY BRAVO\n");               
-                setQuest(true);
+                System.out.println("Du møder mig bare her igen når du har skaffet nummeret. Held og lykke! HUH HAH JOHNNY BRAVO\n");
+                quest1 = true;
             } else if (answer2.equalsIgnoreCase("nej")) {
                 System.out.println("Johnny Bravo: Troede du var en rigtig mand... jeg tog fejl.\n");
             } else {
@@ -30,5 +30,11 @@ public class NPC_JB extends NPC {
         } else {
             System.out.println("Johnny Bravo: Brormand jeg tror ikke vi er på samme bølgelængde\n");
         }
+    }
+
+    public boolean quest1;
+
+    {
+        quest1 = false;
     }
 }

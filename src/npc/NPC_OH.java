@@ -1,4 +1,4 @@
-package npcs;
+package npc;
 
 import java.util.Scanner;
 
@@ -6,6 +6,12 @@ public class NPC_OH extends NPC {
 
     public NPC_OH() {
         super("Ole Henriksen", "I'm sooo fabolous.");
+    }
+
+    public boolean quest1;
+
+    {
+        quest1 = false;
     }
 
     @Override
@@ -17,7 +23,7 @@ public class NPC_OH extends NPC {
             String answer2 = input.nextLine();
             if (answer2.equalsIgnoreCase("ja")) {
                 System.out.println("Ole Henriksen: Her er en seddel, som han kan skrive det på. Glæder mig sindssygt meget!\n");
-                setQuest(true);
+                quest1 = true;
             } else if (answer2.equalsIgnoreCase("nej")) {
                 System.out.println("Ole Henriksen: Nå… Så fik du mine håb op… Nåh, gode tanker! Kom igen hvis du alligevel vil!\n");
             } else {

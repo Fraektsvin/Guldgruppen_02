@@ -1,4 +1,4 @@
-package npcs;
+package npc;
 
 import java.util.Scanner;
 
@@ -6,6 +6,12 @@ public class NPC_RT extends NPC {
 
     public NPC_RT() {
         super("Biver", "Jeg er lederen af randers typerne! Vi drikker mokai og spiller hornmusik!");
+    }
+
+    public boolean quest1;
+
+    {
+        quest1 = false;
     }
 
     @Override
@@ -17,7 +23,7 @@ public class NPC_RT extends NPC {
             System.out.println("...");
             System.out.println("...");
             System.out.println("Du blev fuld og randers typerne tog alt dit swag\n");
-            setQuest(true);
+            quest1 = true;
         } else if (answer1.equalsIgnoreCase("nej")) {
             System.out.println("Biver: ej, hvor er du nedern, mand!\n");
         } else {

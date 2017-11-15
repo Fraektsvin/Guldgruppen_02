@@ -1,4 +1,4 @@
-package npcs;
+package npc;
 
 import java.util.Scanner;
 
@@ -6,6 +6,12 @@ public class NPC_MOR extends NPC {
 
     public NPC_MOR() {
         super("Mor", "Velkommen hjem søn!");
+    }
+
+    public boolean quest1;
+
+    {
+        quest1 = false;
     }
 
     @Override
@@ -17,7 +23,7 @@ public class NPC_MOR extends NPC {
             System.out.println("...");
             System.out.println("...");
             System.out.println("Du faldt i søvn og missede chancen for at battle Sidney Lee");
-            setQuest(true);
+            quest1 = true;
         } else if (answer1.equalsIgnoreCase("nej")) {
             System.out.println("Mor: Hvordan er det jeg har opdraget dig!? Uartige knægt, du skal gøre som mor siger. Smut med dig nu, jeg skal gøre rent.\n");
         } else {

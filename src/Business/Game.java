@@ -1,19 +1,19 @@
 package Business;
 
+import npc.NPC_DM;
+import npc.NPC_MJ;
+import npc.NPC_OH;
+import npc.NPC_RT;
+import npc.NPC_GD;
+import npc.NPC_BT;
+import npc.NPC_SL;
+import npc.NPC_EPO;
+import npc.NPC_BR;
+import npc.NPC_MOR;
+import npc.NPC_ID;
+import npc.NPC_MD;
+import npc.NPC_JB;
 import Data.HighscoreManager;
-import NPCs.NPC_BR;
-import NPCs.NPC_OH;
-import NPCs.NPC_JB;
-import NPCs.NPC_MD;
-import NPCs.NPC_RT;
-import NPCs.NPC_MJ;
-import NPCs.NPC_GD;
-import NPCs.NPC_BT;
-import NPCs.NPC_SL;
-import NPCs.NPC_ID;
-import NPCs.NPC_EPO;
-import NPCs.NPC_MOR;
-import NPCs.NPC_DM;
 import Acquaintance.IGame;
 import java.util.Scanner;
 
