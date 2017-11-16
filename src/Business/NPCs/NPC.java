@@ -1,4 +1,4 @@
-package NPCs;
+package Business.NPCs;
 
 import java.io.Serializable;
 import java.util.Scanner;

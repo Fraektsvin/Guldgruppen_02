@@ -1,7 +1,7 @@
 package Business;
 
 import java.io.Serializable;
-import NPCs.NPC;
+import Business.NPCs.NPC;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;

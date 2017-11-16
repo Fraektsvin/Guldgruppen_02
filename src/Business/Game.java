@@ -1,6 +1,18 @@
 package Business;
 
-import NPCs.*;
+import Business.NPCs.NPC_EPO;
+import Business.NPCs.NPC_GD;
+import Business.NPCs.NPC_ID;
+import Business.NPCs.NPC_MOR;
+import Business.NPCs.NPC_RT;
+import Business.NPCs.NPC_OH;
+import Business.NPCs.NPC_BR;
+import Business.NPCs.NPC_JB;
+import Business.NPCs.NPC_DM;
+import Business.NPCs.NPC_MJ;
+import Business.NPCs.NPC_MD;
+import Business.NPCs.NPC_BT;
+import Business.NPCs.NPC_SL;
 import Data.HighscoreManager;
 import Acquaintance.IGame;
 import java.util.Scanner;
