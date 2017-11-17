@@ -1,18 +1,6 @@
 package Business;
 
-import Business.NPCs.NPC_EPO;
-import Business.NPCs.NPC_GD;
-import Business.NPCs.NPC_ID;
-import Business.NPCs.NPC_MOR;
-import Business.NPCs.NPC_RT;
-import Business.NPCs.NPC_OH;
-import Business.NPCs.NPC_BR;
-import Business.NPCs.NPC_JB;
-import Business.NPCs.NPC_DM;
-import Business.NPCs.NPC_MJ;
-import Business.NPCs.NPC_MD;
-import Business.NPCs.NPC_BT;
-import Business.NPCs.NPC_SL;
+import Business.NPCs.*;
 import Data.HighscoreManager;
 import Acquaintance.IGame;
 import java.util.Scanner;
@@ -238,12 +226,12 @@ public class Game implements IGame {
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
                 int Score;
                 Score = (player.getInventory().size() * 100) + (player.getPengepung().size() * 25);
-                System.out.println("Din score er " + Score + " points.\n");
+                System.out.println("Din score er " + Score + " points.");
                 System.out.println("Du havde " + gameTimer.getTimeRemaining() + " sekunder tilbage.\n");
                 return true;
             }
             HighscoreManager highscoreManager = new HighscoreManager();
-            highscoreManager.saveScoreFile(player);
+            highscoreManager.saveScoreFile(player, gameTimer);
         }
         return false;
     }
@@ -583,7 +571,7 @@ public class Game implements IGame {
         randers.setNPC(new NPC_RT());
 
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", false);
+        diskotekets_dør.lockExit("north", true);
         sidney_lee.lockExit("south", true);
     }
 }
