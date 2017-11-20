@@ -65,7 +65,7 @@ public class HighscoreManager {
         try {
             int totalScore = player.getScore() + player.getCoin();
             fileWriter = new FileWriter(HIGHSCORE_FILE);
-            fileWriter.append(player.getName() + ": " + totalScore + " point & " 
+            fileWriter.append(player.getName() + ": " + totalScore + " point & "
                     + gameTimer.getTimeRemaining() + " sekunder.\n");
             fileWriter.close();
         } catch (IOException ex) {
