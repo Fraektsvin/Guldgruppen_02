@@ -1,23 +1,10 @@
 package Business;
 
-import Business.NPCs.NPC_EPO;
-import Business.NPCs.NPC_GD;
-import Business.NPCs.NPC_ID;
-import Business.NPCs.NPC_MOR;
-import Business.NPCs.NPC_RT;
-import Business.NPCs.NPC_OH;
-import Business.NPCs.NPC_BR;
-import Business.NPCs.NPC_JB;
-import Business.NPCs.NPC_DM;
-import Business.NPCs.NPC_MJ;
-import Business.NPCs.NPC_MD;
-import Business.NPCs.NPC_BT;
-import Business.NPCs.NPC_SL;
+import Business.NPCs.*;
 import Data.HighscoreManager;
-import Acquaintance.IGame;
 import java.util.Scanner;
 
-public class Game implements IGame {
+public class Game {
 
     private final Parser parser;
     private Player player;
@@ -55,7 +42,6 @@ public class Game implements IGame {
     }
 
     //Printer en intro til spillet når spillet startes.
-    @Override
     public String printWelcome() {
         //Intro til spillet
         StringBuilder welcomeString = new StringBuilder();
@@ -162,7 +148,6 @@ public class Game implements IGame {
     }
 
     //Printer mulige kommandoer til skærmen.
-    @Override
     public void printHelp() {
         System.out.println("Du helt væk, mokaiens dunst sværmer omkring dig.");
         System.out.println("Tag dig sammen.\n");
@@ -172,17 +157,15 @@ public class Game implements IGame {
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    @Override
-    public void printInventory() {
+    public String printInventory() {
         String output = "";
         for (int i = 0; i < player.getInventory().size(); i++) {
             output += player.getInventory().get(i).getSwagDescription() + "\n";
         }
-        System.out.println(output);
+        return output;
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    @Override
     public void printPengepung() {
         String output = "";
         if (player.getPengepung().isEmpty()) {
@@ -238,12 +221,12 @@ public class Game implements IGame {
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
                 int Score;
                 Score = (player.getInventory().size() * 100) + (player.getPengepung().size() * 25);
-                System.out.println("Din score er " + Score + " points.\n");
+                System.out.println("Din score er " + Score + " points.");
                 System.out.println("Du havde " + gameTimer.getTimeRemaining() + " sekunder tilbage.\n");
                 return true;
             }
             HighscoreManager highscoreManager = new HighscoreManager();
-            highscoreManager.saveScoreFile(player);
+            highscoreManager.saveScoreFile(player, gameTimer);
         }
         return false;
     }
@@ -583,7 +566,7 @@ public class Game implements IGame {
         randers.setNPC(new NPC_RT());
 
         //Lock condition til udgange
-        diskotekets_dør.lockExit("north", false);
+        diskotekets_dør.lockExit("north", true);
         sidney_lee.lockExit("south", true);
     }
 }

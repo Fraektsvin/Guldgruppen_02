@@ -1,6 +1,8 @@
 package Data;
 
+import Business.ScoreComparator;
 import Business.Player;
+import Business.GameTimer;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,15 +36,7 @@ public class HighscoreManager {
      */
     public ArrayList<Integer> getScore() throws FileNotFoundException {
         LoadScoreFile();
-        Sort();
         return score;
-    }
-
-    // metoden for sort, så at tingene kan blive sorteret, heraf har java.util alleredde Collection.sort implementeret 
-    // Java.util vil derfor via Collection.sort sørge for at organisere scoren med hjælp fra en comparator. 
-    private void Sort() {
-        ScoreComparator comparator = new ScoreComparator();
-        Collections.sort(score, comparator);
     }
 
     public void LoadScoreFile() throws FileNotFoundException {
@@ -57,15 +51,15 @@ public class HighscoreManager {
          * siden vi skal igennem tekst så bruger vi FileWriter siden at den
          * tager teksten fremfor byteserne . Scanner, generelt til at læse
          * filer.
-         *
          */
     }
 
-    public void saveScoreFile(Player player) {
+    public void saveScoreFile(Player player, GameTimer gameTimer) {
         try {
             int totalScore = player.getScore() + player.getCoin();
             fileWriter = new FileWriter(HIGHSCORE_FILE);
-            fileWriter.append(player.getName() + ": " + totalScore);
+            fileWriter.append(player.getName() + ": " + totalScore + " point & "
+                    + gameTimer.getTimeRemaining() + " sekunder.\n");
             fileWriter.close();
         } catch (IOException ex) {
             System.err.println("*** fejl ved FileWriter ***");
