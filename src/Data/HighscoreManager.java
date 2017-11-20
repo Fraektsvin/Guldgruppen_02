@@ -1,5 +1,6 @@
 package Data;
 
+import Business.ScoreComparator;
 import Business.Player;
 import Business.GameTimer;
 import java.io.File;
@@ -35,15 +36,7 @@ public class HighscoreManager {
      */
     public ArrayList<Integer> getScore() throws FileNotFoundException {
         LoadScoreFile();
-        Sort();
         return score;
-    }
-
-    // metoden for sort, så at tingene kan blive sorteret, heraf har java.util alleredde Collection.sort implementeret 
-    // Java.util vil derfor via Collection.sort sørge for at organisere scoren med hjælp fra en comparator. 
-    private void Sort() {
-        ScoreComparator comparator = new ScoreComparator();
-        Collections.sort(score, comparator);
     }
 
     public void LoadScoreFile() throws FileNotFoundException {
