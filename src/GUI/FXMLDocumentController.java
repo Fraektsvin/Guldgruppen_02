@@ -75,10 +75,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void playerPengepungAction(ActionEvent event) {
+        textConsole.appendText(business.printPengepung());
     }
 
     @FXML
     private void playerGetAction(ActionEvent event) {
+        textConsole.appendText(business.printWelcome());
     }
 
     @FXML
@@ -87,6 +89,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void playerHelpAction(ActionEvent event) {
+        textConsole.appendText(business.printHelp());
     }
 
     @FXML

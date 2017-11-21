@@ -1,29 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Business;
 
 import Acquaintance.IBusiness;
 import Data.HighscoreManager;
 
-/**
- *
- * @author sigur
- */
-public class BusinessFacade implements IBusiness{
-    
+public class BusinessFacade implements IBusiness {
+
     Game game = new Game(new Player("Erik"), new HighscoreManager());
-    
+
     @Override
     public String printWelcome() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return game.printWelcome();
     }
 
     @Override
-    public void printHelp() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String printHelp() {
+        return game.printHelp();
     }
 
     @Override
@@ -32,8 +23,8 @@ public class BusinessFacade implements IBusiness{
     }
 
     @Override
-    public void printPengepung() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String printPengepung() {
+        return game.printPengepung();
     }
-    
+
 }

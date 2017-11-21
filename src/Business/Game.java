@@ -148,12 +148,12 @@ public class Game {
     }
 
     //Printer mulige kommandoer til skærmen.
-    public void printHelp() {
-        System.out.println("Du helt væk, mokaiens dunst sværmer omkring dig.");
-        System.out.println("Tag dig sammen.\n");
-        System.out.println("Dine råb om hjælp er:");
-        parser.showCommands();
-        System.out.println("\nget (Swagting)  |  go (Direction)  |  interact (NPC)\n");
+    public String printHelp() {
+        String output = "";
+        output += "Du helt væk, mokaiens dunst sværmer omkring dig.\n";
+        output += "Tag dig sammen.\n\n";
+        output += "Dine råb om hjælp er:\n";
+        return output + parser.showCommands() + "\n";
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
@@ -166,7 +166,7 @@ public class Game {
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    public void printPengepung() {
+    public String printPengepung() {
         String output = "";
         if (player.getPengepung().isEmpty()) {
             output += "Du har ingen mønter\n";
@@ -175,8 +175,7 @@ public class Game {
         } else {
             output += "Du har " + player.getPengepung().size() + " mønter\n";
         }
-        System.out.println("Dine mønter:");
-        System.out.println(output);
+        return "Dine mønter:\n" + output;
     }
 
     //Kommando til bevægelse imellem rum, tjekker desuden for låste døre og printer highscore når man vinder.

@@ -9,7 +9,7 @@
 
 <BorderPane prefHeight="500.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXMLDocumentController">
     <center>
-        <TextArea fx:id="textConsole" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        <TextArea fx:id="textConsole" editable="false" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
     </center>
     <opaqueInsets>
         <Insets />
@@ -35,14 +35,6 @@
                         <Button fx:id="playerPengepung" mnemonicParsing="false" onAction="#playerPengepungAction" prefWidth="80.0" text="Pengepung" />
                         <Button fx:id="playerGet" mnemonicParsing="false" onAction="#playerGetAction" prefWidth="80.0" text="Get" />
                         <Button fx:id="playerInteract" mnemonicParsing="false" onAction="#playerInteractAction" prefWidth="80.0" text="Interact" />
-                        <Button fx:id="playerHelp" mnemonicParsing="false" onAction="#playerHelpAction" prefWidth="80.0" text="Help" textAlignment="CENTER" />
-                        <Button fx:id="playerSave" mnemonicParsing="false" onAction="#playerSaveAction" prefWidth="80.0" text="Save" textAlignment="CENTER">
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                        </Button>
-                        <Button fx:id="playerLoad" mnemonicParsing="false" onAction="#playerLoadAction" prefWidth="80.0" text="Load" textAlignment="CENTER" />
-                        <Button fx:id="playerQuit" mnemonicParsing="false" onAction="#playerQuitAction" prefWidth="80.0" text="Quit" textAlignment="CENTER" />
                     </children>
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -68,11 +60,29 @@
             </children>
         </VBox>
     </right>
-    <top>
-        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
-            <children>
-                <Button fx:id="goNorth" mnemonicParsing="false" onAction="#goNorthAction" text="NORTH" textAlignment="CENTER" />
-            </children>
-        </HBox>
-    </top>
+   <top>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                        <Button fx:id="playerLoad" mnemonicParsing="false" onAction="#playerLoadAction" prefWidth="80.0" text="Load" textAlignment="CENTER" />
+                        <Button fx:id="playerSave" mnemonicParsing="false" onAction="#playerSaveAction" prefWidth="80.0" text="Save" textAlignment="CENTER">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Button>
+                        <Button fx:id="playerHelp" mnemonicParsing="false" onAction="#playerHelpAction" prefWidth="80.0" text="Help" textAlignment="CENTER" />
+                        <Button fx:id="playerQuit" mnemonicParsing="false" onAction="#playerQuitAction" prefWidth="80.0" text="Quit" textAlignment="CENTER" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="goNorth" mnemonicParsing="false" onAction="#goNorthAction" text="NORTH" />
+         </children>
+      </VBox>
+   </top>
 </BorderPane>
