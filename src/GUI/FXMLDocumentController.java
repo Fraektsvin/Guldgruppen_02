@@ -1,5 +1,6 @@
 package GUI;
 
+import Acquaintance.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -10,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 public class FXMLDocumentController implements Initializable {
+
+    IBusiness business;
 
     private Label label;
     @FXML
@@ -39,9 +42,10 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextArea textConsole;
 
+    //Brug af SINGLETON design pattern
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        business = GameGUI.getInstance().getBusiness();
     }
 
     @FXML
@@ -66,6 +70,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void playerInventoryAction(ActionEvent event) {
+        textConsole.appendText(business.printInventory());
     }
 
     @FXML

@@ -2,10 +2,9 @@ package Business;
 
 import Business.NPCs.*;
 import Data.HighscoreManager;
-import Acquaintance.IGame;
 import java.util.Scanner;
 
-public class Game implements IGame {
+public class Game {
 
     private final Parser parser;
     private Player player;
@@ -43,7 +42,6 @@ public class Game implements IGame {
     }
 
     //Printer en intro til spillet når spillet startes.
-    @Override
     public String printWelcome() {
         //Intro til spillet
         StringBuilder welcomeString = new StringBuilder();
@@ -150,7 +148,6 @@ public class Game implements IGame {
     }
 
     //Printer mulige kommandoer til skærmen.
-    @Override
     public void printHelp() {
         System.out.println("Du helt væk, mokaiens dunst sværmer omkring dig.");
         System.out.println("Tag dig sammen.\n");
@@ -160,17 +157,15 @@ public class Game implements IGame {
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    @Override
-    public void printInventory() {
+    public String printInventory() {
         String output = "";
         for (int i = 0; i < player.getInventory().size(); i++) {
             output += player.getInventory().get(i).getSwagDescription() + "\n";
         }
-        System.out.println(output);
+        return output;
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    @Override
     public void printPengepung() {
         String output = "";
         if (player.getPengepung().isEmpty()) {
