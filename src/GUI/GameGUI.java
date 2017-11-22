@@ -35,7 +35,7 @@ public class GameGUI extends Application implements IGame {
         game = business;
     }
 
-    // Returnerer IBusiness som blev sat af Starter(Glue coden) - Bliver kaldt i FXMLController
+    //Returnerer IBusiness som blev sat af Starter(Glue coden) - Bliver kaldt i FXMLController
     public IBusiness getBusiness() {
         return game;
     }
