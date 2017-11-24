@@ -27,4 +27,16 @@ public class BusinessFacade implements IBusiness {
         return game.printPengepung();
     }
 
+    /*@Override
+    public String getExitsFromCurrentRoom() {
+        return game.getExitsCurrentRoom();
+    }*/
+
+    @Override
+    public String goToDirection(String direction) { //ingen exception handling, dvs. ingen tjek for east, west, north, south
+        Command c = new Command(CommandWord.GO, direction);
+        game.processCommand(c);
+        return game.getRoomDescription();
+    }
+
 }

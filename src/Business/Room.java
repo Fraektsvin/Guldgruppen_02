@@ -1,15 +1,17 @@
 package Business;
 
+import Acquaintance.ICoin;
+import Acquaintance.IRoom;
 import java.io.Serializable;
 import Business.NPCs.NPC;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 
-public class Room implements Serializable {
+public class Room implements Serializable, IRoom {
 
     private String description;
-    private HashMap<String, Room> exits;
+    private HashMap<String, IRoom> exits;
     //Vi opretter en ArrayList som kan indeholde de ting vi placere i de forskellige rum.
     ArrayList<Coin> coins = new ArrayList<>();
 
@@ -38,7 +40,8 @@ public class Room implements Serializable {
     }
 
     //Her skriver vi de ting som skal printes til skærmen ved starten af hvert rum.
-    private String getExitString() {
+    @Override
+    public String getExitString() {
         String returnString = "\nNPC'er i rummet:\n";
         returnString += getNPCString();
         returnString += "\nTing i rummet:\n";
@@ -61,12 +64,14 @@ public class Room implements Serializable {
         return returnString;
     }
 
-    public Room getExit(String direction) {
+    @Override
+    public IRoom getExit(String direction) {
         return exits.get(direction);
     }
 
     //Få items fra rummet og systemet kan kende forskel på disse 2 commands ved at se om det er et string eller index
-    public Coin getCoin(String CoinName) {
+    @Override
+    public ICoin getCoin(String CoinName) {
         for (int i = 0; i < coins.size(); i++) {
             if (coins.get(i).getCoinDescription().equals(CoinName)) {
                 return coins.get(i);

@@ -1,12 +1,13 @@
 package Business;
 
+import Acquaintance.IRoom;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Player implements Serializable {
 
     private final String name;
-    private Room currentRoom;
+    private IRoom currentRoom;
     private int savedTime;
     private int score;
     private int coin;
@@ -14,11 +15,11 @@ public class Player implements Serializable {
     private final ArrayList<Coin> pengepung = new ArrayList<>();
     private final ArrayList<Swag> inventory = new ArrayList<>();
 
-    public Room getCurrentRoom() {
+    public IRoom getCurrentRoom() {
         return currentRoom;
     }
 
-    public void setCurrentRoom(Room currentRoom) {
+    public void setCurrentRoom(IRoom currentRoom) {
         this.currentRoom = currentRoom;
     }
 

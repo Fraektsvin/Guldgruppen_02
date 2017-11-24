@@ -50,22 +50,30 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void goNorthAction(ActionEvent event) {
-        textConsole.appendText("You went north\n");
+        //textConsole.appendText("You went north\n");
+        String textReturned = business.goToDirection("north");
+        textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goWestAction(ActionEvent event) {
-        textConsole.appendText("You went west\n");
+        //textConsole.appendText("You went west\n");
+        String textReturned = business.goToDirection("west");
+        textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goSouthAction(ActionEvent event) {
-        textConsole.appendText("You went south\n");
+        //textConsole.appendText("You went south\n");
+        String textReturned = business.goToDirection("south");
+        textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goEastAction(ActionEvent event) {
-        textConsole.appendText("You went east\n");
+        //textConsole.appendText("You went east\n");
+        String textReturned = business.goToDirection("east");
+        textConsole.appendText(textReturned);
     }
 
     @FXML

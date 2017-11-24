@@ -1,5 +1,7 @@
 package Business;
 
+import Acquaintance.ICoin;
+import Acquaintance.IRoom;
 import Business.NPCs.*;
 import Data.HighscoreManager;
 import java.util.Scanner;
@@ -29,7 +31,7 @@ public class Game {
         parser = new Parser();
     }
 
-    public void play() {
+    public void play() { //TODO logik ksla ind i BusinessFacade.goToDirection();
         System.out.println(printWelcome());
 
         boolean finished = false;
@@ -39,6 +41,10 @@ public class Game {
         }
         System.out.println("Tak fordi at du spillede med os, din stodder.");
         gameTimer.timerStop();
+    }
+    
+    String getRoomDescription() {
+        return player.getCurrentRoom().getLongDescription();
     }
 
     //Printer en intro til spillet når spillet startes.
@@ -68,7 +74,7 @@ public class Game {
     }
 
     //Spillets kommandoer bliver herunder defineret
-    private boolean processCommand(Command command) {
+    boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
@@ -126,7 +132,7 @@ public class Game {
         }
 
         String coinItemName = command.getSecondWord();
-        Coin newCoin = player.getCurrentRoom().getCoin(coinItemName);
+        ICoin newCoin = player.getCurrentRoom().getCoin(coinItemName);
 
         if (newCoin == null) {
             System.out.println("  Den ting eksistere ikke\n");
@@ -188,7 +194,7 @@ public class Game {
 
         String direction = command.getSecondWord();
 
-        Room nextRoom = player.getCurrentRoom().getExit(direction);
+        IRoom nextRoom = player.getCurrentRoom().getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("Bum! Du løb ind i en væg, drik noget mindre\n");
@@ -262,6 +268,10 @@ public class Game {
         Swag swagToAdd = new Swag(Swagname);
         player.getInventory().add(swagToAdd);
         player.setScore(player.getScore() + swagToAdd.getVALUE());
+    }
+    
+    String getExitsCurrentRoom() {
+        return player.getCurrentRoom().getExitString();
     }
 
     /*Metode til at fjerne items fra ArrayListen player.getInventory().

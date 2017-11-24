@@ -31,7 +31,7 @@ public class GameGUI extends Application implements IGame {
 
     //Bliver kaldt af STARTER (glue code), som realiserer interfacet IBusiness
     @Override
-    public void setGame(IBusiness business) {
+    public void setBusiness(IBusiness business) {
         game = business;
     }
 

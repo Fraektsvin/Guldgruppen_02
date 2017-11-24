@@ -1,8 +1,9 @@
 package Business;
 
+import Acquaintance.ICoin;
 import java.io.Serializable;
 
-public class Coin implements Serializable {
+public class Coin implements Serializable, ICoin {
 
     public Coin(int value, String name) {
     }
