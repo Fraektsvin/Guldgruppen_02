@@ -2,7 +2,7 @@ package Acquaintance;
 
 public interface IGame {
 
-    void setGame(IBusiness business);
+    void setBusiness(IBusiness business);
 
     void startApplication(String[] args);
 }

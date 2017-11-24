@@ -9,4 +9,6 @@ public interface IBusiness {
     String printInventory();
 
     String printPengepung();
+    
+    String goToDirection(String direction);
 }
