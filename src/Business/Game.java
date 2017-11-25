@@ -17,7 +17,7 @@ public class Game {
     Rooms placere vi udenfor 'createRoom' metoden,
     således vi kan tilgå rummene i andre metoder senere.
      */
-    private Room swag_city, randers, johnny_bravo, mors_hus, gulddreng,
+    public Room swag_city, randers, johnny_bravo, mors_hus, gulddreng,
             bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame,
             ole_henriksen, michael_jackson;
 
@@ -99,8 +99,8 @@ public class Game {
                     printInventory();
                     break;
                 //der blevet lavet en ny kommando med Get så der kan pickes items up
-                case PENGEPUNG:
-                    printPengepung();
+                case WALLET:
+                    printWallet();
                     break;
                 case GET:
                     getCoin(command);
@@ -124,7 +124,7 @@ public class Game {
         return wantToQuit;
     }
 
-    //Metode til at fjerne penge fra rummene og tilføje dem til ArrayListen player.getPengepung().
+    //Metode til at fjerne penge fra rummene og tilføje dem til ArrayListen player.getWallet().
     private void getCoin(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Hvad vil du have?\n");
@@ -141,6 +141,10 @@ public class Game {
             player.getCurrentRoom().removeCoin(coinItemName);
             System.out.println("Samlede " + coinItemName + "ne op\n");
         }
+    }
+    
+    public String processCoin() {
+        return "Samlede pengene op\n";
     }
 
     //Metode til at tjekke om en item er i ArrayListen Player's inventory.
@@ -172,14 +176,14 @@ public class Game {
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    public String printPengepung() {
+    public String printWallet() {
         String output = "";
-        if (player.getPengepung().isEmpty()) {
+        if (player.getWallet().isEmpty()) {
             output += "Du har ingen mønter\n";
-        } else if (player.getPengepung().size() == 1) {
-            output += "Du har " + player.getPengepung().size() + " mønt\n";
+        } else if (player.getWallet().size() == 1) {
+            output += "Du har " + player.getWallet().size() + " mønt\n";
         } else {
-            output += "Du har " + player.getPengepung().size() + " mønter\n";
+            output += "Du har " + player.getWallet().size() + " mønter\n";
         }
         return "Dine mønter:\n" + output;
     }
@@ -225,7 +229,7 @@ public class Game {
                 System.out.println("Du er officielt den mest swagste person!");
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
                 int Score;
-                Score = (player.getInventory().size() * 100) + (player.getPengepung().size() * 25);
+                Score = (player.getInventory().size() * 100) + (player.getWallet().size() * 25);
                 System.out.println("Din score er " + Score + " points.");
                 System.out.println("Du havde " + gameTimer.getTimeRemaining() + " sekunder tilbage.\n");
                 return true;
@@ -260,7 +264,7 @@ public class Game {
 
     private void addCoin(String CoinName) {
         Coin coinToAdd = new Coin(CoinName);
-        player.getPengepung().add(coinToAdd);
+        player.getWallet().add(coinToAdd);
         player.setScore(player.getScore() + coinToAdd.getVALUE());
     }
 

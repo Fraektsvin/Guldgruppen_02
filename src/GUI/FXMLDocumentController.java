@@ -26,7 +26,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button playerInventory;
     @FXML
-    private Button playerPengepung;
+    private Button playerWallet;
     @FXML
     private Button playerGet;
     @FXML
@@ -50,28 +50,24 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void goNorthAction(ActionEvent event) {
-        //textConsole.appendText("You went north\n");
         String textReturned = business.goToDirection("north");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goWestAction(ActionEvent event) {
-        //textConsole.appendText("You went west\n");
         String textReturned = business.goToDirection("west");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goSouthAction(ActionEvent event) {
-        //textConsole.appendText("You went south\n");
         String textReturned = business.goToDirection("south");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goEastAction(ActionEvent event) {
-        //textConsole.appendText("You went east\n");
         String textReturned = business.goToDirection("east");
         textConsole.appendText(textReturned);
     }
@@ -82,17 +78,18 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void playerPengepungAction(ActionEvent event) {
-        textConsole.appendText(business.printPengepung());
+    private void playerWalletAction(ActionEvent event) {
+        textConsole.appendText(business.printWallet());
     }
 
     @FXML
     private void playerGetAction(ActionEvent event) {
-        textConsole.appendText(business.printWelcome());
+        textConsole.appendText(business.getCoin("penge"));
     }
 
     @FXML
     private void playerInteractAction(ActionEvent event) {
+        textConsole.appendText(business.interactWith(business.whichNPC()));
     }
 
     @FXML

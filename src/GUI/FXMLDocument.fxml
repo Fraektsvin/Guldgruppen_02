@@ -32,7 +32,7 @@
                                 <Insets />
                             </opaqueInsets>
                         </Button>
-                        <Button fx:id="playerPengepung" mnemonicParsing="false" onAction="#playerPengepungAction" prefWidth="80.0" text="Pengepung" />
+                        <Button fx:id="playerWallet" mnemonicParsing="false" onAction="#playerWalletAction" prefWidth="80.0" text="Wallet" />
                         <Button fx:id="playerGet" mnemonicParsing="false" onAction="#playerGetAction" prefWidth="80.0" text="Get" />
                         <Button fx:id="playerInteract" mnemonicParsing="false" onAction="#playerInteractAction" prefWidth="80.0" text="Interact" />
                     </children>

@@ -2,9 +2,11 @@ package Business;
 
 import Acquaintance.IBusiness;
 import Data.HighscoreManager;
+import Business.NPCs.*;
 
 public class BusinessFacade implements IBusiness {
-
+    
+    Player player;
     Game game = new Game(new Player("Erik"), new HighscoreManager());
 
     @Override
@@ -23,8 +25,8 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public String printPengepung() {
-        return game.printPengepung();
+    public String printWallet() {
+        return game.printWallet();
     }
 
     /*@Override
@@ -39,4 +41,59 @@ public class BusinessFacade implements IBusiness {
         return game.getRoomDescription();
     }
 
+    @Override
+    public String interactWith(String npc) {
+        Command c = new Command(CommandWord.INTERACT, npc);
+        game.processCommand(c);
+        return "MANGLER KODE HER";
+    }
+
+    @Override
+    public String getCoin(String coin) {
+        Command c = new Command(CommandWord.GET, coin);
+        game.processCommand(c);
+        return game.processCoin();
+    }
+    
+    @Override
+    public String whichNPC() {
+        String output = "";
+        if(player.getCurrentRoom() == game.johnny_bravo) {
+            output += "johnny bravo";
+        }
+        else if (player.getCurrentRoom() == game.randers) {
+            output += "beatrice";
+        }
+        else if (player.getCurrentRoom() == game.michael_jackson) {
+            output += "michael jackson";
+        }
+        else if (player.getCurrentRoom() == game.gulddreng) {
+            output += "gulddreng";
+        }
+        else if (player.getCurrentRoom() == game.randers) {
+            output += "mokai dealer";
+        }
+        else if (player.getCurrentRoom() == game.bjarne_riis) {
+            output += "bjarne riis";
+        }
+        else if (player.getCurrentRoom() == game.swag_city) {
+            output += "epo dealer";
+        }
+        else if (player.getCurrentRoom() == game.ole_henriksen) {
+            output += "ole henriksen";
+        }
+        else if (player.getCurrentRoom() == game.diskotekets_dør) {
+            output += "doermand";
+        }
+        else if (player.getCurrentRoom() == game.mors_hus) {
+            output += "mor";
+        }
+        else if (player.getCurrentRoom() == game.randers) {
+            output += "biver";
+        }
+        else if (player.getCurrentRoom() == game.swag_city) {
+            output += "info dealer";
+        }
+        return output;
+    }
 }
