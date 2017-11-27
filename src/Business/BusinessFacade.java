@@ -2,12 +2,11 @@ package Business;
 
 import Acquaintance.IBusiness;
 import Data.HighscoreManager;
-import Business.NPCs.*;
 
 public class BusinessFacade implements IBusiness {
     
-    Player player;
-    Game game = new Game(new Player("Erik"), new HighscoreManager());
+    Game game = new Game(new Player("Erik Deluxe"), new HighscoreManager());
+    Player player = new Player("Erik Deluxe");
 
     @Override
     public String printWelcome() {
@@ -45,7 +44,7 @@ public class BusinessFacade implements IBusiness {
     public String interactWith(String npc) {
         Command c = new Command(CommandWord.INTERACT, npc);
         game.processCommand(c);
-        return "MANGLER KODE HER";
+        return game.interactJB();
     }
 
     @Override

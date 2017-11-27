@@ -43,7 +43,7 @@ public class Game {
         gameTimer.timerStop();
     }
     
-    String getRoomDescription() {
+    public String getRoomDescription() {
         return player.getCurrentRoom().getLongDescription();
     }
 
@@ -292,6 +292,30 @@ public class Game {
         }
     }
 
+    public String interactJB() {
+        String output = "";
+        NPC_JB npc_jb = new NPC_JB();
+            if (getSwag("Seddel fra Johnny Bravo") != null) {
+                output += "Du er allerede på denne mission.\n";
+            } else if (getSwag("Johnny Bravo håret") != null) {
+                output += "Denne mission er allerede færdiggjort.\n";
+            } else if (getSwag("Beatrice's nummer") != null) {
+                output += "Johnny Bravo: Du skaffede mig nummeret! Du er en sand guttermand.\n"
+                        + "Johnny Bravo: Her tag min paryk der ligner mit hår på en prik, "
+                        + "så kan det være du er heldig hos damerne.\n"
+                        + "Mission fuldført.\n";
+            } else if (getSwag("EPO") != null) {
+                output += "Der blev sagt ingen kommentarer\n"
+                        + "Du snakkede med nogen mens du havde EPO - Game over!\n";
+            } else {
+                npc_jb.interact(scanner);
+                if (npc_jb.isQuest() == true) {
+                    addSwag("Seddel fra Johnny Bravo");
+                    randers.setNPC(new NPC_BT());
+                }
+            }
+        return output;
+    }
     //Kommando til at interagere med npc'erne
     private void interactNPC(Command command) {
         if (!command.hasSecondWord()) {

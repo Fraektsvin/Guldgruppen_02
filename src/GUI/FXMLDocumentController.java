@@ -107,5 +107,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void playerQuitAction(ActionEvent event) {
+        System.exit(0);
     }
 }
