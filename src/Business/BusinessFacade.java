@@ -4,9 +4,8 @@ import Acquaintance.IBusiness;
 import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
-    
-    Game game = new Game(new Player("Erik Deluxe"), new HighscoreManager());
-    Player player = new Player("Erik Deluxe");
+
+    Game game = new Game(new Player("Erik"), new HighscoreManager());
 
     @Override
     public String printWelcome() {
@@ -24,8 +23,8 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public String printWallet() {
-        return game.printWallet();
+    public String printPengepung() {
+        return game.printPengepung();
     }
 
     /*@Override
@@ -39,65 +38,5 @@ public class BusinessFacade implements IBusiness {
         game.processCommand(c);
         return game.getRoomDescription();
     }
-
-    @Override
-    public String interactWith(String npc) {
-        Command c = new Command(CommandWord.INTERACT, npc);
-        game.processCommand(c);
-        return game.interactJB();
-    }
-
-    @Override
-    public String getCoin(String coin) {
-        Command c = new Command(CommandWord.GET, coin);
-        game.processCommand(c);
-        return game.processCoin();
-    }
-    
-    @Override
-    public String whichNPC() {
-        String output = "";
-        if(player.getCurrentRoom() == game.johnny_bravo) {
-            output += "johnny bravo";
-        }
-        else if (player.getCurrentRoom() == game.randers) {
-            output += "beatrice";
-        }
-        else if (player.getCurrentRoom() == game.michael_jackson) {
-            output += "michael jackson";
-        }
-        else if (player.getCurrentRoom() == game.gulddreng) {
-            output += "gulddreng";
-        }
-        else if (player.getCurrentRoom() == game.randers) {
-            output += "mokai dealer";
-        }
-        else if (player.getCurrentRoom() == game.bjarne_riis) {
-            output += "bjarne riis";
-        }
-        else if (player.getCurrentRoom() == game.swag_city) {
-            output += "epo dealer";
-        }
-        else if (player.getCurrentRoom() == game.ole_henriksen) {
-            output += "ole henriksen";
-        }
-        else if (player.getCurrentRoom() == game.diskotekets_dør) {
-            output += "doermand";
-        }
-        else if (player.getCurrentRoom() == game.mors_hus) {
-            output += "mor";
-        }
-        else if (player.getCurrentRoom() == game.randers) {
-            output += "biver";
-        }
-        else if (player.getCurrentRoom() == game.swag_city) {
-            output += "info dealer";
-        }
-        return output;
-    }
-
-    @Override
-    public String printPengepung() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
