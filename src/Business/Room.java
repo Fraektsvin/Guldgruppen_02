@@ -31,10 +31,12 @@ public class Room implements Serializable, IRoom {
         return description;
     }
 
+    @Override
     public String getMediumDescription() {
         return getExitStringToGo();
     }
 
+    @Override
     public String getLongDescription() {
         return description + ".\n" + getExitString();
     }
@@ -128,9 +130,10 @@ public class Room implements Serializable, IRoom {
         //sætter naboen og retningen, som den er mod.
     }
 
+    @Override
     public boolean isLocked(String direction) {
         if (direction != null) {
-            return exitsLock.get(direction).booleanValue();
+            return exitsLock.get(direction);
         } else {
             return false;
         }
@@ -142,6 +145,7 @@ public class Room implements Serializable, IRoom {
         //låser eller ulåser en exit, sætter retningen, true hvis vejen skal være låst, false hvis ulåst
     }
 
+    @Override
     public void removeCoin(String CoinName) {
         for (int i = 0; i < coins.size(); i++) {
             if (coins.get(i).getCoinDescription().equals(CoinName)) {

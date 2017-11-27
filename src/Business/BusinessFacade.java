@@ -4,9 +4,14 @@ import Acquaintance.IBusiness;
 import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
-
-    Game game = new Game(new Player("Erik"), new HighscoreManager());
+    
+    Game game;
     Player player;
+    
+    public BusinessFacade () {
+        player = new Player("Erik Deluxe");
+        game = new Game(player, new HighscoreManager());
+    }
 
     @Override
     public String printWelcome() {
@@ -24,14 +29,10 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public String printPengepung() {
-        return game.printPengepung();
+    public String printWallet() {
+        return game.printWallet();
     }
 
-    /*@Override
-    public String getExitsFromCurrentRoom() {
-        return game.getExitsCurrentRoom();
-    }*/
 
     @Override
     public String goToDirection(String direction) { //ingen exception handling, dvs. ingen tjek for east, west, north, south
@@ -44,14 +45,14 @@ public class BusinessFacade implements IBusiness {
     public String interactWith(String npc) {
         Command c = new Command(CommandWord.INTERACT, npc);
         game.processCommand(c);
-        return "";
+        return game.interactJB();
     }
 
     @Override
     public String getCoin(String coin) {
         Command c = new Command(CommandWord.GET, coin);
         game.processCommand(c);
-        return "";
+        return game.processCoin();
     }
     
     @Override
@@ -95,5 +96,4 @@ public class BusinessFacade implements IBusiness {
         }
         return output;
     }
-
 }

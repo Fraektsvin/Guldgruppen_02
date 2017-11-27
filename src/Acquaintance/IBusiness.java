@@ -8,7 +8,7 @@ public interface IBusiness {
 
     String printInventory();
 
-    String printPengepung();
+    String printWallet();
     
     String goToDirection(String direction);
     

@@ -2,6 +2,7 @@ package GUI;
 
 import Acquaintance.IBusiness;
 import Acquaintance.IGame;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,15 @@ import javafx.stage.Stage;
 public class GameGUI extends Application implements IGame {
 
     private static GameGUI gui; //SINGLETON 
+    private Scene mainView;
+    private Scene gameView;
+    
+    private Scene loadScene(String filename) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(filename));
+        Parent root = loader.load();
+        return new Scene(root);
+    }
+
     IBusiness game; //INTERFACET til at kalde metoder fra facaden
 
     // En metode vi kan kalde fra andre klasser, som returnerer sig selv (GameGUI)
@@ -19,12 +29,12 @@ public class GameGUI extends Application implements IGame {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDOcument.fxml"));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root);
-
+    public void start(Stage stage) throws Exception {      
+        //this.gameView = loadScene("GameView.fxml" );
+        Parent p = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+        Scene scene = new Scene(p);
+        //mainView.setFill(javafx.scene.paint.Color.TRANSPARENT);
+        //stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
