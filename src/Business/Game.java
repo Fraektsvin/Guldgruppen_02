@@ -43,7 +43,7 @@ public class Game {
         gameTimer.timerStop();
     }
     
-    public String getRoomDescription() {
+    String getRoomDescription() {
         return player.getCurrentRoom().getLongDescription();
     }
 
@@ -99,8 +99,8 @@ public class Game {
                     printInventory();
                     break;
                 //der blevet lavet en ny kommando med Get så der kan pickes items up
-                case WALLET:
-                    printWallet();
+                case PENGEPUNG:
+                    printPengepung();
                     break;
                 case GET:
                     getCoin(command);
@@ -124,7 +124,7 @@ public class Game {
         return wantToQuit;
     }
 
-    //Metode til at fjerne penge fra rummene og tilføje dem til ArrayListen player.getWallet().
+    //Metode til at fjerne penge fra rummene og tilføje dem til ArrayListen player.getPengepung().
     private void getCoin(Command command) {
         if (!command.hasSecondWord()) {
             System.out.println("Hvad vil du have?\n");
@@ -141,10 +141,6 @@ public class Game {
             player.getCurrentRoom().removeCoin(coinItemName);
             System.out.println("Samlede " + coinItemName + "ne op\n");
         }
-    }
-    
-    public String processCoin() {
-        return "Samlede pengene op\n";
     }
 
     //Metode til at tjekke om en item er i ArrayListen Player's inventory.
@@ -176,14 +172,14 @@ public class Game {
     }
 
     //Printer ArrayListen player.getInventory()'s indhold til skærmen.
-    public String printWallet() {
+    public String printPengepung() {
         String output = "";
-        if (player.getWallet().isEmpty()) {
+        if (player.getPengepung().isEmpty()) {
             output += "Du har ingen mønter\n";
-        } else if (player.getWallet().size() == 1) {
-            output += "Du har " + player.getWallet().size() + " mønt\n";
+        } else if (player.getPengepung().size() == 1) {
+            output += "Du har " + player.getPengepung().size() + " mønt\n";
         } else {
-            output += "Du har " + player.getWallet().size() + " mønter\n";
+            output += "Du har " + player.getPengepung().size() + " mønter\n";
         }
         return "Dine mønter:\n" + output;
     }
@@ -229,7 +225,7 @@ public class Game {
                 System.out.println("Du er officielt den mest swagste person!");
                 System.out.println("Byen er deres o'høje Erik Deluxe.\n");
                 int Score;
-                Score = (player.getInventory().size() * 100) + (player.getWallet().size() * 25);
+                Score = (player.getInventory().size() * 100) + (player.getPengepung().size() * 25);
                 System.out.println("Din score er " + Score + " points.");
                 System.out.println("Du havde " + gameTimer.getTimeRemaining() + " sekunder tilbage.\n");
                 return true;
@@ -264,7 +260,7 @@ public class Game {
 
     private void addCoin(String CoinName) {
         Coin coinToAdd = new Coin(CoinName);
-        player.getWallet().add(coinToAdd);
+        player.getPengepung().add(coinToAdd);
         player.setScore(player.getScore() + coinToAdd.getVALUE());
     }
 
@@ -292,30 +288,6 @@ public class Game {
         }
     }
 
-    public String interactJB() {
-        String output = "";
-        NPC_JB npc_jb = new NPC_JB();
-            if (getSwag("Seddel fra Johnny Bravo") != null) {
-                output += "Du er allerede på denne mission.\n";
-            } else if (getSwag("Johnny Bravo håret") != null) {
-                output += "Denne mission er allerede færdiggjort.\n";
-            } else if (getSwag("Beatrice's nummer") != null) {
-                output += "Johnny Bravo: Du skaffede mig nummeret! Du er en sand guttermand.\n"
-                        + "Johnny Bravo: Her tag min paryk der ligner mit hår på en prik, "
-                        + "så kan det være du er heldig hos damerne.\n"
-                        + "Mission fuldført.\n";
-            } else if (getSwag("EPO") != null) {
-                output += "Der blev sagt ingen kommentarer\n"
-                        + "Du snakkede med nogen mens du havde EPO - Game over!\n";
-            } else {
-                npc_jb.interact(scanner);
-                if (npc_jb.isQuest() == true) {
-                    addSwag("Seddel fra Johnny Bravo");
-                    randers.setNPC(new NPC_BT());
-                }
-            }
-        return output;
-    }
     //Kommando til at interagere med npc'erne
     private void interactNPC(Command command) {
         if (!command.hasSecondWord()) {

@@ -4,9 +4,9 @@ import Acquaintance.IBusiness;
 import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
-    
-    Game game = new Game(new Player("Erik Deluxe"), new HighscoreManager());
-    Player player = new Player("Erik Deluxe");
+
+    Game game = new Game(new Player("Erik"), new HighscoreManager());
+    Player player;
 
     @Override
     public String printWelcome() {
@@ -24,8 +24,8 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public String printWallet() {
-        return game.printWallet();
+    public String printPengepung() {
+        return game.printPengepung();
     }
 
     /*@Override
@@ -44,14 +44,14 @@ public class BusinessFacade implements IBusiness {
     public String interactWith(String npc) {
         Command c = new Command(CommandWord.INTERACT, npc);
         game.processCommand(c);
-        return game.interactJB();
+        return "";
     }
 
     @Override
     public String getCoin(String coin) {
         Command c = new Command(CommandWord.GET, coin);
         game.processCommand(c);
-        return game.processCoin();
+        return "";
     }
     
     @Override
@@ -96,8 +96,4 @@ public class BusinessFacade implements IBusiness {
         return output;
     }
 
-    @Override
-    public String printPengepung() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

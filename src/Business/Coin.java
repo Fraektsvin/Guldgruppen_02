@@ -16,7 +16,6 @@ public class Coin implements Serializable, ICoin {
         coinDescription = newCoinDescription;
     }
 
-    @Override
     public String getCoinDescription() {
         return coinDescription;
     }

@@ -8,7 +8,7 @@ public interface IBusiness {
 
     String printInventory();
 
-    String printWallet();
+    String printPengepung();
     
     String goToDirection(String direction);
     
@@ -17,6 +17,4 @@ public interface IBusiness {
     String whichNPC();
     
     String getCoin(String coin);
-
-    public String printPengepung();
 }

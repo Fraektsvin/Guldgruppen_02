@@ -12,7 +12,7 @@ public class Player implements Serializable {
     private int score;
     private int coin;
 
-    private final ArrayList<Coin> wallet = new ArrayList<>();
+    private final ArrayList<Coin> pengepung = new ArrayList<>();
     private final ArrayList<Swag> inventory = new ArrayList<>();
 
     public IRoom getCurrentRoom() {
@@ -23,8 +23,8 @@ public class Player implements Serializable {
         this.currentRoom = currentRoom;
     }
 
-    public ArrayList<Coin> getWallet() {
-        return wallet;
+    public ArrayList<Coin> getPengepung() {
+        return pengepung;
     }
 
     public ArrayList<Swag> getInventory() {
