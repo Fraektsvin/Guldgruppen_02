@@ -38,5 +38,5 @@ public class BusinessFacade implements IBusiness {
         game.processCommand(c);
         return game.getRoomDescription();
     }
-   
+
 }

@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class GameViewController implements Initializable {
+public class FXMLDocumentController implements Initializable {
 
     IBusiness business;
 
