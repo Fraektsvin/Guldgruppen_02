@@ -95,9 +95,4 @@ public class BusinessFacade implements IBusiness {
         }
         return output;
     }
-
-    @Override
-    public String printPengepung() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
