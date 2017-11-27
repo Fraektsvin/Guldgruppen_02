@@ -5,8 +5,13 @@ import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
     
-    Game game = new Game(new Player("Erik Deluxe"), new HighscoreManager());
-    Player player = new Player("Erik Deluxe");
+    Game game;
+    Player player;
+    
+    public BusinessFacade () {
+        player = new Player("Erik Deluxe");
+        game = new Game(player, new HighscoreManager());
+    }
 
     @Override
     public String printWelcome() {
@@ -44,7 +49,7 @@ public class BusinessFacade implements IBusiness {
     public String interactWith(String npc) {
         Command c = new Command(CommandWord.INTERACT, npc);
         game.processCommand(c);
-        return game.interactJB();
+        return "";
     }
 
     @Override

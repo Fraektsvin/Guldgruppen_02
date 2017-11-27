@@ -109,4 +109,39 @@ public class FXMLDocumentController implements Initializable {
     private void playerQuitAction(ActionEvent event) {
         System.exit(0);
     }
+
+    
+    private void processDirection(String directions) {
+        if (!directions.contains("west")) {
+            disableDirection("west");
+        } else if (!directions.contains("east")) {
+            disableDirection("east");
+        } else if (!directions.contains("north")) {
+            disableDirection("north");
+        } else if (!directions.contains("south")) {
+            disableDirection("south");
+        }
+    }
+    private void disableDirection(String direction) {
+       
+        switch (direction) {
+            case "west":
+                goWest.setDisable(true);
+                break;
+            case "east":
+                goEast.setDisable(true);
+                break;
+            case "north":
+                goNorth.setDisable(true);
+                break;
+            case "south":
+                goSouth.setDisable(true);
+                break;
+            default:
+                goWest.setDisable(false);
+                goEast.setDisable(false);
+                goNorth.setDisable(false);
+                goSouth.setDisable(false);
+        }
+    }
 }
