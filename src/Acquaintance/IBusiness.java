@@ -17,6 +17,4 @@ public interface IBusiness {
     String whichNPC();
     
     String getCoin(String coin);
-
-    public String printPengepung();
 }
