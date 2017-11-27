@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class FXMLDocumentController implements Initializable {
+public class GameViewController implements Initializable {
 
     IBusiness business;
 
@@ -50,24 +50,28 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void goNorthAction(ActionEvent event) {
+        //textConsole.appendText("You went north\n");
         String textReturned = business.goToDirection("north");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goWestAction(ActionEvent event) {
+        //textConsole.appendText("You went west\n");
         String textReturned = business.goToDirection("west");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goSouthAction(ActionEvent event) {
+        //textConsole.appendText("You went south\n");
         String textReturned = business.goToDirection("south");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goEastAction(ActionEvent event) {
+        //textConsole.appendText("You went east\n");
         String textReturned = business.goToDirection("east");
         textConsole.appendText(textReturned);
     }
@@ -110,7 +114,6 @@ public class FXMLDocumentController implements Initializable {
         System.exit(0);
     }
 
-    
     private void processDirection(String directions) {
         if (!directions.contains("west")) {
             disableDirection("west");
@@ -122,8 +125,9 @@ public class FXMLDocumentController implements Initializable {
             disableDirection("south");
         }
     }
+
     private void disableDirection(String direction) {
-       
+
         switch (direction) {
             case "west":
                 goWest.setDisable(true);

@@ -49,7 +49,7 @@ public class BusinessFacade implements IBusiness {
     public String interactWith(String npc) {
         Command c = new Command(CommandWord.INTERACT, npc);
         game.processCommand(c);
-        return "";
+        return game.interactJB();
     }
 
     @Override
