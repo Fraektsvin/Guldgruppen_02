@@ -1,14 +1,20 @@
 package GUI;
 
 import Acquaintance.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
 public class GameViewController implements Initializable {
 
@@ -53,6 +59,7 @@ public class GameViewController implements Initializable {
         //textConsole.appendText("You went north\n");
         String textReturned = business.goToDirection("north");
         textConsole.appendText(textReturned);
+        
     }
 
     @FXML
@@ -109,6 +116,11 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    private void playerQuitAction(ActionEvent event) {
+    private void playerQuitAction(ActionEvent event) throws IOException {
+        Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
+        Scene newScene = new Scene(nextView);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+        stage.setScene(newScene);
     }
 }
