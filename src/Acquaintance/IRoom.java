@@ -5,10 +5,7 @@
  */
 package Acquaintance;
 
-/**
- *
- * @author sigur
- */
+
 public interface IRoom {
 
     String getExitString();
