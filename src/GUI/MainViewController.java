@@ -1,7 +1,10 @@
 package GUI;
 
 import Acquaintance.*;
+import static java.awt.SystemColor.window;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
+import static java.lang.System.exit;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,9 +18,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class MainViewController implements Initializable {
-    
+    Stage window; 
     IBusiness business;
     
     private Scene mainView;
@@ -42,8 +46,12 @@ public class MainViewController implements Initializable {
         stage.show();
         //start.setOnAction((EventHandler<ActionEvent>) gameView);
     }
-    public void Instruction(ActionEvent event ) {
-         instruction.setOnAction((EventHandler<ActionEvent>) gameView ); 
+    public void Instruction(ActionEvent event ) throws IOException {
+          Parent nextView = FXMLLoader.load(getClass().getResource("Instruktions.fxml"));
+        Scene newScene = new Scene(nextView);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(newScene);
+        stage.show();
         
         
     }    
@@ -54,10 +62,13 @@ public class MainViewController implements Initializable {
     
     @FXML
     private void playerQuitAction(ActionEvent event) {
-         quit.setOnAction((EventHandler<ActionEvent>) gameView ); 
+       
+        
+        
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
            business = GameGUI.getInstance().getBusiness();
    }
+  
 }
