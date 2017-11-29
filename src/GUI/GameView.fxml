@@ -18,7 +18,7 @@
     <bottom>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="goSouth" alignment="CENTER" mnemonicParsing="false" onAction="#goSouthAction" text="SOUTH" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                <Button fx:id="goSouth" alignment="CENTER" mnemonicParsing="false" onAction="#goSouthAction" text="SYD" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
@@ -28,14 +28,14 @@
                 </Button>
                 <HBox alignment="CENTER" spacing="10.0">
                     <children>
-                        <Button fx:id="playerInventory" mnemonicParsing="false" onAction="#playerInventoryAction" prefWidth="80.0" text="Inventory" textAlignment="CENTER">
+                        <Button fx:id="playerInventory" mnemonicParsing="false" onAction="#playerInventoryAction" prefWidth="80.0" text="Swag ting" textAlignment="CENTER">
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
                         </Button>
-                        <Button fx:id="playerWallet" mnemonicParsing="false" onAction="#playerWalletAction" prefWidth="80.0" text="Wallet" />
-                        <Button fx:id="playerGet" mnemonicParsing="false" onAction="#playerGetAction" prefWidth="80.0" text="Get" />
-                        <Button fx:id="playerInteract" mnemonicParsing="false" onAction="#playerInteractAction" prefWidth="80.0" text="Interact" />
+                        <Button fx:id="playerWallet" mnemonicParsing="false" onAction="#playerWalletAction" prefWidth="80.0" text="Pung" />
+                        <Button fx:id="playerGet" mnemonicParsing="false" onAction="#playerGetAction" prefWidth="80.0" text="Tag penge" />
+                        <Button fx:id="playerInteract" mnemonicParsing="false" onAction="#playerInteractAction" prefWidth="80.0" text="Snak med" />
                     </children>
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -51,14 +51,14 @@
     <left>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="goWest" mnemonicParsing="false" onAction="#goWestAction" text="WEST" textAlignment="CENTER" />
+                <Button fx:id="goWest" mnemonicParsing="false" onAction="#goWestAction" text="VEST" textAlignment="CENTER" />
             </children>
         </VBox>
     </left>
     <right>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="goEast" mnemonicParsing="false" onAction="#goEastAction" text="EAST" textAlignment="CENTER" />
+                <Button fx:id="goEast" mnemonicParsing="false" onAction="#goEastAction" text=" ØST " textAlignment="CENTER" />
             </children>
         </VBox>
     </right>
@@ -67,14 +67,14 @@
          <children>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
-                        <Button fx:id="playerLoad" mnemonicParsing="false" onAction="#playerLoadAction" prefWidth="80.0" text="Load" textAlignment="CENTER" />
-                        <Button fx:id="playerSave" mnemonicParsing="false" onAction="#playerSaveAction" prefWidth="80.0" text="Save" textAlignment="CENTER">
+                        <Button fx:id="playerLoad" mnemonicParsing="false" onAction="#playerLoadAction" prefWidth="80.0" text="Indlæs" textAlignment="CENTER" />
+                        <Button fx:id="playerSave" mnemonicParsing="false" onAction="#playerSaveAction" prefWidth="80.0" text="Gem" textAlignment="CENTER">
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
                         </Button>
-                        <Button fx:id="playerHelp" mnemonicParsing="false" onAction="#playerHelpAction" prefWidth="80.0" text="Help" textAlignment="CENTER" />
-                        <Button fx:id="playerQuit" mnemonicParsing="false" onAction="#playerQuitAction" prefWidth="80.0" text="Quit" textAlignment="CENTER" />
+                        <Button fx:id="playerHelp" mnemonicParsing="false" onAction="#playerHelpAction" prefWidth="80.0" text="Hjælp" textAlignment="CENTER" />
+                        <Button fx:id="playerQuit" mnemonicParsing="false" onAction="#playerQuitAction" prefWidth="85.0" text="Hovedmenu" textAlignment="CENTER" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -83,7 +83,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
             </HBox>
-            <Button fx:id="goNorth" mnemonicParsing="false" onAction="#goNorthAction" text="NORTH" />
+            <Button fx:id="goNorth" mnemonicParsing="false" onAction="#goNorthAction" text="NORD" />
          </children>
       </VBox>
    </top>

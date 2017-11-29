@@ -101,6 +101,7 @@ public class GameViewController implements Initializable {
         String npcName = business.whichNPC();
         String textReturned = business.interactWith(npcName, textFieldInput.getText());
         textConsole.appendText(textReturned + System.lineSeparator());
+        textFieldInput.clear();
     }
 
     @FXML
@@ -118,10 +119,10 @@ public class GameViewController implements Initializable {
 
     @FXML
     private void playerQuitAction(ActionEvent event) throws IOException {
-        Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
+        Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         Scene newScene = new Scene(nextView);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
         stage.setScene(newScene);
+        stage.show();
     }
 }

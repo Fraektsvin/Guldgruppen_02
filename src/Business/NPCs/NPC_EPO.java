@@ -22,7 +22,8 @@ public class NPC_EPO extends NPC {
             case 1:
                 if (game.getSwag("EPO") != null) {
                 return "Du har allerede fået en pose EPO.\n"
-                        + "Måske du skulle aflevere den hos Bjarne Riis.";
+                        + "Måske du skulle aflevere den hos Bjarne Riis.\n"
+                        + "Tak fordi at du spillede med os, din stodder.";
             }
             default:
                 return "";

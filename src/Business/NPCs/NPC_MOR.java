@@ -19,11 +19,12 @@ public class NPC_MOR extends NPC {
             case 1:
                 if (textInput.equalsIgnoreCase("ja")) {
                     interactionState = 2;
-                    player.getInventory().clear();
+                    setQuest(true);
                     return "Mor: Super, kom med mig og smag den nybagte kage\n"
                             + "...\n"
                             + "...\n"
-                            + "Du faldt i søvn og missede chancen for at battle Sidney Lee";
+                            + "Du faldt i søvn og missede chancen for at battle Sidney Lee - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
                 }
                 else if (textInput.equalsIgnoreCase("nej")) {
                     interactionState = 0;
@@ -39,7 +40,8 @@ public class NPC_MOR extends NPC {
                 if (game.getSwag("EPO") != null) {
                     player.getInventory().clear();
                     return "Der blev sagt ingen kommentarer!\n"
-                            + "Du snakkede med nogen mens du havde EPO - Game over!";
+                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
                 }
             default:
                 return "";

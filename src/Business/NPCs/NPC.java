@@ -12,7 +12,7 @@ public abstract class NPC implements Serializable {
     protected int interactionState = 0;
     private String name;
     private String greeting;
-    private boolean quest = true;
+    private boolean quest = false;
 
     public NPC(String name, String greeting, Game game, Player player) {
         this.name = name;

@@ -1,10 +1,12 @@
 package Business;
 
 import Acquaintance.IBusiness;
+import Business.NPCs.NPC_SL;
 import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
 
+    NPC_SL npc_sl;
     Game game;
     Player player;
 
@@ -32,6 +34,11 @@ public class BusinessFacade implements IBusiness {
     public String printWallet() {
         return game.printWallet();
     }
+    
+    @Override
+    public void timerStart() {
+        game.gameTimer.timerStart();
+    }
 
     @Override
     public String goToDirection(String direction) { //ingen exception handling, dvs. ingen tjek for east, west, north, south
@@ -41,6 +48,15 @@ public class BusinessFacade implements IBusiness {
                 return "Swaggen oser ud af dig! Du er nu klar til diskoteket\n";
             } else {
                 return "Du skal have mere swag for at komme igennem!\n";
+            }
+        }
+        if (player.getCurrentRoom().isLocked(direction)) {
+            if (npc_sl.isQuest() == true) {
+                game.sidney_lee.lockExit("south", false);
+            } else {
+                return "Kun adgang for byens største swagster.\n"
+                        + "Du har ikke vundet over Sidney Lee endnu.\n"
+                        + "Prøv igen når du har besejret ham.";
             }
         }
         if (player.getCurrentRoom() == game.hall_fame) {

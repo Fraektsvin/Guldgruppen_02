@@ -49,7 +49,8 @@ public class NPC_MJ extends NPC {
             } else if (game.getSwag("EPO") != null) {
                 player.getInventory().clear();
                 return "Der blev sagt ingen kommentarer.\n"
-                        + "Du snakkede med nogen mens du havde EPO - Game over!";
+                        + "Du snakkede med nogen mens du havde EPO - Game over!\n"
+                        + "Tak fordi at du spillede med os, din stodder.";
             }
         default :
             return "";

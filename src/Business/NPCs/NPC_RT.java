@@ -22,7 +22,8 @@ public class NPC_RT extends NPC {
                     return "Biver: Fedt, mand! Hop på scooteren, så skal vi til party!\n"
                             + "...\n"
                             + "...\n"
-                            + "Du blev fuld og randers typerne tog alt dit swag";
+                            + "Du blev fuld og randers typerne tog alt dit swag - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
                 }
                 else if (textInput.equalsIgnoreCase("nej")) {
                     interactionState = 0;
@@ -36,7 +37,8 @@ public class NPC_RT extends NPC {
                 if (game.getSwag("EPO") != null) {
                     player.getInventory().clear();
                     return "Der blev sagt ingen kommentarer!\n"
-                            + "Du snakkede med nogen mens du havde EPO - Game over!";
+                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
                 }
             default:
                 return "";
