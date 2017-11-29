@@ -39,7 +39,7 @@ public class MainViewController implements Initializable {
     
     @FXML
     public void start(ActionEvent event) throws IOException  {
-        Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
+        Parent nextView = FXMLLoader.load(getClass().getResource("Introduktion.fxml"));
         Scene newScene = new Scene(nextView);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(newScene);
@@ -47,7 +47,7 @@ public class MainViewController implements Initializable {
         //start.setOnAction((EventHandler<ActionEvent>) gameView);
     }
     public void Instruction(ActionEvent event ) throws IOException {
-          Parent nextView = FXMLLoader.load(getClass().getResource("Instruktions.fxml"));
+        Parent nextView = FXMLLoader.load(getClass().getResource("Instruktions.fxml"));
         Scene newScene = new Scene(nextView);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(newScene);

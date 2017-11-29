@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="514.0" style="-fx-background-color: #3d4956;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.IntroduktionsController">
+   <children>
+      <Label fx:id="Overskrift" contentDisplay="CENTER" graphicTextGap="60.0" layoutY="-2.0" prefHeight="79.0" prefWidth="519.0" text="SwagCity">
+         <font>
+            <Font name="System Italic" size="60.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.9567307692307693" endY="1.0" startY="0.3028846153846154">
+               <stops>
+                  <Stop color="#4b666861" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutY="85.0" prefHeight="255.0" prefWidth="519.0" />
+      <TextField fx:id="textFieldInput" layoutX="4.0" layoutY="130.0" prefHeight="405.0" prefWidth="506.0" />
+      <Button layoutX="14.0" layoutY="466.0" mnemonicParsing="false" onAction="#text" text="Button" />
+   </children>
+</AnchorPane>
