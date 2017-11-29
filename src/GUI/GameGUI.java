@@ -2,8 +2,10 @@ package GUI;
 
 import Acquaintance.IBusiness;
 import Acquaintance.IGame;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -35,16 +37,18 @@ public class GameGUI extends Application implements IGame {
         Parent p = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         Scene scene = new Scene(p);
         //mainView.setFill(javafx.scene.paint.Color.TRANSPARENT);
-        //stage.initStyle(StageStyle.TRANSPARENT);
+        //stage.initStyle(StageStyle.TRANSPARENT);              
         stage.setScene(scene);
         stage.show();
+  
     }
-
+    
     //Bliver kaldt af STARTER (glue code), som realiserer interfacet IBusiness
     @Override
     public void setBusiness(IBusiness business) {
         game = business;
     }
+    
 
     //Returnerer IBusiness som blev sat af Starter(Glue coden) - Bliver kaldt i FXMLController
     public IBusiness getBusiness() {

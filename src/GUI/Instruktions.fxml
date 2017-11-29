@@ -1,11 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InstruktionsController">
-    
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="-5.0" prefHeight="59.0" prefWidth="547.0" style="-fx-background-color: #3d4956;">
+         <children>
+            <ImageView fitHeight="55.0" fitWidth="67.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../JavaFxImages/icons8-move.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="55.0" layoutX="164.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../JavaFxImages/icons8-talk.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="297.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../JavaFxImages/icons8-wallet.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="434.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../JavaFxImages/icons8-door_sensor_alarmed.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-3.0" layoutY="113.0" prefHeight="446.0" prefWidth="537.0" style="-fx-background-color: #3d4956;">
+         <children>
+            <Label layoutY="39.0" prefHeight="197.0" prefWidth="504.0" text="            Eksisterer 4 retninger du kan bevæge dig disser er følgende:&#10;                 &#10;                  Nord via pilen for oven &#10;&#10;                  Syd  pilen forneden &#10;&#10;                  Øst via pilen til højre&#10;&#10;                  Vest via pilen til venstre" textAlignment="CENTER" textFill="#3a8fda" wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-1.0" layoutY="109.0" prefHeight="446.0" prefWidth="537.0" style="-fx-background-color: #3d4956;">
+         <children>
+            <Label layoutX="4.0" layoutY="31.0" prefHeight="215.0" prefWidth="519.0" text="            Eksisterer 4 retninger du kan bevæge dig disser er følgende:&#10;                 &#10;                  Nord via pilen for oven &#10;&#10;                  Syd  pilen forneden &#10;&#10;                  Øst via pilen til højre&#10;&#10;                  Vest via pilen til venstre" textAlignment="CENTER" textFill="#3a8fda" wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-6.0" layoutY="101.0" prefHeight="458.0" prefWidth="547.0" style="-fx-background-color: #3d4956;">
+         <children>
+            <Label layoutX="-21.0" layoutY="39.0" prefHeight="197.0" prefWidth="504.0" text="            Eksisterer 4 retninger du kan bevæge dig disser er følgende:&#10;                 &#10;                  Nord via pilen for oven &#10;&#10;                  Syd  pilen forneden &#10;&#10;                  Øst via pilen til højre&#10;&#10;                  Vest via pilen til venstre" textAlignment="CENTER" textFill="#3a8fda" wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-2.0" layoutY="109.0" prefHeight="446.0" prefWidth="537.0" style="-fx-background-color: #3d4956;">
+         <children>
+            <Label layoutY="39.0" prefHeight="197.0" prefWidth="504.0" text="            Eksisterer 4 retninger du kan bevæge dig disser er følgende:&#10;                 &#10;                  Nord via pilen for oven &#10;&#10;                  Syd  pilen forneden &#10;&#10;                  Øst via pilen til højre&#10;&#10;                  Vest via pilen til venstre" textAlignment="CENTER" textFill="#3a8fda" wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
