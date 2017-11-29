@@ -35,8 +35,8 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public void displayName() {
-        System.out.println(name);
+    public String displayName() {
+        return name;
     }
 
     public int getScore() {

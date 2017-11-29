@@ -1,32 +1,68 @@
 package Business.NPCs;
 
-import java.util.Scanner;
+import Business.Game;
+import Business.Player;
 
 public class NPC_OH extends NPC {
 
-    public NPC_OH() {
-        super("Ole Henriksen", "I'm sooo fabolous.");
+    public NPC_OH(Game game, Player player) {
+        super("Ole Henriksen", "I'm sooo fabolous.", game, player);
     }
 
     @Override
-    public void interact(Scanner input) {
-        System.out.println("Ole Henriksen: Ej, en lækker lille basse, der kom ind ad min dør! Vil du hjælpe lille mig, sådan lige hurtigt? Jeg skal nok gøre det tiden værd! (ja/nej)");
-        String answer1 = input.nextLine();
-        if (answer1.equalsIgnoreCase("ja")) {
-            System.out.println("Hvor ER det bare fabulous! Der er den her dørmand, som ser mega lækker ud. Giv mig hans nummer, vil du ikke nok? (ja/nej)");
-            String answer2 = input.nextLine();
-            if (answer2.equalsIgnoreCase("ja")) {
-                System.out.println("Ole Henriksen: Her er en seddel, som han kan skrive det på. Glæder mig sindssygt meget!\n");
-                setQuest(true);
-            } else if (answer2.equalsIgnoreCase("nej")) {
-                System.out.println("Ole Henriksen: Nå… Så fik du mine håb op… Nåh, gode tanker! Kom igen hvis du alligevel vil!\n");
-            } else {
-                System.out.println("Ole Henriksen: Åh nej, lille stakkel, har du slået hovedet?\n");
+    public String interact(String textInput) {
+        switch (interactionState) {
+            case 0:
+                interactionState = 1;
+                return "Ole Henriksen: Ej, en lækker lille basse, der kom ind ad min dør!\n"
+                        + "Vil du hjælpe lille mig, sådan lige hurtigt? Jeg skal nok gøre det tiden værd! (ja/nej)";
+            case 1:
+                if (textInput.equalsIgnoreCase("ja")) {
+                    interactionState = 2;
+                    return "Hvor ER det bare fabulous! Der er den her dørmand, som ser mega lækker ud.\n"
+                            + "Giv mig hans nummer, vil du ikke nok? (ja/nej)";
+                } else if (textInput.equalsIgnoreCase("nej")) {
+                    interactionState = 0;
+                    return "Ole Henriksen: Du er da bare en kedelig gut…\n"
+                            + "Men det er ok, du er nuttet nok. Sig til hvis du ændrer mening.";
+                } else {
+                    interactionState = 0;
+                    return "Ole Henriksen: Åh nej, lille stakkel, har du slået hovedet?";
+                }
+            case 2:
+                if (textInput.equalsIgnoreCase("ja")) {
+                    interactionState = 3;
+                    game.addSwag("Seddel fra Ole Henriksen");
+                    return "Ole Henriksen: Her er en seddel, som han kan skrive det på. Glæder mig sindssygt meget!";
+                } else if (textInput.equalsIgnoreCase("nej")) {
+                    interactionState = 0;
+                    return "Ole Henriksen: Nå… Så fik du mine håb op… Nåh, gode tanker! Kom igen hvis du alligevel vil!";
+                } else {
+                    interactionState = 0;
+                    return "Ole Henriksen: Åh nej, lille stakkel, har du slået hovedet?";
+                }
+            case 3:
+                if (game.getSwag("Seddel fra Ole Henriksen") != null) {
+                return "Du er allerede på denne mission.";
+            } else if (game.getSwag("Fabulous tøj fra Ole Henriksen") != null) {
+                return "Denne mission er allerede færdiggjort.";
+            } else if (game.getSwag("Dørmandens nummer") != null) {
+                game.removeSwag("Dørmandens nummer");
+                game.addSwag("Fabulous tøj fra Ole Henriksen");
+                game.gameTimer.addTime(60);
+                return "Ole Henriksen: Du fik nummeret!?\n"
+                        + "Ole Henriksen: Jeg havde aldrig turde håbe på at han kunne være til sådan noget.\n"
+                        + "Ole Henriksen: Jaja der kan man se, nogle gange er man heldig! Ej hvor jeg bare er glad nu.\n"
+                        + "Ole Henriksen: Her lad mig hjælpe med dit forfærdelige kluns, her får du et rigtigt outfit.\n"
+                        + "Mission fuldført.";
+            } else if (game.getSwag("EPO") != null) {
+                player.getInventory().clear();
+                return "Der blev sagt ingen kommentarer.\n"
+                        + "Du snakkede med nogen mens du havde EPO - Game over!";
             }
-        } else if (answer1.equalsIgnoreCase("nej")) {
-            System.out.println("Ole Henriksen: Du er da bare en kedelig gut… Men det er ok, du er nuttet nok. Sig til hvis du ændrer mening.\n");
-        } else {
-            System.out.println("Ole Henriksen: Åh nej, lille stakkel, har du slået hovedet?\n");
+                return "";
+            default:
+                return "";
         }
     }
 }

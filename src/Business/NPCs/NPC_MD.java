@@ -1,18 +1,35 @@
 package Business.NPCs;
 
-import java.util.Scanner;
+import Business.Game;
+import Business.Player;
 
 public class NPC_MD extends NPC {
     
-    public NPC_MD() {
-        super("Mokai dealer", "");
+    public NPC_MD(Game game, Player player) {
+        super("Mokai dealer", "", game, player);
     }
-    
+
     @Override
-    public void interact(Scanner input) {
-        System.out.println("Mokai dealer: Jeg leverer de mest friske mokai's du kan få");
-        System.out.println("Mokai dealer: Har du guldpenge fra Gulddrengen!?");
-        System.out.println("Mokai dealer: Her skynd dig! Tag disse mokai, Gulddrengen kan ikke vente!\n");
-        setQuest(true);
+    public String interact(String textInput) {
+        switch (interactionState) {
+            case 0:
+                interactionState = 1;
+                game.removeSwag("Guldpenge fra Gulddrengen");
+                game.addSwag("Frisk mokai");
+                return "Mokai dealer: Jeg leverer de mest friske mokai's du kan få!\n"
+                        + "Har du guldpenge fra Gulddrengen!? Her skynd dig!\n"
+                        + "Tag denne mokai, Gulddrengen kan ikke vente!";
+            case 1:
+                if (game.getSwag("Frisk mokai") != null) {
+                return "Du har allerede fået en frisk mokai.\n"
+                        + "Måske du skulle aflevere den hos Gulddrengen.";
+            } else if (game.getSwag("EPO") != null) {
+                player.getInventory().clear();
+                return "Der blev sagt ingen kommentarer.\n"
+                        + "Du snakkede med nogen mens du havde EPO - Game over!";
+            }
+            default:
+                return "";
+        }
     }
 }

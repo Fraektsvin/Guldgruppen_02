@@ -12,7 +12,7 @@ public interface IBusiness {
     
     String goToDirection(String direction);
     
-    String interactWith(String npc);
+    String interactWith(String npc, String textInput);
     
     String whichNPC();
     

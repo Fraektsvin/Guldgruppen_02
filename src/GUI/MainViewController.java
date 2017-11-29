@@ -54,7 +54,7 @@ public class MainViewController implements Initializable {
     
     @FXML
     private void playerQuitAction(ActionEvent event) {
-         quit.setOnAction((EventHandler<ActionEvent>) gameView ); 
+         quit.setOnAction((EventHandler<ActionEvent>) gameView );
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -1,20 +1,26 @@
 package GUI;
 
 import Acquaintance.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class GameViewController implements Initializable {
 
     IBusiness business;
 
-    private Label label;
     @FXML
     private Button goNorth;
     @FXML
@@ -41,6 +47,8 @@ public class GameViewController implements Initializable {
     private Button playerQuit;
     @FXML
     private TextArea textConsole;
+    @FXML
+    private TextField textFieldInput;
 
     //Brug af SINGLETON design pattern
     @Override
@@ -50,28 +58,25 @@ public class GameViewController implements Initializable {
 
     @FXML
     private void goNorthAction(ActionEvent event) {
-        //textConsole.appendText("You went north\n");
         String textReturned = business.goToDirection("north");
         textConsole.appendText(textReturned);
+        
     }
 
     @FXML
     private void goWestAction(ActionEvent event) {
-        //textConsole.appendText("You went west\n");
         String textReturned = business.goToDirection("west");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goSouthAction(ActionEvent event) {
-        //textConsole.appendText("You went south\n");
         String textReturned = business.goToDirection("south");
         textConsole.appendText(textReturned);
     }
 
     @FXML
     private void goEastAction(ActionEvent event) {
-        //textConsole.appendText("You went east\n");
         String textReturned = business.goToDirection("east");
         textConsole.appendText(textReturned);
     }
@@ -93,7 +98,9 @@ public class GameViewController implements Initializable {
 
     @FXML
     private void playerInteractAction(ActionEvent event) {
-        textConsole.appendText(business.interactWith(business.whichNPC()));
+        String npcName = business.whichNPC();
+        String textReturned = business.interactWith(npcName, textFieldInput.getText());
+        textConsole.appendText(textReturned + System.lineSeparator());
     }
 
     @FXML
@@ -110,42 +117,11 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    private void playerQuitAction(ActionEvent event) {
-        System.exit(0);
-    }
-
-    private void processDirection(String directions) {
-        if (!directions.contains("west")) {
-            disableDirection("west");
-        } else if (!directions.contains("east")) {
-            disableDirection("east");
-        } else if (!directions.contains("north")) {
-            disableDirection("north");
-        } else if (!directions.contains("south")) {
-            disableDirection("south");
-        }
-    }
-
-    private void disableDirection(String direction) {
-
-        switch (direction) {
-            case "west":
-                goWest.setDisable(true);
-                break;
-            case "east":
-                goEast.setDisable(true);
-                break;
-            case "north":
-                goNorth.setDisable(true);
-                break;
-            case "south":
-                goSouth.setDisable(true);
-                break;
-            default:
-                goWest.setDisable(false);
-                goEast.setDisable(false);
-                goNorth.setDisable(false);
-                goSouth.setDisable(false);
-        }
+    private void playerQuitAction(ActionEvent event) throws IOException {
+        Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
+        Scene newScene = new Scene(nextView);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+        stage.setScene(newScene);
     }
 }

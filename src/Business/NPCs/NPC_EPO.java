@@ -1,18 +1,31 @@
 package Business.NPCs;
 
-import java.util.Scanner;
+import Business.Game;
+import Business.Player;
 
 public class NPC_EPO extends NPC {
     
-    public NPC_EPO() {
-        super("EPO dealer", "");
+    public NPC_EPO(Game game, Player player) {
+        super("EPO dealer", "", game, player);
     }
-    
+
     @Override
-    public void interact(Scanner input) {
-        System.out.println("EPO dealer: Nå det er den tid igen? Jeg sender en regning til ham");
-        System.out.println("EPO dealer: *Giver dig en lille pose med EPO*");
-        System.out.println("EPO dealer: Husk! Ikke snak med nogen før du har afleveret varen til Bjarne Riis.\n");
-        setQuest(true);
+    public String interact(String textInput) {
+        switch (interactionState) {
+            case 0:
+                interactionState = 1;
+                game.removeSwag("Seddel fra Bjarne Riis");
+                game.addSwag("EPO");
+                return "EPO dealer: Nå det er den tid igen? Jeg sender en regning til ham.\n"
+                        + "EPO dealer: *Giver dig en lille pose med EPO*.\n"
+                        + "EPO dealer: Husk! Ikke snak med nogen før du har afleveret varen til Bjarne Riis.";
+            case 1:
+                if (game.getSwag("EPO") != null) {
+                return "Du har allerede fået en pose EPO.\n"
+                        + "Måske du skulle aflevere den hos Bjarne Riis.";
+            }
+            default:
+                return "";
+        }
     }
 }
