@@ -73,16 +73,9 @@ public class Game {
                     finished = true;
                 }
                 break;
-            case QUIT:
-                boolean toQuitQuit = quit(command);
-                if (toQuitQuit) {
-                    finished = true;
-                }
-                break;
             case INVENTORY:
                 printInventory();
                 break;
-            //der blevet lavet en ny kommando med Get så der kan pickes items up
             case WALLET:
                 printWallet();
                 break;
@@ -91,7 +84,10 @@ public class Game {
                 break;
             case INTERACT:
                 String toReturn = interactNPC(command, textInput);
-                questQuit();
+                if (questQuit() == true) {
+                    gameTimer.timerStop();
+                    System.exit(0);
+                }
                 return toReturn;
             case SAVE:
                 player.setSavedTime(gameTimer.getTimeRemaining());
@@ -103,10 +99,6 @@ public class Game {
                 break;
             default:
                 break;
-        }
-        if (finished == true) {
-            gameTimer.timerStop();
-            System.exit(0);
         }
         return "";
     }
@@ -184,20 +176,13 @@ public class Game {
         return false;
     }
 
-    //Kalder quit command og slutter spillet.
-    private boolean quit(Command command) {
-        if (command.hasSecondWord()) {
-            System.out.println("Prøver du at stoppe med at spille!?\n");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     //Checker om playerens inventory er tom, i det tilfælde sættes wantToQuit = true og spillet sluttes.
     private boolean questQuit() {
-        return npc_mor.isQuest() == true;
-
+        if (npc_mor.isQuest() == true) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //Tilføjer en coin til playerns wallet

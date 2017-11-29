@@ -34,7 +34,7 @@ public class BusinessFacade implements IBusiness {
     public String printWallet() {
         return game.printWallet();
     }
-    
+
     @Override
     public void timerStart() {
         game.gameTimer.timerStart();
@@ -43,20 +43,21 @@ public class BusinessFacade implements IBusiness {
     @Override
     public String goToDirection(String direction) { //ingen exception handling, dvs. ingen tjek for east, west, north, south
         if (player.getCurrentRoom().isLocked(direction)) {
-            if (player.getInventory().size() > 3) {
-                game.diskotekets_dør.lockExit("north", false);
-                return "Swaggen oser ud af dig! Du er nu klar til diskoteket\n";
-            } else {
-                return "Du skal have mere swag for at komme igennem!\n";
-            }
-        }
-        if (player.getCurrentRoom().isLocked(direction)) {
-            if (npc_sl.isQuest() == true) {
-                game.sidney_lee.lockExit("south", false);
-            } else {
-                return "Kun adgang for byens største swagster.\n"
-                        + "Du har ikke vundet over Sidney Lee endnu.\n"
-                        + "Prøv igen når du har besejret ham.";
+            if (player.getCurrentRoom().equals(game.sidney_lee)) {
+                if (npc_sl.isQuest() == true) {
+                    game.sidney_lee.lockExit("south", false);
+                } else {
+                    return "Kun adgang for byens største swagster.\n"
+                            + "Du har ikke vundet over Sidney Lee endnu.\n"
+                            + "Prøv igen når du har besejret ham.";
+                }
+            } else if (player.getCurrentRoom().equals(game.diskotekets_dør)) {
+                if (player.getInventory().size() > 3) {
+                    game.diskotekets_dør.lockExit("north", false);
+                    return "Swaggen oser ud af dig! Du er nu klar til diskoteket\n";
+                } else {
+                    return "Du skal have mere swag for at komme igennem!\n";
+                }
             }
         }
         if (player.getCurrentRoom() == game.hall_fame) {
