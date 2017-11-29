@@ -23,5 +23,4 @@ public class InstruktionsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
 }

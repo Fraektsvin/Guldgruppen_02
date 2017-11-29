@@ -30,7 +30,7 @@
       </AnchorPane>
       <AnchorPane layoutY="90.0" prefHeight="597.0" prefWidth="540.0" style="-fx-background-color: #3d4956;">
          <children>
-            <Button fx:id="instruction" layoutY="112.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="540.0" text="Instruction">
+            <Button fx:id="instruction" layoutY="112.0" mnemonicParsing="false" onAction="#Instruction" prefHeight="44.0" prefWidth="540.0" text="Instruction">
                <font>
                   <Font size="24.0" />
                </font>
@@ -40,7 +40,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="Quit" layoutY="265.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="540.0" text="Quit">
+            <Button fx:id="Quit" layoutY="265.0" mnemonicParsing="false" onAction="#playerQuitAction" prefHeight="44.0" prefWidth="540.0" text="Quit">
                <font>
                   <Font size="24.0" />
                </font>
