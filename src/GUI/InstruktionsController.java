@@ -43,7 +43,7 @@ public class InstruktionsController implements Initializable {
     }    
     @FXML
     public void handleButtonAction(MouseEvent event) {
-        //if(event.getTarget() == btn_settings ){
+        //if(event.on == btn_settings ){
             
             
         }

@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -24,6 +25,9 @@ public class MainViewController implements Initializable {
 
     private Scene mainView;
     private Scene gameView;
+    private double xOffset;
+    private double yOffset;        
+            
 
     @FXML
     private Label label;
@@ -49,6 +53,20 @@ public class MainViewController implements Initializable {
         stage.setScene(newScene);
         newScene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.show();
+        nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @FXML
+            public void handle(MouseEvent event) {
+                xOffset =event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        nextView.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @FXML
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX()- xOffset);
+                stage.setY(event.getScreenY()- yOffset);
+            }
+        });
     }
 
     @FXML
@@ -57,7 +75,22 @@ public class MainViewController implements Initializable {
         Scene newScene = new Scene(nextView);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(newScene);
+        newScene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.show();
+          nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @FXML
+            public void handle(MouseEvent event) {
+                xOffset =event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        nextView.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @FXML
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX()- xOffset);
+                stage.setY(event.getScreenY()- yOffset);
+            }
+        });
 
     }
 
