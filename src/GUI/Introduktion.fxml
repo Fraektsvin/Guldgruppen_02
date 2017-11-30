@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.paint.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="514.0" style="-fx-background-color: #3d4956;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.IntroduktionsController">
+<AnchorPane id="AnchorPane" prefHeight="547.0" prefWidth="514.0" style="-fx-background-color: #3d4956;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.IntroduktionsController">
    <children>
       <Label fx:id="Overskrift" contentDisplay="CENTER" graphicTextGap="60.0" layoutY="-2.0" prefHeight="79.0" prefWidth="519.0" text="SwagCity">
          <font>
@@ -24,7 +25,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TextArea fx:id="textConsole" layoutX="268.0" layoutY="14.0" prefHeight="258.0" prefWidth="295.0" style="-fx-background-color: #3d4956;">
+      <TextArea fx:id="textConsole" editable="false" layoutX="246.0" layoutY="14.0" prefHeight="258.0" prefWidth="317.0" style="-fx-background-color: #3d4956;" wrapText="true">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

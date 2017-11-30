@@ -39,7 +39,7 @@ public class Game {
         StringBuilder welcomeString = new StringBuilder();
         welcomeString.append("Velkommen til Swag City!\n");
         welcomeString.append("Byen hvor drenge bliver til mænd... eller noget.\n");
-        welcomeString.append("\n   ----- Introduktion til spillet -----   \n\n");
+        welcomeString.append("\n     ----- Introduktion til spillet -----   \n\n");
         welcomeString.append("Erik Deluxe er havnet i Swag City.\n");
         welcomeString.append("Han er på en mission for at finde byens mest swagste person.\n");
         welcomeString.append("På Eriks farefulde færd møder han diverse hjælpere og modstandere,\n");
@@ -52,10 +52,6 @@ public class Game {
         welcomeString.append("disse swagting bruges som spillets liv, frarøves alle swagtingene taber man spillet,\n");
         welcomeString.append("og for at vinde spillet skal man besejre Sidney Lee i en dancebattle,\n");
         welcomeString.append("for at blive byens nye mest swagste person.\n\n");
-        welcomeString.append("Din spilletid er nu gået i gang, du har ").append(gameTimer.getTimeRemaining()).append(" sekunder tilbage.\n");
-        welcomeString.append("For hver mission du klarer får du et minut mere at spille for. Held og lykke!\n\n");
-        welcomeString.append("Har du brug for hjælp? Skriv '").append(CommandWord.HELP).append("' hvis du er fuld.\n\n");
-        welcomeString.append(player.getCurrentRoom().getLongDescription());
         return welcomeString.toString();
     }
 
@@ -83,10 +79,7 @@ public class Game {
                 break;
             case INTERACT:
                 String toReturn = interactNPC(command, textInput);
-                if (questQuit() == true) {
-                    gameTimer.timerStop();
-                    System.exit(0);
-                }
+                questQuit();
                 return toReturn;
             case SAVE:
                 player.setSavedTime(gameTimer.getTimeRemaining());
@@ -175,12 +168,10 @@ public class Game {
         return false;
     }
 
-    //Checker om playerens inventory er tom, i det tilfælde sættes wantToQuit = true og spillet sluttes.
-    private boolean questQuit() {
+    //Metode til at afslutt spillet ud fra spillets missioner.
+    private void questQuit() {
         if (npc_mor.isQuest() == true) {
-            return true;
-        } else {
-            return false;
+            System.exit(0);
         }
     }
 
