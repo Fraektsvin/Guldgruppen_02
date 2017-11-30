@@ -26,7 +26,7 @@ public class GameTimer {
     }
 
     public void timerStop() {
-        System.exit(0);
+        timer.cancel();
     }
 
     public int getTimeRemaining() {
