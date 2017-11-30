@@ -17,4 +17,8 @@ public interface IBusiness {
     String whichNPC();
     
     String getCoin(String coin);
+    
+    void timerStart();
+    
+    void timerStop();
 }

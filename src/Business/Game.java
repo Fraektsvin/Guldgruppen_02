@@ -6,17 +6,15 @@ import Business.NPCs.*;
 import Data.HighscoreManager;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Game {
 
     private final Parser parser;
     private Player player;
     private final HighscoreManager HM;
-    Scanner scanner = new Scanner(System.in);
     private final Map<IRoom, NPC> npcs;
-
     private boolean finished = false;
+    NPC_MOR npc_mor = new NPC_MOR(this, player);
 
     public Room swag_city, randers, johnny_bravo, mors_hus, gulddreng,
             bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame,
@@ -27,22 +25,9 @@ public class Game {
     public Game(Player player, HighscoreManager HM) {
         this.player = player;
         this.HM = HM;
-        gameTimer.timerStart();
         createGame();
         parser = new Parser();
         npcs = new HashMap<>();
-    }
-
-    public void play() {
-        System.out.println(printWelcome());
-
-        //boolean finished = false;
-        while (!finished) {
-            Command command = parser.getCommand();
-            processCommand(command, "");
-        }
-        System.out.println("Tak fordi at du spillede med os, din stodder.");
-        gameTimer.timerStop();
     }
 
     public String getRoomDescription() {
@@ -77,50 +62,43 @@ public class Game {
     //Spillets kommandoer bliver herunder defineret
     public String processCommand(Command command, String textInput) {
         CommandWord commandWord = command.getCommandWord();
-            switch (commandWord) {
-                case HELP:
-                    printHelp();
-                    break;
-                case GO:
-                    boolean toQuitGo = goRoom(command);
-                    if (toQuitGo) {
-                        finished = true;
-                    }
-                    break;
-                case QUIT:
-                    boolean toQuitQuit = quit(command);
-                    if (toQuitQuit) {
-                        finished = true;
-                    }
-                    break;
-                case INVENTORY:
-                    printInventory();
-                    break;
-                //der blevet lavet en ny kommando med Get så der kan pickes items up
-                case WALLET:
-                    printWallet();
-                    break;
-                case GET:
-                    getCoin(command);
-                    break;
-                case INTERACT:
-                    String toReturn = interactNPC(command, textInput);
-                    boolean toQuitInteract = inventoryQuit();
-                    if (toQuitInteract) {
-                        finished = true;
-                    }
-                    return toReturn;
-                case SAVE:
-                    player.setSavedTime(gameTimer.getTimeRemaining());
-                    HM.savePlayer(player);
-                    break;
-                case LOAD:
-                    player = HM.loadPlayer();
-                    gameTimer.setTime(player.getSavedTime());
-                    break;
-                default:
-                    break;
-            }
+        switch (commandWord) {
+            case HELP:
+                printHelp();
+                break;
+            case GO:
+                boolean toQuitGo = goRoom(command);
+                if (toQuitGo) {
+                    finished = true;
+                }
+                break;
+            case INVENTORY:
+                printInventory();
+                break;
+            case WALLET:
+                printWallet();
+                break;
+            case GET:
+                getCoin(command);
+                break;
+            case INTERACT:
+                String toReturn = interactNPC(command, textInput);
+                if (questQuit() == true) {
+                    gameTimer.timerStop();
+                    System.exit(0);
+                }
+                return toReturn;
+            case SAVE:
+                player.setSavedTime(gameTimer.getTimeRemaining());
+                HM.savePlayer(player);
+                break;
+            case LOAD:
+                player = HM.loadPlayer();
+                gameTimer.setTime(player.getSavedTime());
+                break;
+            default:
+                break;
+        }
         return "";
     }
 
@@ -188,14 +166,6 @@ public class Game {
             System.out.println("Bum! Du løb ind i en væg, drik noget mindre\n");
         } else {
             player.setCurrentRoom(nextRoom);
-            if (player.getCurrentRoom() == sidney_lee) {
-                NPC_SL npc_sl = new NPC_SL(this, player);
-                npc_sl.interact("3");
-                if (npc_sl.isQuest() == false) {
-                    player.getInventory().clear();
-                    return true;
-                }
-            }
             if (player.getCurrentRoom() == hall_fame) {
                 return true;
             }
@@ -205,26 +175,13 @@ public class Game {
         return false;
     }
 
-    //Kalder quit command og slutter spillet.
-    private boolean quit(Command command) {
-        if (command.hasSecondWord()) {
-            System.out.println("Prøver du at stoppe med at spille!?\n");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     //Checker om playerens inventory er tom, i det tilfælde sættes wantToQuit = true og spillet sluttes.
-    private boolean inventoryQuit() {
-        if (player.getInventory().isEmpty()) {
-            System.out.println("Du har mistet alt dit swag");
-            System.out.println("Du er ikke længere værdig til at opholde dig i Swag City\n");
+    private boolean questQuit() {
+        if (npc_mor.isQuest() == true) {
             return true;
         } else {
             return false;
         }
-
     }
 
     //Tilføjer en coin til playerns wallet
@@ -320,6 +277,11 @@ public class Game {
                 npcs.put(randers, new NPC_ID(this, player));
             }
             return npcs.get(swag_city).interact(textInput);
+        } else if (player.getCurrentRoom() == sidney_lee) {
+            if (!npcs.keySet().contains(sidney_lee)) {
+                npcs.put(sidney_lee, new NPC_SL(this, player));
+            }
+            return npcs.get(sidney_lee).interact(textInput);
         } else {
             return "Hvem prøver du at kontakte?";
         }

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.web.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Drag" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainViewController">
+<AnchorPane fx:id="Drag" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainViewController">
    <children>
       <AnchorPane fx:id="Topbar" layoutY="-6.0" prefHeight="94.0" prefWidth="540.0" style="-fx-background-color: #3d4956;">
          <children>
@@ -30,7 +28,7 @@
       </AnchorPane>
       <AnchorPane layoutY="90.0" prefHeight="597.0" prefWidth="540.0" style="-fx-background-color: #3d4956;">
          <children>
-            <Button fx:id="instruction" layoutY="112.0" mnemonicParsing="false" onAction="#Instruction" prefHeight="44.0" prefWidth="540.0" text="Instruction">
+            <Button fx:id="instruction" layoutY="112.0" mnemonicParsing="false" onAction="#Instruction" prefHeight="44.0" prefWidth="540.0" text="Instruktioner">
                <font>
                   <Font size="24.0" />
                </font>
@@ -40,7 +38,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="Quit" layoutY="265.0" mnemonicParsing="false" onAction="#playerQuitAction" prefHeight="44.0" prefWidth="540.0" text="Quit">
+            <Button fx:id="Quit" layoutY="265.0" mnemonicParsing="false" onAction="#playerQuitAction" prefHeight="44.0" prefWidth="540.0" text="Afslut">
                <font>
                   <Font size="24.0" />
                </font>

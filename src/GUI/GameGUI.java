@@ -2,7 +2,7 @@ package GUI;
 
 import Acquaintance.IBusiness;
 import Acquaintance.IGame;
-import java.awt.event.MouseEvent;
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -17,6 +17,8 @@ public class GameGUI extends Application implements IGame {
     private static GameGUI gui; //SINGLETON 
     private Scene mainView;
     private Scene gameView;
+    private double xOffset = 0;
+    private double yOffset = 0;
     
     private Scene loadScene(String filename) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(filename));
@@ -33,17 +35,31 @@ public class GameGUI extends Application implements IGame {
 
     @Override
     public void start(Stage stage) throws Exception {      
-        //this.gameView = loadScene("GameView.fxml" );
         Parent p = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+        stage.initStyle(StageStyle.TRANSPARENT);
+        p.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset =event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        p.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX()- xOffset);
+                stage.setY(event.getScreenY()- yOffset);
+            }
+        });
         Scene scene = new Scene(p);
-        //mainView.setFill(javafx.scene.paint.Color.TRANSPARENT);
-        //stage.initStyle(StageStyle.TRANSPARENT);              
+        scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
-  
-    }
+        
     
+    }
     //Bliver kaldt af STARTER (glue code), som realiserer interfacet IBusiness
+
     @Override
     public void setBusiness(IBusiness business) {
         game = business;

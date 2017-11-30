@@ -7,9 +7,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class IntroduktionsController implements Initializable {
 
@@ -18,17 +25,25 @@ public class IntroduktionsController implements Initializable {
     @FXML
     private TextArea textConsole;
     @FXML
-    private TextField textFieldInput;
+    private Button Action;
 
     //Brug af SINGLETON design pattern
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         business = GameGUI.getInstance().getBusiness();
+        String textAreaString = business.printWelcome();
+        this.textConsole.setText(textAreaString);
+        //this.initStyle(StageStyle.TRANSPARENT);
+
     }
     @FXML
-    private void text(ActionEvent event) throws IOException {
-        String textAreaString = business.printWelcome();
-        this.textFieldInput.setText(textAreaString);
+    private void Action(ActionEvent event) throws IOException {
+        Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
+        Scene newScene = new Scene(nextView);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(newScene);
+        stage.show();
+        business.timerStart();
         
         
     }

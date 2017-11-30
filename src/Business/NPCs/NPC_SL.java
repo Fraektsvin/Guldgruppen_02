@@ -27,18 +27,19 @@ public class NPC_SL extends NPC {
                             + "Du har besejret Sidney Lee, træd venligst ind i Hall of Fame (south exit)";
                 }
                 else {
-                    player.getInventory().clear();
-                    setQuest(false);
+                    setQuest(true);
                     return "Sidney Lee: Ha-ha-ha-ha det var jo nemmere end at spille Tekken med bind for øjnene.\n"
                             + "Sidney Lee: Smut ud af min by! Du hører ikke til her.\n"
-                            + "Du tabte til Sidney Lee - Game over!";
+                            + "Du tabte til Sidney Lee - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
                     
                 }
             case 2:
                 if (game.getSwag("EPO") != null) {
                     player.getInventory().clear();
                     return "Der blev sagt ingen kommentarer!\n"
-                            + "Du snakkede med nogen mens du havde EPO - Game over!";
+                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
                 }
             default:
                 return "";

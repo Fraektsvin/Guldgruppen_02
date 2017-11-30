@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.paint.*?>
 <?import java.lang.*?>
@@ -23,8 +24,16 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutY="85.0" prefHeight="255.0" prefWidth="519.0" />
-      <TextField fx:id="textFieldInput" layoutX="4.0" layoutY="130.0" prefHeight="405.0" prefWidth="506.0" />
-      <Button layoutX="14.0" layoutY="466.0" mnemonicParsing="false" onAction="#text" text="Button" />
+      <TextArea fx:id="textConsole" layoutX="268.0" layoutY="14.0" prefHeight="258.0" prefWidth="295.0" style="-fx-background-color: #3d4956;">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="Action" layoutX="438.0" layoutY="491.0" mnemonicParsing="false" onAction="#Action" text="Videre" />
+      <ImageView fitHeight="318.0" fitWidth="389.0" layoutX="6.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../JavaFxImages/Johny%20Bravo%20.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
