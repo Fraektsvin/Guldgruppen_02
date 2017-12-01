@@ -77,7 +77,7 @@ public class MainViewController implements Initializable {
         stage.setScene(newScene);
         newScene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.show();
-          nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
+        nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
             @FXML
             public void handle(MouseEvent event) {
                 xOffset =event.getSceneX();
@@ -91,7 +91,6 @@ public class MainViewController implements Initializable {
                 stage.setY(event.getScreenY()- yOffset);
             }
         });
-
     }
 
     @FXML
