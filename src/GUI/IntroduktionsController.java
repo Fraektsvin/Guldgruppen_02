@@ -1,4 +1,3 @@
-
 package GUI;
 
 import Acquaintance.*;
@@ -32,8 +31,8 @@ public class IntroduktionsController implements Initializable {
         String textAreaString = business.printWelcome();
         this.textConsole.setText(textAreaString);
         //this.initStyle(StageStyle.TRANSPARENT);
-
     }
+
     @FXML
     private void Action(ActionEvent event) throws IOException {
         Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
@@ -41,9 +40,7 @@ public class IntroduktionsController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(newScene);
         stage.show();
+        business = GameGUI.getInstance().getBusiness();
         business.timerStart();
-        
-        
     }
-   
-    }
+}

@@ -12,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -60,7 +59,7 @@ public class GameViewController implements Initializable {
     private void goNorthAction(ActionEvent event) {
         String textReturned = business.goToDirection("north");
         textConsole.appendText(textReturned);
-        
+
     }
 
     @FXML
@@ -97,11 +96,18 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    private void playerInteractAction(ActionEvent event) {
+    private void playerInteractAction(ActionEvent event) throws IOException {
         String npcName = business.whichNPC();
         String textReturned = business.interactWith(npcName, textFieldInput.getText());
         textConsole.appendText(textReturned + System.lineSeparator());
         textFieldInput.clear();
+        if (business.questQuit()) {
+            Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+            Scene newScene = new Scene(nextView);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        }
     }
 
     @FXML
@@ -111,10 +117,12 @@ public class GameViewController implements Initializable {
 
     @FXML
     private void playerSaveAction(ActionEvent event) {
+        textConsole.appendText(business.savePlayer());
     }
 
     @FXML
     private void playerLoadAction(ActionEvent event) {
+        business.loadPlayer();
     }
 
     @FXML

@@ -4,30 +4,32 @@ import Acquaintance.ICoin;
 import Acquaintance.IRoom;
 import Business.NPCs.*;
 import Data.HighscoreManager;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Game {
+public class Game implements Serializable{
 
-    private final Parser parser;
     private Player player;
     private final HighscoreManager HM;
     private final Map<IRoom, NPC> npcs;
     private boolean finished = false;
-    NPC_MOR npc_mor = new NPC_MOR(this, player);
 
     public Room swag_city, randers, johnny_bravo, mors_hus, gulddreng,
             bjarne_riis, diskotekets_dør, diskoteket, sidney_lee, hall_fame,
             ole_henriksen, michael_jackson;
 
-    public final GameTimer gameTimer = new GameTimer();
+    public GameTimer gameTimer;
 
     public Game(Player player, HighscoreManager HM) {
         this.player = player;
         this.HM = HM;
         createGame();
-        parser = new Parser();
         npcs = new HashMap<>();
+    }
+
+    public Map<IRoom, NPC> getNpcs() {
+        return npcs;
     }
 
     public String getRoomDescription() {
@@ -79,7 +81,6 @@ public class Game {
                 break;
             case INTERACT:
                 String toReturn = interactNPC(command, textInput);
-                questQuit();
                 return toReturn;
             case SAVE:
                 player.setSavedTime(gameTimer.getTimeRemaining());
@@ -126,7 +127,7 @@ public class Game {
         output += "Du helt væk, mokaiens dunst sværmer omkring dig.\n";
         output += "Tag dig sammen.\n\n";
         output += "Dine råb om hjælp er:\n";
-        return output + parser.showCommands() + "\n";
+        return output + "\n";
     }
 
     //Printer playerens inventory ArrayList's indhold til skærmen.
@@ -166,13 +167,6 @@ public class Game {
             highscoreManager.saveScoreFile(player, gameTimer);
         }
         return false;
-    }
-
-    //Metode til at afslutt spillet ud fra spillets missioner.
-    private void questQuit() {
-        if (npc_mor.isQuest() == true) {
-            System.exit(0);
-        }
     }
 
     //Tilføjer en coin til playerns wallet

@@ -56,7 +56,7 @@ public class NPC_OH extends NPC {
                         + "Ole Henriksen: Her lad mig hjælpe med dit forfærdelige kluns, her får du et rigtigt outfit.\n"
                         + "Mission fuldført.";
             } else if (game.getSwag("EPO") != null) {
-                player.getInventory().clear();
+                setQuest(true);
                 return "Der blev sagt ingen kommentarer.\n"
                         + "Du snakkede med nogen mens du havde EPO - Game over!\n"
                         + "Tak fordi at du spillede med os, din stodder.";

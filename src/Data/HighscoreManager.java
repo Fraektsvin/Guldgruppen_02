@@ -10,12 +10,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class HighscoreManager {
+public class HighscoreManager implements Serializable{
 
     private final ArrayList<Integer> score;
 
@@ -85,6 +86,7 @@ public class HighscoreManager {
             FileInputStream inputStream = new FileInputStream(PLAYER_FILE);
             ObjectInputStream loadPlayerStream = new ObjectInputStream(inputStream);
             player = (Player) loadPlayerStream.readObject();
+            
             System.out.println("Det tidligere spil blev loaded.\n");
             inputStream.close();
             loadPlayerStream.close();

@@ -57,7 +57,7 @@ public class NPC_GD extends NPC {
                             + "Hvorfor tænker du måske? Bare fordi jeg kan, nemt.\n"
                             + "Mission fuldført.";
                 } else if (game.getSwag("EPO") != null) {
-                    player.getInventory().clear();
+                    setQuest(true);
                     return "Der blev sagt ingen kommentarer.\n"
                             + "Du snakkede med nogen mens du havde EPO - Game over!\n"
                             + "Tak fordi at du spillede med os, din stodder.";

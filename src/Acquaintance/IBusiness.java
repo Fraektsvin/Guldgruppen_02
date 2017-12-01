@@ -21,4 +21,10 @@ public interface IBusiness {
     void timerStart();
     
     void timerStop();
+    
+    boolean questQuit();
+    
+    String savePlayer();
+    
+    void loadPlayer();
 }
