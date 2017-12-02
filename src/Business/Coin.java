@@ -3,15 +3,11 @@ package Business;
 import Acquaintance.ICoin;
 import java.io.Serializable;
 
-public class Coin implements Serializable, ICoin {
-
-    public Coin(int value, String name) {
-    }
+public class Coin implements ICoin, Serializable {
 
     String coinDescription;
     private final int VALUE = 25;
 
-    //Der oprettes en string som kan indeholde navnet til items(coins) i spillet.
     public Coin(String newCoinDescription) {
         coinDescription = newCoinDescription;
     }

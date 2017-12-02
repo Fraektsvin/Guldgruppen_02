@@ -24,13 +24,11 @@ public class IntroduktionsController implements Initializable {
     @FXML
     private Button Action;
 
-    //Brug af SINGLETON design pattern
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         business = GameGUI.getInstance().getBusiness();
         String textAreaString = business.printWelcome();
         this.textConsole.setText(textAreaString);
-        //this.initStyle(StageStyle.TRANSPARENT);
     }
 
     @FXML

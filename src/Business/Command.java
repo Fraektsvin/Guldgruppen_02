@@ -2,8 +2,8 @@ package Business;
 
 public class Command {
 
-    private CommandWord commandWord;
-    private String secondWord;
+    private final CommandWord commandWord;
+    private final String secondWord;
 
     public Command(CommandWord commandWord, String secondWord) {
         this.commandWord = commandWord;
@@ -16,13 +16,5 @@ public class Command {
 
     public String getSecondWord() {
         return secondWord;
-    }
-
-    public boolean isUnknown() {
-        return (commandWord == CommandWord.UNKNOWN);
-    }
-
-    public boolean hasSecondWord() {
-        return (secondWord != null);
     }
 }

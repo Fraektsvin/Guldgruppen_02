@@ -1,22 +1,19 @@
 package Business;
 
 import Acquaintance.IBusiness;
-import Business.NPCs.NPC_SL;
 import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
 
-    NPC_SL npc_sl;
-    Game game;
-    Player player;
-    HighscoreManager highscoreManager;
+    private Game game;
+    private Player player;
+    private HighscoreManager highscoreManager;
 
     public BusinessFacade() {
         player = new Player("Erik Deluxe");
         game = new Game(player, new HighscoreManager());
-        highscoreManager = new HighscoreManager();
     }
-    
+
     @Override
     public String printWelcome() {
         return game.printWelcome();
@@ -49,36 +46,9 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public String goToDirection(String direction) { //ingen exception handling, dvs. ingen tjek for east, west, north, south
-        if (player.getCurrentRoom().isLocked(direction)) {
-            if (player.getCurrentRoom().equals(game.sidney_lee)) {
-                if (npc_sl.isQuest() == true) {
-                    game.sidney_lee.lockExit("south", false);
-                } else {
-                    return "Kun adgang for byens største swagster.\n"
-                            + "Du har ikke vundet over Sidney Lee endnu.\n"
-                            + "Prøv igen når du har besejret ham.";
-                }
-            } else if (player.getCurrentRoom().equals(game.diskotekets_dør)) {
-                if (player.getInventory().size() > 3) {
-                    game.diskotekets_dør.lockExit("north", false);
-                    return "Swaggen oser ud af dig! Du er nu klar til diskoteket\n";
-                } else {
-                    return "Du skal have mere swag for at komme igennem!\n";
-                }
-            }
-        }
-        if (player.getCurrentRoom() == game.hall_fame) {
-            int Score = (player.getInventory().size() * 100) + (player.getWallet().size() * 25);
-            return "Du er officielt den mest swagste person!\n"
-                    + "Byen er deres o'høje Erik Deluxe.\n"
-                    + "Din score er " + Score + " points.\n"
-                    + "Du havde " + game.gameTimer.getTimeRemaining() + " sekunder tilbage.\n";
-        }
-        
+    public String goToDirection(String direction) {
         Command c = new Command(CommandWord.GO, direction);
-        game.processCommand(c, "");
-        return game.getRoomDescription();
+        return game.goRoom(c);
     }
 
     @Override
@@ -129,7 +99,7 @@ public class BusinessFacade implements IBusiness {
     public boolean questQuit() {
         boolean b = false;
         if (player.getCurrentRoom() == game.johnny_bravo) {
-            b = game.getNpcs().get(game.mors_hus).isQuest();
+            b = game.getNpcs().get(game.johnny_bravo).isQuest();
         } else if (player.getCurrentRoom() == game.randers) {
             b = game.getNpcs().get(game.randers).isQuest();
         } else if (player.getCurrentRoom() == game.michael_jackson) {
@@ -142,18 +112,27 @@ public class BusinessFacade implements IBusiness {
             b = game.getNpcs().get(game.swag_city).isQuest();
         } else if (player.getCurrentRoom() == game.ole_henriksen) {
             b = game.getNpcs().get(game.ole_henriksen).isQuest();
-        } else if (player.getCurrentRoom() == game.diskotekets_dør) {
-            b = game.getNpcs().get(game.diskotekets_dør).isQuest();
         } else if (player.getCurrentRoom() == game.mors_hus) {
             b = game.getNpcs().get(game.mors_hus).isQuest();
+        } else if (player.getCurrentRoom() == game.diskotekets_dør) {
+            b = game.getNpcs().get(game.diskotekets_dør).isQuest();
+        } 
+        return b;
+    }
+    
+    @Override
+    public boolean winQuit() {
+        boolean b = false;
+        if (player.getCurrentRoom() == game.hall_fame) {
+            b = true;
         }
         return b;
-}
+    }
 
     @Override
     public String savePlayer() {
-        Command c = new Command(CommandWord.SAVE, "save");
-        game.processCommand(c, "save");
+        Command c = new Command(CommandWord.SAVE, "");
+        game.processCommand(c, "");
         return "Spillet blev gemt.\n";
     }
 

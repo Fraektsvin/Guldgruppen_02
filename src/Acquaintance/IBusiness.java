@@ -9,22 +9,24 @@ public interface IBusiness {
     String printInventory();
 
     String printWallet();
-    
+
     String goToDirection(String direction);
-    
+
     String interactWith(String npc, String textInput);
-    
+
     String whichNPC();
-    
+
     String getCoin(String coin);
-    
+
     void timerStart();
-    
+
     void timerStop();
-    
+
     boolean questQuit();
-    
+
+    boolean winQuit();
+
     String savePlayer();
-    
+
     void loadPlayer();
 }

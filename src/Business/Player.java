@@ -35,10 +35,6 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public String displayName() {
-        return name;
-    }
-
     public int getScore() {
         return score;
     }
@@ -55,19 +51,11 @@ public class Player implements Serializable {
         this.savedTime = savedTime;
     }
 
-    public void setCoin(int coin) {
-        this.coin = coin;
-    }
-
     public int getCoin() {
         return coin;
     }
 
     public String getName() {
         return name;
-    }
-    
-    public void createTimer() {
-        
     }
 }

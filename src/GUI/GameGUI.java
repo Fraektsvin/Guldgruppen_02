@@ -3,7 +3,6 @@ package GUI;
 import Acquaintance.IBusiness;
 import Acquaintance.IGame;
 import javafx.scene.input.MouseEvent;
-import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -14,17 +13,9 @@ import javafx.stage.StageStyle;
 
 public class GameGUI extends Application implements IGame {
 
-    private static GameGUI gui; //SINGLETON 
-    private Scene mainView;
-    private Scene gameView;
+    private static GameGUI gui;
     private double xOffset = 0;
     private double yOffset = 0;
-    
-    private Scene loadScene(String filename) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(filename));
-        Parent root = loader.load();
-        return new Scene(root);
-    }
 
     IBusiness game; //INTERFACET til at kalde metoder fra facaden
 
@@ -40,7 +31,7 @@ public class GameGUI extends Application implements IGame {
         p.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                xOffset =event.getSceneX();
+                xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             }
         });
