@@ -110,7 +110,7 @@ public class Game {
         StringBuilder welcomeString = new StringBuilder();
         welcomeString.append("Velkommen til Swag City!\n");
         welcomeString.append("Byen hvor drenge bliver til mænd... eller noget.\n");
-        welcomeString.append("\n     ----- Introduktion til spillet -----   \n\n");
+        welcomeString.append("\n     ----- Introduktion til spillet -----     \n\n");
         welcomeString.append("Erik Deluxe er havnet i Swag City.\n");
         welcomeString.append("Han er på en mission for at finde byens mest swagste person.\n");
         welcomeString.append("På Eriks farefulde færd møder han diverse hjælpere og modstandere,\n");
@@ -165,6 +165,8 @@ public class Game {
     //Printer mulige kommandoer til skærmen.
     public String printHelp() {
         return "Brug knapperne 'snak med' til at snakke med spillets NPC'er\n"
+                + "Hvis du bliver bedt om at svare på noget, skal du bruge inputfeltet i bunden af skærmen"
+                + "til at skrive hvad du vil svare og herefter trykke 'snak med' igen.\n"
                 + "og 'SYD', 'NORD', 'ØST' og 'VEST' til at navigere rundt i spillet.\n\n";
     }
 
