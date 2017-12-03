@@ -116,17 +116,13 @@ public class BusinessFacade implements IBusiness {
             b = game.getNpcs().get(game.mors_hus).isQuest();
         } else if (player.getCurrentRoom() == game.diskotekets_dør) {
             b = game.getNpcs().get(game.diskotekets_dør).isQuest();
-        } 
-        return b;
-    }
-    
-    @Override
-    public boolean winQuit() {
-        boolean b = false;
-        if (player.getCurrentRoom() == game.hall_fame) {
-            b = true;
         }
         return b;
+    }
+
+    @Override
+    public boolean winQuit() {
+        return player.getCurrentRoom() == game.hall_fame;
     }
 
     @Override

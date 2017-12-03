@@ -68,9 +68,16 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    private void goSouthAction(ActionEvent event) {
+    private void goSouthAction(ActionEvent event) throws IOException {
         String textReturned = business.goToDirection("south");
         textConsole.appendText(textReturned);
+        if (business.winQuit()) {
+            Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+            Scene newScene = new Scene(nextView);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        }
     }
 
     @FXML
@@ -100,13 +107,6 @@ public class GameViewController implements Initializable {
         String textReturned = business.interactWith(npcName, textFieldInput.getText());
         textConsole.appendText(textReturned + System.lineSeparator());
         textFieldInput.clear();
-        if (business.winQuit()) {
-            Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
-            Scene newScene = new Scene(nextView);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(newScene);
-            stage.show();
-        }
         if (business.questQuit()) {
             Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
             Scene newScene = new Scene(nextView);

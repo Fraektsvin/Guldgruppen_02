@@ -165,7 +165,7 @@ public class Game {
     //Printer mulige kommandoer til skærmen.
     public String printHelp() {
         return "Brug knapperne 'snak med' til at snakke med spillets NPC'er\n"
-                + "og 'SYD', 'NORD', 'ØST' og 'VEST' til at navigere rundt i spillet.";
+                + "og 'SYD', 'NORD', 'ØST' og 'VEST' til at navigere rundt i spillet.\n\n";
     }
 
     //Printer playerens inventory ArrayList's indhold til skærmen.
