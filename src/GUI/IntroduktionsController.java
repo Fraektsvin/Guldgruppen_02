@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -28,7 +29,6 @@ public class IntroduktionsController implements Initializable {
     @FXML
     private Button Action;
 
-    //Brug af SINGLETON design pattern
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         business = GameGUI.getInstance().getBusiness();
@@ -47,5 +47,21 @@ public class IntroduktionsController implements Initializable {
         stage.show();
         business = GameGUI.getInstance().getBusiness();
         business.timerStart();
+        nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @FXML
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        nextView.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @FXML
+            @Override
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX()- xOffset);
+                stage.setY(event.getScreenY()- yOffset);
+            }
+        });
     }
 }

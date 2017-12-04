@@ -4,8 +4,7 @@ import Acquaintance.IScore;
 
 public class Score implements IScore, Comparable<Score> {
 
-    Player player;
-
+    private Player player;
     private final int score = player.getScore();
     private final String name = player.getName();
 
@@ -21,10 +20,11 @@ public class Score implements IScore, Comparable<Score> {
 
     @Override
     public int compareTo(Score o) {
-        if (this.score > o.getScore())
+        if (this.score > o.getScore()) {
             return 1;
-        else if (this.score < o.getScore())
+        } else if (this.score < o.getScore()) {
             return -1;
+        }
         return 0;
     }
 }

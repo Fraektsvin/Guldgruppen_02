@@ -14,13 +14,20 @@ public class NPC_SL extends NPC {
         switch (interactionState) {
             case 0:
                 interactionState = 1;
+                if (game.getSwag("EPO") != null) {
+                    setQuest(true);
+                    return "Der blev sagt ingen kommentarer.\n"
+                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
+                }
+            case 1:
+                interactionState = 2;
                 return "Sidney Lee: Så du er den nye fyr i byen… Fedt kluns, af en taber.\n"
                         + "Lad os se hvad du dur til! DJ, spin that shit!\n"
                         + "Sidney Lee: Hvor mange af kendisserne som opholder sig i Swag City\n"
                         + "kender jeg personligt? (1, 2, 3, 4 eller 5)";
-            case 1:
+            case 2:
                 if (textInput.equalsIgnoreCase("3")) {
-                    interactionState = 2;
                     game.sidney_lee.lockExit("south", false);
                     return "Sidney Lee: Pokkers du svarede korrekt...\n"
                             + "Sidney Lee: Jeg overgiver mig, jeg er besejret.\n"
@@ -33,13 +40,6 @@ public class NPC_SL extends NPC {
                             + "Du tabte til Sidney Lee - Game over!\n"
                             + "Tak fordi at du spillede med os, din stodder.";
                     
-                }
-            case 2:
-                if (game.getSwag("EPO") != null) {
-                    setQuest(true);
-                    return "Der blev sagt ingen kommentarer!\n"
-                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
-                            + "Tak fordi at du spillede med os, din stodder.";
                 }
             default:
                 return "";

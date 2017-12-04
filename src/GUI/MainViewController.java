@@ -16,15 +16,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class MainViewController implements Initializable {
 
-    Stage window;
-    IBusiness business;
-
-    private Scene mainView;
-    private Scene gameView;
+    private Stage window;
+    private IBusiness business;
     private double xOffset;
     private double yOffset;        
             
@@ -55,13 +51,15 @@ public class MainViewController implements Initializable {
         stage.show();
         nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
             @FXML
+            @Override
             public void handle(MouseEvent event) {
-                xOffset =event.getSceneX();
+                xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             }
         });
         nextView.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @FXML
+            @Override
             public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX()- xOffset);
                 stage.setY(event.getScreenY()- yOffset);
@@ -79,6 +77,7 @@ public class MainViewController implements Initializable {
         stage.show();
         nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
             @FXML
+            @Override
             public void handle(MouseEvent event) {
                 xOffset =event.getSceneX();
                 yOffset = event.getSceneY();
@@ -86,6 +85,7 @@ public class MainViewController implements Initializable {
         });
         nextView.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @FXML
+            @Override
             public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX()- xOffset);
                 stage.setY(event.getScreenY()- yOffset);

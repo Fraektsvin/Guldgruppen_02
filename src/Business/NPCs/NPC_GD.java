@@ -14,11 +14,19 @@ public class NPC_GD extends NPC {
         switch (interactionState) {
             case 0:
                 interactionState = 1;
+                if (game.getSwag("EPO") != null) {
+                    setQuest(true);
+                    return "Der blev sagt ingen kommentarer.\n"
+                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
+                }
+            case 1:
+                interactionState = 2;
                 return "Gulddreng: Hey mand! Guldrengen taler til dig. Kunne du ikke tænke dig at hjælpe mig med noget?\n"
                         + "Det jo trods alt Gulddrengen der spørger. (ja/nej)";
-            case 1:
+            case 2:
                 if (textInput.equalsIgnoreCase("ja")) {
-                    interactionState = 2;
+                    interactionState = 3;
                     return "Gulddreng: Selvfølgelig vil du gerne det, jeg er jo den bedste haha nemt!\n"
                             + "Kunne du skynde dig til Randers og hente mig en helt frisk mokai?\n"
                             + "Min flotte hals trænger til noget væske. (ja/nej)";
@@ -30,9 +38,9 @@ public class NPC_GD extends NPC {
                     interactionState = 0;
                     return "Gulddreng: Makker jeg tror ikke vi er på samme bølgelængde";
                 }
-            case 2:
+            case 3:
                 if (textInput.equalsIgnoreCase("ja")) {
-                    interactionState = 3;
+                    interactionState = 4;
                     game.addSwag("Guldpenge fra Gulddrengen");
                     game.randers.setNPC(new NPC_MD(game, player));
                     return "Gulddreng: Sådan bro! Her tag mine guldpenge det burde være rigeligt.\n"
@@ -44,7 +52,7 @@ public class NPC_GD extends NPC {
                     interactionState = 0;
                     return "Gulddreng: Hvad snakker du om man!?";
                 }
-            case 3:
+            case 4:
                 if (game.getSwag("Guldpenge fra Gulddrengen") != null) {
                     return "Du er allerede på denne mission.";
                 } else if (game.getSwag("Gulddreng's guldkæde") != null) {
@@ -56,11 +64,6 @@ public class NPC_GD extends NPC {
                     return "Gulddreng: En frisk mokai? Sygt god stil! Gulddrengen takker, her tag min guldkæde.\n"
                             + "Hvorfor tænker du måske? Bare fordi jeg kan, nemt.\n"
                             + "Mission fuldført.";
-                } else if (game.getSwag("EPO") != null) {
-                    setQuest(true);
-                    return "Der blev sagt ingen kommentarer.\n"
-                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
-                            + "Tak fordi at du spillede med os, din stodder.";
                 }
                 return "";
             default:

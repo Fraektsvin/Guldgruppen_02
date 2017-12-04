@@ -10,8 +10,8 @@ public class GameTimer implements Serializable {
 
     private int timeRemaining = 120;
 
-    MyTimer timer = new MyTimer();
-    MyTimerTask task = new MyTimerTask() {
+    Timer timer = new Timer();
+    TimerTask task = new TimerTask() {
                 @Override
         public void run() {
             timeRemaining--;

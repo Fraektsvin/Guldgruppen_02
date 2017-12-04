@@ -6,14 +6,9 @@ public enum CommandWord {
     GET("get"), INTERACT("interact"), WALLET("wallet"), SAVE("save"),
     LOAD("load");
 
-    private String commandString;
+    private final String commandString;
 
     CommandWord(String commandString) {
         this.commandString = commandString;
-    }
-
-    @Override
-    public String toString() {
-        return commandString;
     }
 }

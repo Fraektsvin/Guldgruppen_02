@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 
-public class Room implements Serializable, IRoom {
+public class Room implements IRoom, Serializable {
 
     private String description;
     private HashMap<String, IRoom> exits;
-    //Vi opretter en ArrayList som kan indeholde de ting vi placere i de forskellige rum.
-    ArrayList<Coin> coins = new ArrayList<>();
-
+    private final HashMap<String, Boolean> exitsLock;
+    //Vi opretter en ArrayList som kan indeholde de mønter vi placere i de forskellige rum.
+    private ArrayList<Coin> coins = new ArrayList<>();
     //Vi opretter et HashMap som kan indeholde npc'er som skal være i de forskellige rum.
     private HashMap<String, NPC> characters;
-    private HashMap<String, Boolean> exitsLock;
+    
 
     public Room(String description) {
         this.description = description;
@@ -27,15 +27,6 @@ public class Room implements Serializable, IRoom {
     }
 
     //Getter metoder:
-    public String getShortDescription() {
-        return description;
-    }
-
-    @Override
-    public String getMediumDescription() {
-        return getExitStringToGo();
-    }
-
     @Override
     public String getLongDescription() {
         return description + ".\n" + getExitString();
@@ -53,19 +44,10 @@ public class Room implements Serializable, IRoom {
         for (String exit : keys) {
             returnString += " " + exit;
         }
-        returnString += "\n";
+        returnString += "\n\n";
         return returnString;
     }
-
-    private String getExitStringToGo() {
-        String returnString = "Udgange:";
-        Set<String> keys = exits.keySet();
-        for (String exit : keys) {
-            returnString += " " + exit;
-        }
-        return returnString;
-    }
-
+    
     @Override
     public IRoom getExit(String direction) {
         return exits.get(direction);
@@ -137,12 +119,12 @@ public class Room implements Serializable, IRoom {
         } else {
             return false;
         }
-        //returnerer om et rum er låst eller ej, sætter true hvis døren er låst, false hvis åben
+        
     }
 
+    //låser eller ulåser en exit, sætter retningen, true hvis vejen skal være låst, false hvis ulåst
     public void lockExit(String direction, boolean condition) {
-        exitsLock.put(direction, condition);
-        //låser eller ulåser en exit, sætter retningen, true hvis vejen skal være låst, false hvis ulåst
+        exitsLock.put(direction, condition);   
     }
 
     @Override

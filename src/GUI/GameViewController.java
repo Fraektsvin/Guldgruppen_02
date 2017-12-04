@@ -53,7 +53,6 @@ public class GameViewController implements Initializable {
     @FXML
     private TextField textFieldInput;
 
-    //Brug af SINGLETON design pattern
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         business = GameGUI.getInstance().getBusiness();
@@ -73,9 +72,16 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    private void goSouthAction(ActionEvent event) {
+    private void goSouthAction(ActionEvent event) throws IOException {
         String textReturned = business.goToDirection("south");
         textConsole.appendText(textReturned);
+        if (business.winQuit()) {
+            Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+            Scene newScene = new Scene(nextView);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        }
     }
 
     @FXML

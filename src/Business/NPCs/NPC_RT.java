@@ -14,10 +14,17 @@ public class NPC_RT extends NPC {
         switch (interactionState) {
             case 0:
                 interactionState = 1;
-                return "Biver: Hey, mand. Fedt kluns! Skal du ikke have en mokaï med os andre? (ja/nej)";
+                if (game.getSwag("EPO") != null) {
+                    setQuest(true);
+                    return "Der blev sagt ingen kommentarer.\n"
+                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
+                            + "Tak fordi at du spillede med os, din stodder.";
+                }
             case 1:
+                interactionState = 2;
+                return "Biver: Hey, mand. Fedt kluns! Skal du ikke have en mokaï med os andre? (ja/nej)";
+            case 2:
                 if (textInput.equalsIgnoreCase("ja")) {
-                    interactionState = 2;
                     player.getInventory().clear();
                     return "Biver: Fedt, mand! Hop på scooteren, så skal vi til party!\n"
                             + "...\n"
@@ -32,13 +39,6 @@ public class NPC_RT extends NPC {
                 else {
                     interactionState = 0;
                     return "Biver: Makker jeg tror ikke vi er på samme bølgelængde";
-                }
-            case 2:
-                if (game.getSwag("EPO") != null) {
-                    setQuest(true);
-                    return "Der blev sagt ingen kommentarer!\n"
-                            + "Du snakkede med nogen mens du havde EPO - Game over!\n"
-                            + "Tak fordi at du spillede med os, din stodder.";
                 }
             default:
                 return "";
