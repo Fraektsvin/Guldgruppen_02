@@ -20,8 +20,6 @@ public class InstruktionsController implements Initializable {
     private double xOffset;
     private double yOffset;
 
-    IBusiness business;
-
     @FXML
     private ImageView btn_direction;
 
@@ -40,8 +38,8 @@ public class InstruktionsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        business = GameGUI.getInstance().getBusiness();
     }
+    
     @FXML
     private void handleButtonAction(javafx.scene.input.MouseEvent event) throws IOException {
         if (event.getSource() == btn_direction) {

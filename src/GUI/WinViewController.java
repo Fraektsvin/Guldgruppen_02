@@ -29,20 +29,17 @@ public class WinViewController implements Initializable {
     @FXML
     private Button mainViewButton;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        business = GameGUI.getInstance().getBusiness();
     }
 
     @FXML
     private void scoreShowAction(ActionEvent event) {
-        textConsole.appendText("Tillykke med sejren Erik Deluxe! Du er nu officielt"
-                + "den mest swag person i Swag City.\n"
+        textConsole.appendText("Tillykke med sejren Erik Deluxe!\n"
+                + "Du er nu officielt den mest swag person i Swag City.\n"
                 + "Din score var " + business.score() + ", og en tid på " + business.time() + " sekunder");
-        scoreShow.setDisable(true);
+        scoreShow.setVisible(false);
     }
 
     @FXML

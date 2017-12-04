@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3d4956;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.WinViewController">
    <children>
-      <TextArea fx:id="textConsole" editable="false" layoutX="173.0" layoutY="100.0" prefHeight="200.0" prefWidth="255.0" />
+      <TextArea fx:id="textConsole" editable="false" layoutX="173.0" layoutY="100.0" prefHeight="200.0" prefWidth="255.0" wrapText="true" />
       <Label layoutX="166.0" layoutY="23.0" text="Du vandt!" textFill="WHITE">
          <font>
             <Font size="62.0" />
