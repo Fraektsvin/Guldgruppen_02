@@ -74,7 +74,6 @@ public class MainViewController implements Initializable {
             stage.setX(event1.getScreenX() - xOffset);
             stage.setY(event1.getScreenY() - yOffset);
         });
-
     }
 
     @FXML

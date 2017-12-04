@@ -1,5 +1,6 @@
 package GUI;
 
+import Acquaintance.IBusiness;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -20,18 +21,49 @@ public class InstruktionsController implements Initializable {
     private double xOffset;
     private double yOffset;
 
-    @FXML
-    private ImageView btn_settings, btn_user;
-    @FXML
-    private AnchorPane h_settings, h_user;
+    IBusiness business;
 
+    @FXML
+    private ImageView btn_direction;
+
+    @FXML
+    private ImageView btn_wallet;
+    @FXML
+    private ImageView btn_interaction;
+    @FXML
+    private ImageView btn_return;
+    @FXML
+    private AnchorPane h_direction;
+    @FXML
+    private AnchorPane h_wallet;
+    @FXML
+    private AnchorPane h_interaction;
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL location, ResourceBundle resources) {
+        business = GameGUI.getInstance().getBusiness();
     }
-
     @FXML
-    public void handleButtonAction(MouseEvent event) {
+    private void handleButtonAction(javafx.scene.input.MouseEvent event) throws IOException {
+        if (event.getSource() == btn_direction) {
+            h_direction.setVisible(true);
+            h_wallet.setVisible(false);
+            h_interaction.setVisible(false);
+        } else if (event.getSource() == btn_wallet) {
+            h_wallet.setVisible(true);
+            h_direction.setVisible(false);
+            h_interaction.setVisible(false);
+        } else if (event.getSource() == btn_interaction) {
+            h_interaction.setVisible(true);
+            h_direction.setVisible(false);
+            h_interaction.setVisible(false);
+        } else if (event.getSource() == btn_return) {
+            Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+            Scene newScene = new Scene(nextView);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(newScene);
+            stage.show();
+        }
     }
 
     private void returner(ActionEvent event) throws IOException {

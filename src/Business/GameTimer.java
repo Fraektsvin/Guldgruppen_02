@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GameTimer implements Serializable{
+public class GameTimer implements Serializable {
 
     private int timeRemaining = 120;
 
@@ -21,6 +21,22 @@ public class GameTimer implements Serializable{
             }
         }
     };
+
+//    public void createTimer() {
+//        timer = new Timer();
+//        task = new TimerTask() {
+//            @Override
+//            public void run() {
+//                timeRemaining--;
+//                if (getTimeRemaining() <= 0) {
+//                    timer.cancel();
+//                    System.out.println("\nTiden løb fra dig! Bedre held næste gang.");
+//                    System.out.println("Tak fordi at du spillede med os, din stodder.");
+//                    System.exit(0);
+//                }
+//            }
+//        };
+//    }
 
     public void timerStart() {
         timer.scheduleAtFixedRate(task, 1000, 1000);

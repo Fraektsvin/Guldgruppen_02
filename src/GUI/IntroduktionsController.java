@@ -14,13 +14,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class IntroduktionsController implements Initializable {
 
     IBusiness business;
     private double xOffset;
-    private double yOffset;
+    private double yOffset;        
 
     @FXML
     private TextArea textConsole;
@@ -32,14 +33,16 @@ public class IntroduktionsController implements Initializable {
         business = GameGUI.getInstance().getBusiness();
         String textAreaString = business.printWelcome();
         this.textConsole.setText(textAreaString);
+        //this.initStyle(StageStyle.TRANSPARENT);
     }
 
     @FXML
     private void Action(ActionEvent event) throws IOException {
-        Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
+      Parent nextView = FXMLLoader.load(getClass().getResource("GameView.fxml"));
         Scene newScene = new Scene(nextView);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(newScene);
+        newScene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.show();
         business = GameGUI.getInstance().getBusiness();
         business.timerStart();

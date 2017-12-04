@@ -14,7 +14,7 @@ public class BusinessFacade implements IBusiness {
         highscoreManager = new HighscoreManager();
         game = new Game(player, highscoreManager);
     }
-
+    
     @Override
     public String printWelcome() {
         return game.printWelcome();
