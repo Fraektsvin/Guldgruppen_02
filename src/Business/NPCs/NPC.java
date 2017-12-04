@@ -3,7 +3,6 @@ package Business.NPCs;
 import Business.Game;
 import Business.Player;
 import java.io.Serializable;
-import java.util.Scanner;
 
 public abstract class NPC implements Serializable {
 

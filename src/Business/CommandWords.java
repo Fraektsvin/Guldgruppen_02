@@ -1,8 +1,9 @@
 package Business;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class CommandWords {
+public class CommandWords implements Serializable{
 
     private HashMap<String, CommandWord> validCommands;
 

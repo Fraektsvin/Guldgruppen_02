@@ -21,7 +21,7 @@ public class NPC_ID extends NPC {
                         + "Held og lykke Erik Deluxe!";
             case 1:
                 if (game.getSwag("EPO") != null) {
-                    player.getInventory().clear();
+                    setQuest(true);
                     return "Der blev sagt ingen kommentarer!\n"
                             + "Du snakkede med nogen mens du havde EPO - Game over!\n"
                             + "Tak fordi at du spillede med os, din stodder.";

@@ -5,11 +5,13 @@
  */
 package Acquaintance;
 
+import java.io.Serializable;
+
 /**
  *
  * @author sigur
  */
-public interface IRoom {
+public interface IRoom extends Serializable {
     String getExitString();
     IRoom getExit(String direction);
     String getLongDescription();

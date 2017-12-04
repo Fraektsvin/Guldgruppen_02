@@ -9,12 +9,14 @@ public class BusinessFacade implements IBusiness {
     NPC_SL npc_sl;
     Game game;
     Player player;
+    HighscoreManager highscoreManager;
 
     public BusinessFacade() {
         player = new Player("Erik Deluxe");
         game = new Game(player, new HighscoreManager());
+        highscoreManager = new HighscoreManager();
     }
-
+    
     @Override
     public String printWelcome() {
         return game.printWelcome();
@@ -37,12 +39,13 @@ public class BusinessFacade implements IBusiness {
 
     @Override
     public void timerStart() {
+        game.gameTimer = new GameTimer();
         game.gameTimer.timerStart();
     }
-   
+
     @Override
     public void timerStop() {
-    game.gameTimer.timerStop();
+        game.gameTimer.timerStop();
     }
 
     @Override
@@ -72,6 +75,7 @@ public class BusinessFacade implements IBusiness {
                     + "Din score er " + Score + " points.\n"
                     + "Du havde " + game.gameTimer.getTimeRemaining() + " sekunder tilbage.\n";
         }
+        
         Command c = new Command(CommandWord.GO, direction);
         game.processCommand(c, "");
         return game.getRoomDescription();
@@ -119,5 +123,42 @@ public class BusinessFacade implements IBusiness {
             output += "info dealer";
         }
         return output;
+    }
+
+    @Override
+    public boolean questQuit() {
+        boolean b = false;
+        if (player.getCurrentRoom() == game.johnny_bravo) {
+            b = game.getNpcs().get(game.mors_hus).isQuest();
+        } else if (player.getCurrentRoom() == game.randers) {
+            b = game.getNpcs().get(game.randers).isQuest();
+        } else if (player.getCurrentRoom() == game.michael_jackson) {
+            b = game.getNpcs().get(game.michael_jackson).isQuest();
+        } else if (player.getCurrentRoom() == game.gulddreng) {
+            b = game.getNpcs().get(game.gulddreng).isQuest();
+        } else if (player.getCurrentRoom() == game.bjarne_riis) {
+            b = game.getNpcs().get(game.bjarne_riis).isQuest();
+        } else if (player.getCurrentRoom() == game.swag_city) {
+            b = game.getNpcs().get(game.swag_city).isQuest();
+        } else if (player.getCurrentRoom() == game.ole_henriksen) {
+            b = game.getNpcs().get(game.ole_henriksen).isQuest();
+        } else if (player.getCurrentRoom() == game.diskotekets_dør) {
+            b = game.getNpcs().get(game.diskotekets_dør).isQuest();
+        } else if (player.getCurrentRoom() == game.mors_hus) {
+            b = game.getNpcs().get(game.mors_hus).isQuest();
+        }
+        return b;
+}
+
+    @Override
+    public String savePlayer() {
+        Command c = new Command(CommandWord.SAVE, "save");
+        game.processCommand(c, "save");
+        return "Spillet blev gemt.\n";
+    }
+
+    @Override
+    public void loadPlayer() {
+        highscoreManager.loadPlayer();
     }
 }
