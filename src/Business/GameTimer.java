@@ -1,9 +1,10 @@
 package Business;
 
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GameTimer {
+public class GameTimer implements Serializable{
 
     private int timeRemaining = 120;
 

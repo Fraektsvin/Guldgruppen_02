@@ -2,13 +2,12 @@ package Business;
 
 import Acquaintance.ICoin;
 import Acquaintance.IRoom;
-import java.io.Serializable;
 import Business.NPCs.NPC;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 
-public class Room implements IRoom, Serializable {
+public class Room implements IRoom {
 
     private String description;
     private HashMap<String, IRoom> exits;

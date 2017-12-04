@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3d4956;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.WinViewController">
+   <children>
+      <Label layoutX="166.0" layoutY="23.0" text="Du vandt!" textFill="WHITE">
+         <font>
+            <Font size="62.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textConsole" editable="false" layoutX="166.0" layoutY="130.0" prefHeight="205.0" prefWidth="268.0" style="-fx-background-color: #3d4956;" />
+      <Button fx:id="scoreShow" layoutX="222.0" layoutY="188.0" mnemonicParsing="false" onAction="#scoreShowAction" text="Tryk her for at se din score" />
+      <Button fx:id="mainViewButton" layoutX="260.0" layoutY="323.0" mnemonicParsing="false" onAction="#mainViewButtonAction" text="Hovedmenu" />
+   </children>
+</AnchorPane>

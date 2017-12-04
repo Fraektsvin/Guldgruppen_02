@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 public class GameViewController implements Initializable {
 
     IBusiness business;
+    private double xOffset;
+    private double yOffset;
 
     @FXML
     private Button goNorth;
@@ -72,11 +74,19 @@ public class GameViewController implements Initializable {
         String textReturned = business.goToDirection("south");
         textConsole.appendText(textReturned);
         if (business.winQuit()) {
-            Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+            Parent nextView = FXMLLoader.load(getClass().getResource("WinView.fxml"));
             Scene newScene = new Scene(nextView);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(newScene);
             stage.show();
+            nextView.setOnMousePressed((javafx.scene.input.MouseEvent event1) -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getSceneY();
+        });
+        nextView.setOnMouseDragged((javafx.scene.input.MouseEvent event1) -> {
+            stage.setX(event1.getScreenX() - xOffset);
+            stage.setY(event1.getScreenY() - yOffset);
+        });
         }
     }
 
@@ -113,6 +123,14 @@ public class GameViewController implements Initializable {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(newScene);
             stage.show();
+            nextView.setOnMousePressed((javafx.scene.input.MouseEvent event1) -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getSceneY();
+        });
+        nextView.setOnMouseDragged((javafx.scene.input.MouseEvent event1) -> {
+            stage.setX(event1.getScreenX() - xOffset);
+            stage.setY(event1.getScreenY() - yOffset);
+        });
         }
     }
 
@@ -139,5 +157,13 @@ public class GameViewController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(newScene);
         stage.show();
+        nextView.setOnMousePressed((javafx.scene.input.MouseEvent event1) -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getSceneY();
+        });
+        nextView.setOnMouseDragged((javafx.scene.input.MouseEvent event1) -> {
+            stage.setX(event1.getScreenX() - xOffset);
+            stage.setY(event1.getScreenY() - yOffset);
+        });
     }
 }

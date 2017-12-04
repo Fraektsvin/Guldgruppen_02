@@ -16,6 +16,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class InstruktionsController implements Initializable {
+    
+    private double xOffset;
+    private double yOffset;
 
     @FXML
     private ImageView btn_settings, btn_user;
@@ -37,6 +40,14 @@ public class InstruktionsController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(newScene);
         stage.show();
+        nextView.setOnMousePressed((javafx.scene.input.MouseEvent event1) -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getSceneY();
+        });
+        nextView.setOnMouseDragged((javafx.scene.input.MouseEvent event1) -> {
+            stage.setX(event1.getScreenX() - xOffset);
+            stage.setY(event1.getScreenY() - yOffset);
+        });
     }
 
 }

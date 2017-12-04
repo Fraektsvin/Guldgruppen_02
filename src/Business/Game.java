@@ -4,10 +4,11 @@ import Acquaintance.ICoin;
 import Acquaintance.IRoom;
 import Business.NPCs.*;
 import Data.HighscoreManager;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Game {
+public class Game implements Serializable{
 
     private Player player;
     private final HighscoreManager HM;
@@ -222,11 +223,6 @@ public class Game {
             player.setCurrentRoom(nextRoom);
             if (player.getCurrentRoom() == hall_fame) {
                 HM.saveScoreFile(player, gameTimer);
-                int Score = (player.getInventory().size() * 100) + (player.getWallet().size() * 25);
-                return "Du er officielt den mest swagste person!\n"
-                        + "Byen er deres o'høje Erik Deluxe.\n"
-                        + "Din score er " + Score + " points.\n"
-                        + "Du havde " + gameTimer.getTimeRemaining() + " sekunder tilbage.\n";
             }
             return player.getCurrentRoom().getLongDescription();
         }

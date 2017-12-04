@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -44,21 +43,13 @@ public class IntroduktionsController implements Initializable {
         stage.show();
         business = GameGUI.getInstance().getBusiness();
         business.timerStart();
-        nextView.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @FXML
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
+        nextView.setOnMousePressed((MouseEvent event1) -> {
+            xOffset = event1.getSceneX();
+            yOffset = event1.getSceneY();
         });
-        nextView.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @FXML
-            @Override
-            public void handle(MouseEvent event) {
-                stage.setX(event.getScreenX()- xOffset);
-                stage.setY(event.getScreenY()- yOffset);
-            }
+        nextView.setOnMouseDragged((MouseEvent event1) -> {
+            stage.setX(event1.getScreenX() - xOffset);
+            stage.setY(event1.getScreenY() - yOffset);
         });
     }
 }

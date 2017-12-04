@@ -5,13 +5,14 @@ import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
 
-    private Game game;
-    private Player player;
-    private HighscoreManager highscoreManager;
+    private final Game game;
+    private final Player player;
+    private final HighscoreManager highscoreManager;
 
     public BusinessFacade() {
         player = new Player("Erik Deluxe");
-        game = new Game(player, new HighscoreManager());
+        highscoreManager = new HighscoreManager();
+        game = new Game(player, highscoreManager);
     }
 
     @Override
@@ -135,5 +136,17 @@ public class BusinessFacade implements IBusiness {
     @Override
     public void loadPlayer() {
         highscoreManager.loadPlayer();
+    }
+    
+    @Override
+    public String score() {
+        int score = (player.getInventory().size() * 100) + (player.getWallet().size() * 25);
+        return Integer.toString(score);
+    }
+    
+    @Override
+    public String time() {
+        int time = game.gameTimer.getTimeRemaining();
+        return Integer.toString(time);
     }
 }

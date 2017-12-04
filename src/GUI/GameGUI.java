@@ -46,11 +46,9 @@ public class GameGUI extends Application implements IGame {
         scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
-        
-    
     }
+    
     //Bliver kaldt af STARTER (glue code), som realiserer interfacet IBusiness
-
     @Override
     public void setBusiness(IBusiness business) {
         game = business;

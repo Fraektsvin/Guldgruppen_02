@@ -29,4 +29,8 @@ public interface IBusiness {
     String savePlayer();
 
     void loadPlayer();
+    
+    String score();
+    
+    String time();
 }
