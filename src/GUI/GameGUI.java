@@ -1,4 +1,4 @@
-package Presentation;
+package GUI;
 
 import Acquaintance.IBusiness;
 import Acquaintance.IGame;

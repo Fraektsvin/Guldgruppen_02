@@ -3,7 +3,7 @@ package Starter;
 import Acquaintance.IBusiness;
 import Acquaintance.IGame;
 import Business.BusinessFacade;
-import Presentation.GameGUI;
+import GUI.GameGUI;
 
 public class Starter {
 

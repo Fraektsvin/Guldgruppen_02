@@ -1,4 +1,4 @@
-package Presentation;
+package GUI;
 
 import Acquaintance.*;
 import java.io.IOException;
