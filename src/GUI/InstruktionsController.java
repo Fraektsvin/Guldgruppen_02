@@ -1,6 +1,5 @@
 package GUI;
 
-import Acquaintance.IBusiness;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -35,6 +35,8 @@ public class InstruktionsController implements Initializable {
     private AnchorPane h_wallet;
     @FXML
     private AnchorPane h_interaction;
+    @FXML
+    private ImageView btn_directions;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,6 +79,10 @@ public class InstruktionsController implements Initializable {
             stage.setX(event1.getScreenX() - xOffset);
             stage.setY(event1.getScreenY() - yOffset);
         });
+    }
+
+    @FXML
+    private void OnTarget(MouseEvent event) {
     }
 
 }

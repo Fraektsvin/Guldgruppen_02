@@ -12,8 +12,8 @@ public class Player implements Serializable {
     private int score;
     private int coin;
 
-    private final ArrayList<Coin> wallet = new ArrayList<>();
-    private final ArrayList<Swag> inventory = new ArrayList<>();
+    private ArrayList<Coin> wallet = new ArrayList<>();
+    private ArrayList<Swag> inventory = new ArrayList<>();
 
     public IRoom getCurrentRoom() {
         return currentRoom;
@@ -58,8 +58,10 @@ public class Player implements Serializable {
     public String getName() {
         return name;
     }
-    
-    public void createTimer() {
-        
+
+    @Override
+    public String toString() {
+        return "Player{" + "wallet=" + wallet + '}';
     }
+    
 }

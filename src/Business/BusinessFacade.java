@@ -5,9 +5,9 @@ import Data.HighscoreManager;
 
 public class BusinessFacade implements IBusiness {
 
-    private final Game game;
-    private final Player player;
-    private final HighscoreManager highscoreManager;
+    private Game game;
+    private Player player;
+    private HighscoreManager highscoreManager;
 
     public BusinessFacade() {
         player = new Player("Erik Deluxe");
@@ -136,8 +136,11 @@ public class BusinessFacade implements IBusiness {
     }
 
     @Override
-    public void loadPlayer() {
-        highscoreManager.loadPlayer();
+    public String loadPlayer() {
+        //player = highscoreManager.loadPlayer();
+        Command c = new Command(CommandWord.LOAD, "");
+        game.processCommand(c, "");
+        return "Spillet blev loaded.\n";
     }
     
     @Override

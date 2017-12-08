@@ -154,7 +154,7 @@ public class Game implements Serializable{
                 HM.savePlayer(player);
                 break;
             case LOAD:
-                player = HM.loadPlayer();
+                player = HM.loadPlayer();              
                 gameTimer.setTime(player.getSavedTime());
                 break;
             default:

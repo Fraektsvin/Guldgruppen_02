@@ -28,7 +28,7 @@
       </AnchorPane>
       <AnchorPane layoutY="90.0" prefHeight="597.0" prefWidth="540.0" style="-fx-background-color: #3d4956;">
          <children>
-            <Button fx:id="instruction" layoutY="112.0" mnemonicParsing="false" onAction="#Instruction" prefHeight="44.0" prefWidth="540.0" text="Instruktioner">
+            <Button fx:id="instruction" layoutY="112.0" mnemonicParsing="false" onAction="#InstructionAction" prefHeight="44.0" prefWidth="540.0" text="Instruktioner">
                <font>
                   <Font size="24.0" />
                </font>

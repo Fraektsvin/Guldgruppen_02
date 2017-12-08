@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InstruktionsController">
    <children>
       <AnchorPane fx:id="h_interaction" layoutX="-1.0" layoutY="81.0" prefHeight="474.0" prefWidth="537.0" style="-fx-background-color: #3d4956;">
          <children>
@@ -55,21 +55,6 @@
             <ImageView fx:id="btn_directions" fitHeight="46.0" fitWidth="46.0" layoutX="23.0" layoutY="3.0" onMouseClicked="#OnTarget" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../JavaFxImages/icons8-move.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="btn_interaction" fitHeight="46.0" fitWidth="46.0" layoutX="164.0" layoutY="3.0" onMouseClicked="#OnTarget" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../JavaFxImages/icons8-talk.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="btn_wallet" fitHeight="46.0" fitWidth="46.0" layoutX="297.0" layoutY="3.0" onMouseClicked="#OnTarget" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../JavaFxImages/icons8-wallet.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="btn_return" fitHeight="46.0" fitWidth="47.0" layoutX="434.0" layoutY="3.0" onMouseClicked="#OnTarget" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../JavaFxImages/icons8-door_sensor_alarmed.png" />
                </image>
             </ImageView>
          </children>

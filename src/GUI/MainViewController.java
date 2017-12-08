@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class MainViewController implements Initializable {
@@ -25,15 +26,19 @@ public class MainViewController implements Initializable {
             
 
     @FXML
-    private Label label;
-    @FXML
     private Button start;
     @FXML
     private Button instruction;
     @FXML
     private Button highScore;
     @FXML
-    private Button quit;
+    private AnchorPane Drag;
+    @FXML
+    private AnchorPane Topbar;
+    @FXML
+    private Label Overskrift;
+    @FXML
+    private Button Quit;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,8 +63,17 @@ public class MainViewController implements Initializable {
         });
     }
 
+    public void HighScore(ActionEvent event) {
+         
+    }
+
     @FXML
-    public void Instruction(ActionEvent event) throws IOException {
+    private void playerQuitAction(ActionEvent event) {
+        System.exit(0);
+    }
+
+    @FXML
+    private void InstructionAction(ActionEvent event) throws IOException {
         Parent nextView = FXMLLoader.load(getClass().getResource("Instruktions.fxml"));
         Scene newScene = new Scene(nextView);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -75,15 +89,4 @@ public class MainViewController implements Initializable {
             stage.setY(event1.getScreenY() - yOffset);
         });
     }
-
-    @FXML
-    public void HighScore(ActionEvent event) {
-         
-    }
-
-    @FXML
-    private void playerQuitAction(ActionEvent event) {
-        System.exit(0);
-    }
-
 }

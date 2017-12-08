@@ -146,7 +146,7 @@ public class GameViewController implements Initializable {
 
     @FXML
     private void playerLoadAction(ActionEvent event) {
-        business.loadPlayer();
+        textConsole.appendText(business.loadPlayer());
     }
 
     @FXML

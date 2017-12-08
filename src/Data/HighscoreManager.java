@@ -85,9 +85,7 @@ public class HighscoreManager implements Serializable{
         try {
             FileInputStream inputStream = new FileInputStream(PLAYER_FILE);
             ObjectInputStream loadPlayerStream = new ObjectInputStream(inputStream);
-            player = (Player) loadPlayerStream.readObject();
-            
-            System.out.println("Det tidligere spil blev loaded.\n");
+            player = (Player) loadPlayerStream.readObject();            
             inputStream.close();
             loadPlayerStream.close();
         } catch (FileNotFoundException ex) {
