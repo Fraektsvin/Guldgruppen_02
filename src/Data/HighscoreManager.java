@@ -70,7 +70,6 @@ public class HighscoreManager implements Serializable{
             FileOutputStream outputStream = new FileOutputStream(PLAYER_FILE);
             ObjectOutputStream savePlayerStream = new ObjectOutputStream(outputStream);
             savePlayerStream.writeObject(player);
-            System.out.println("Spillet blev gemt.\n");
             outputStream.close();
             savePlayerStream.close();
         } catch (FileNotFoundException ex) {

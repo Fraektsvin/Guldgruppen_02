@@ -15,8 +15,6 @@ public class GameTimer implements Serializable {
             timeRemaining--;
             if (getTimeRemaining() <= 0) {
                 timer.cancel();
-                System.out.println("\nTiden løb fra dig! Bedre held næste gang.");
-                System.out.println("Tak fordi at du spillede med os, din stodder.");
                 System.exit(0);
             }
         }

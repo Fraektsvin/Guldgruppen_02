@@ -306,14 +306,8 @@ public class Game implements Serializable{
 
         String coinItemName = command.getSecondWord();
         ICoin newCoin = player.getCurrentRoom().getCoin(coinItemName);
-
-        if (newCoin == null) {
-            System.out.println("  Den ting eksistere ikke\n");
-        } else {
-            addCoin("Penge");
-            player.getCurrentRoom().removeCoin(coinItemName);
-            System.out.println("Samlede " + coinItemName + "ne op\n");
-        }
+        addCoin("Penge");
+        player.getCurrentRoom().removeCoin(coinItemName);
     }
 
     //Metode til at tjekke om en item er i ArrayListen Player's inventory.
