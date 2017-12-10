@@ -45,17 +45,11 @@ public class InstruktionsController implements Initializable {
     @FXML
     private void handleButtonAction(javafx.scene.input.MouseEvent event) throws IOException {
         if (event.getSource() == btn_direction) {
-            h_direction.setVisible(true);
-            h_wallet.setVisible(false);
-            h_interaction.setVisible(false);
+            h_direction.toFront();
         } else if (event.getSource() == btn_wallet) {
-            h_wallet.setVisible(true);
-            h_direction.setVisible(false);
-            h_interaction.setVisible(false);
+            h_wallet.toFront();
         } else if (event.getSource() == btn_interaction) {
-            h_interaction.setVisible(true);
-            h_direction.setVisible(false);
-            h_interaction.setVisible(false);
+            h_interaction.toFront();
         } else if (event.getSource() == btn_return) {
             Parent nextView = FXMLLoader.load(getClass().getResource("MainView.fxml"));
             Scene newScene = new Scene(nextView);
