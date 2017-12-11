@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Game implements Serializable{
+public class Game implements Serializable {
 
     private Player player;
     private final HighscoreManager HM;
@@ -25,7 +25,7 @@ public class Game implements Serializable{
         createGame();
         npcs = new HashMap<>();
     }
-    
+
     //createRooms metoden instantiere spillets rum, npc'er og items i spillet.
     private void createGame() {
         //Opretter spillets rum
@@ -154,7 +154,7 @@ public class Game implements Serializable{
                 HM.savePlayer(player);
                 break;
             case LOAD:
-                player = HM.loadPlayer();              
+                player = HM.loadPlayer();
                 gameTimer.setTime(player.getSavedTime());
                 break;
             default:
@@ -228,7 +228,7 @@ public class Game implements Serializable{
         }
         return "";
     }
-    
+
     //Kommando til at interagere med npc'erne.
     private String interactNPC(Command command, String textInput) {
         if (player.getCurrentRoom() == johnny_bravo && command.getSecondWord().equalsIgnoreCase("johnny bravo")) {
@@ -300,14 +300,19 @@ public class Game implements Serializable{
             return "Hvem prøver du at kontakte?";
         }
     }
-    
-    //Metode til at fjerne penge fra rummene og tilføje dem til playerens wallet ArrayList.
-    private void getCoin(Command command) {
 
+    //Metode til at fjerne penge fra rummene og tilføje dem til playerens wallet ArrayList.
+    private String getCoin(Command command) {
         String coinItemName = command.getSecondWord();
         ICoin newCoin = player.getCurrentRoom().getCoin(coinItemName);
-        addCoin("Penge");
-        player.getCurrentRoom().removeCoin(coinItemName);
+
+        if (newCoin == null) {
+            return "Der er ikke flere penge i dette rum.\n";
+        } else {
+            addCoin("Penge");
+            player.getCurrentRoom().removeCoin(coinItemName);
+            return "Samlede pengene op.\n";
+        }
     }
 
     //Metode til at tjekke om en item er i ArrayListen Player's inventory.

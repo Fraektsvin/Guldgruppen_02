@@ -61,8 +61,8 @@ public class BusinessFacade implements IBusiness {
     @Override
     public String getCoin(String coin) {
         Command c = new Command(CommandWord.GET, coin);
-        game.processCommand(c, "");
-        return "Samlede pengene op\n";
+        game.processCommand(c, coin);
+        return "Handling fuldført.\n";
     }
 
     @Override

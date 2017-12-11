@@ -4,7 +4,6 @@ import Acquaintance.IBusiness;
 import Acquaintance.IGame;
 import javafx.scene.input.MouseEvent;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,19 +27,13 @@ public class GameGUI extends Application implements IGame {
     public void start(Stage stage) throws Exception {      
         Parent p = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         stage.initStyle(StageStyle.TRANSPARENT);
-        p.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
+        p.setOnMousePressed((MouseEvent event) -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
         });
-        p.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                stage.setX(event.getScreenX()- xOffset);
-                stage.setY(event.getScreenY()- yOffset);
-            }
+        p.setOnMouseDragged((MouseEvent event) -> {
+            stage.setX(event.getScreenX()- xOffset);
+            stage.setY(event.getScreenY()- yOffset);
         });
         Scene scene = new Scene(p);
         scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
