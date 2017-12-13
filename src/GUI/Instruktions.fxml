@@ -11,7 +11,7 @@
    <children>
       <AnchorPane fx:id="h_direction" layoutX="-3.0" layoutY="78.0" prefHeight="481.0" prefWidth="538.0" style="-fx-background-color: #3d4956;">
          <children>
-            <Label layoutX="1.0" layoutY="-11.0" prefHeight="137.0" prefWidth="537.0" text="I spillet SwagCity er det altafgørende, at bevæge sig rundt i de forskellige som vist forneden.&#10;Man skal yde for, at nyde i SwagCity således, at  Swagste person iblandt dem alle.&#10;Derudover siger rygterne at interagere med NPC'erne&#10;kan eventuelt give kortet over SwagCity. " textFill="#3a8fda">
+            <Label layoutX="11.0" layoutY="-11.0" prefHeight="137.0" prefWidth="527.0" text="I spillet SwagCity er det altafgørende, at bevæge sig rundt i de forskellige som vist forneden.&#10;Man skal yde for, at nyde i SwagCity således, at  Swagste person iblandt dem alle.&#10;Derudover siger rygterne at interagere med NPC'erne&#10;kan eventuelt give kortet over SwagCity. " textFill="#3a8fda" wrapText="true">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
@@ -44,16 +44,19 @@
       </AnchorPane>
       <AnchorPane fx:id="h_interaction" layoutX="-1.0" layoutY="81.0" prefHeight="474.0" prefWidth="537.0" style="-fx-background-color: #3d4956;">
          <children>
-            <Label layoutY="8.0" prefHeight="256.0" prefWidth="537.0" text="SwagCity indeholder forskellige funktioner heriblandt eksistere der:&#10;snakkemed denne funktion vil gøre det muligt at kontakte de forskellige NPC der befinder sig i rummet. &#10;Derudover er funktionen en døråbner til et hav af missioner, som de forskellige NPC vil give spilleren. &#10;Dermed er det din opgave, at forstå missionen, udfører den og vende tilbage til den pågældende NPC der gav dig den. &#10;PS: vær opmærksom på, at hver detalje er en afgørende fakta - derfor tage intet forgivet. &#10;Herved kan udtrykket &quot;better be safe than sorry&quot; anvendes." textAlignment="CENTER" textFill="#3a8fda" wrapText="true">
+            <Label layoutX="10.0" layoutY="8.0" prefHeight="256.0" prefWidth="527.0" text="SwagCity indeholder forskellige funktioner heriblandt eksistere der:&#10;snakkemed denne funktion vil gøre det muligt at kontakte de forskellige NPC der befinder sig i rummet. &#10;Derudover er funktionen en døråbner til et hav af missioner, som de forskellige NPC vil give spilleren. &#10;Dermed er det din opgave, at forstå missionen, udfører den og vende tilbage til den pågældende NPC der gav dig den. &#10;PS: vær opmærksom på, at hver detalje er en afgørende fakta - derfor tage intet forgivet. &#10;Herved kan udtrykket &quot;better be safe than sorry&quot; anvendes." textAlignment="CENTER" textFill="#3a8fda" wrapText="true">
                <font>
-                  <Font size="17.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="h_wallet" layoutX="-2.0" layoutY="81.0" prefHeight="474.0" prefWidth="537.0" style="-fx-background-color: #3d4956;">
          <children>
-            <Text fill="#3a8fda" layoutX="5.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Udover de nævnte funktioner ved snakke med. Eksisterer der en pung,  tage penge og ens Swagting. Pung: holder styr på de samlet guldmønter der blevet opsamlet i løbet af spillets forløb - hver guldmønter har en værdi af 25 point.Tage penge: har den egenskab, at du opsamler de pågældende guldmønter der er i hvert rum. Swagting: informer om hvor mange swagitems du besidder af, desto flere desto sejere er du." wrappingWidth="526.8033294677734" />
+            <Text fill="#3a8fda" layoutX="5.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Udover de nævnte funktioner ved snakke med. Eksisterer der en pung,  tage penge og ens Swagting. Pung: holder styr på de samlet guldmønter der blevet opsamlet i løbet af spillets forløb - hver guldmønter har en værdi af 25 point.Tage penge: har den egenskab, at du opsamler de pågældende guldmønter der er i hvert rum. Swagting: informer om hvor mange swagitems du besidder af, desto flere desto sejere er du." wrappingWidth="526.8033294677734">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Text>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="-1.0" layoutY="81.0" prefHeight="559.0" prefWidth="537.0" style="-fx-background-color: #3d4956;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

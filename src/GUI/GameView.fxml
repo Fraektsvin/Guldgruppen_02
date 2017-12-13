@@ -10,7 +10,7 @@
 
 <BorderPane prefHeight="500.0" prefWidth="720.0" style="-fx-background-color: #3d4956;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameViewController">
     <center>
-        <TextArea fx:id="textConsole" editable="false" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+        <TextArea fx:id="textConsole" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
     </center>
     <opaqueInsets>
         <Insets />
