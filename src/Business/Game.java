@@ -123,7 +123,12 @@ public class Game implements Serializable {
         welcomeString.append("Som start har Erik Deluxe hans verdensberømte swag håndtegn,\n");
         welcomeString.append("disse swagting bruges som spillets liv, frarøves alle swagtingene taber man spillet,\n");
         welcomeString.append("og for at vinde spillet skal man besejre Sidney Lee i en dancebattle,\n");
-        welcomeString.append("for at blive byens nye mest swagste person.\n\n");
+        welcomeString.append("for at blive byens nye mest swagste person.\n");
+        welcomeString.append("-----------------------------------------------------\n\n");
+        welcomeString.append("Når du trykker på knappen 'videre', starter spillets timer,");
+        welcomeString.append(" og du har herfra kun 120 sekunder til at gennemføre spillet.\n");
+        welcomeString.append("Dog opnår du 60 sekunders mere spiltid for hver fuldført mission.\n");
+        welcomeString.append("Held og lykke!");
         return welcomeString.toString();
     }
 

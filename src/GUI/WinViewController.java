@@ -38,7 +38,7 @@ public class WinViewController implements Initializable {
     private void scoreShowAction(ActionEvent event) {
         textConsole.appendText("Tillykke med sejren Erik Deluxe!\n"
                 + "Du er nu officielt den mest swag person i Swag City.\n"
-                + "Din score var " + business.score() + ", og en tid på " + business.time() + " sekunder");
+                + "Din score var " + business.score() + ", og en tid på " + business.time() + " sekunder tilbage.");
         scoreShow.setVisible(false);
     }
 
